@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wood
+  m_Name: Wood 2
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: OUTLINES TCP2_COLORS_AS_NORMALS TCP2_DISABLE_WRAPPED_LIGHT TCP2_OUTLINE_TEXTURED
     TCP2_ZSMOOTH_ON _ISGRASS_ON
