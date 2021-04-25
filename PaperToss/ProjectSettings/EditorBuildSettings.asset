@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/RenovatedOffice.unity
-    guid: 3f41d9242559fd24caac04df55e15b90
+  - enabled: 0
+    path: Assets/Prefabs/AssetStoreOriginals/_SNAPS_PrototypingAssets/ModernOffice_Interior/SampleScenes/ModernOffice_Interior_SampleLayout.unity
+    guid: 2194fe559202da244a6cc0ad8cbc636d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c0c939d3877394a1488fe93895b6ae74,
       type: 2}
