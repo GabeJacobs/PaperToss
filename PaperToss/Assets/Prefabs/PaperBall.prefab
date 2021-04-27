@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2896786977135483052}
   - component: {fileID: 2896786977135483055}
   - component: {fileID: 2896786977135483054}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PaperBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4358358931865517502}
   - component: {fileID: 4304715796120733629}
   - component: {fileID: 7642424626982927184}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9194535751301152353}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Paper BallFBX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
