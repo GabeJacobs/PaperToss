@@ -16,7 +16,9 @@ public class TrashCanManager : MonoBehaviour {
     }
 
      private void OnTriggerEnter(Collider other) {
-       SoundManager.PlaySound("point");
-       print("pooint!");
+         if (other.tag == "Ball")
+         {
+             SoundManager.PlaySound("point");
+         }
     }
 }
