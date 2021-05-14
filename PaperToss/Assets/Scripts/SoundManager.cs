@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour {
    public static void PlaySound(string clip) {
       switch (clip) {
          case "point":
+            audioSrc.volume = 0.3f;
             audioSrc.PlayOneShot(newPointSound);
             break;
       }
