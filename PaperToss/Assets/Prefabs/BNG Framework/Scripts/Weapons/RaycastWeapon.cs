@@ -454,7 +454,7 @@ namespace BNG {
                 grab.RequestSpringTime(RecoilDuration);
 
                 // Apply the Recoil Force
-                weaponRigid.AddForceAtPosition(transform.TransformDirection(RecoilForce), MuzzlePointTransform.position, ForceMode.VelocityChange);
+                weaponRigid.AddForceAtPosition(MuzzlePointTransform.TransformDirection(RecoilForce), MuzzlePointTransform.position, ForceMode.VelocityChange);
             }
         }
 

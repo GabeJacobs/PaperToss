@@ -564,7 +564,6 @@ namespace BNG {
             // Fire off Grabber 'before' grab event
             onGrabEvent?.Invoke(item);
 
-
             // Let item know it's been grabbed
             item.GrabItem(this);
 

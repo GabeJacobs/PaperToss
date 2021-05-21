@@ -7,6 +7,9 @@ namespace BNG {
     // This will rotate a transform along with a users headset. Useful for keeping an object aligned with the camera, independent of the player capsule collider.
     public class RotateWithHMD : MonoBehaviour {
 
+        [Tooltip("The Transform to rotate along with")]
+        public Transform FollowTransform;
+
         /// <summary>
         /// The Character Capsule to  rotate along with
         /// </summary>
@@ -49,7 +52,10 @@ namespace BNG {
             }
 
             // Set our reference transform to the Character object if it is available
-            if (Character) {
+            if(FollowTransform) {
+                followTransform.parent = FollowTransform;
+            }
+            else if (Character) {
                 followTransform.parent = Character.transform;
             }
             else {
@@ -77,7 +83,10 @@ namespace BNG {
 
             // Offset from Character's body if available
             Vector3 worldOffset = Vector3.zero;
-            if (Character != null) {
+            if(FollowTransform) {
+                worldOffset = FollowTransform.position - FollowTransform.TransformVector(Offset);
+            }
+            else if (Character) {
                 worldOffset = Character.transform.position - Character.transform.TransformVector(Offset);
             } 
 

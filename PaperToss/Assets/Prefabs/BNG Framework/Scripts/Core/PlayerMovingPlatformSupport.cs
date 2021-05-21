@@ -22,9 +22,12 @@ namespace BNG {
 
         private Transform _initialCharacterParent;
 
-        protected float DistanceFromGround;
+        public float DistanceFromGround;
 
-        MovingPlatform currentPlatform;
+        /// <summary>
+        /// The platform we are currently on top of, if any
+        /// </summary>
+        public MovingPlatform CurrentPlatform;
 
         // Were we on the platform last frame
         bool wasOnPlatform;
@@ -49,28 +52,34 @@ namespace BNG {
             bool onMovingPlatform = false;
 
             if (groundHit.collider != null && DistanceFromGround < 0.01f) {
-                currentPlatform = groundHit.collider.gameObject.GetComponent<MovingPlatform>();
+                CurrentPlatform = groundHit.collider.gameObject.GetComponent<MovingPlatform>();
 
-                if (currentPlatform) {
+                if (CurrentPlatform) {
                     onMovingPlatform = true;
 
                     // This is another potential method of moving the character instead of parenting it
-                    if (currentPlatform.MovementMethod == MovingPlatformMethod.PositionDifference && currentPlatform != null && currentPlatform.PositionDelta != Vector3.zero) {
+                    if (CurrentPlatform.MovementMethod == MovingPlatformMethod.PositionDifference && CurrentPlatform != null && CurrentPlatform.PositionDelta != Vector3.zero) {
                         if (smoothLocomotion) {
-                            smoothLocomotion.MoveCharacter(currentPlatform.PositionDelta);
+                            smoothLocomotion.MoveCharacter(CurrentPlatform.PositionDelta);
                         }
                         else if (characterController) {
-                            characterController.Move(currentPlatform.PositionDelta);
+                            characterController.Move(CurrentPlatform.PositionDelta);
                         }
                     }
 
                     // For now we can parent the characterController object to move it along. Rigidbodies may want to change friction materials or alter the player's velocity
-                    if (currentPlatform.MovementMethod == MovingPlatformMethod.ParentToPlatform && characterController != null) {
+                    if (CurrentPlatform.MovementMethod == MovingPlatformMethod.ParentToPlatform && characterController != null) {
                         if (onMovingPlatform) {
                             characterController.transform.parent = groundHit.collider.transform;
                             requiresReparent = true;
                         }
                     }
+                }
+            }
+            else {
+                // Reset our platform if no longer on one
+                if(CurrentPlatform != null) {
+                    CurrentPlatform = null;
                 }
             }
 

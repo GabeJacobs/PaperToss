@@ -175,7 +175,15 @@ namespace BNG {
 
                 // Apply movement to player
                 if (smoothLocomotion) {
-                    smoothLocomotion.MoveCharacter(moveDirection);
+                    if(smoothLocomotion.ControllerType == PlayerControllerType.CharacterController) {
+                        smoothLocomotion.MoveCharacter(moveDirection);
+                    }
+                    else if(smoothLocomotion.ControllerType == PlayerControllerType.Rigidbody) {
+                        smoothLocomotion.MoveRigidCharacter(moveDirection);
+
+                        // Rigidbody rigid = smoothLocomotion.GetComponent<Rigidbody>();
+                        // rigid.velocity = Vector3.MoveTowards(rigid.velocity, (moveDirection * 5000f) * Time.fixedDeltaTime, 1f);
+                    }
                 }
                 else if(characterController) {
                     characterController.Move(moveDirection);

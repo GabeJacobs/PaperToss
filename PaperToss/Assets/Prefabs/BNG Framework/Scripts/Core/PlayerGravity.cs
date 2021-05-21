@@ -63,7 +63,9 @@ namespace BNG {
         void FixedUpdate() {
             // Apply Gravity to Rigidbody Controller
             if (_validRigidBody && GravityEnabled) {
-                playerRigidbody.AddForce(Gravity * (playerRigidbody.mass * playerRigidbody.mass));
+                //playerRigidbody.AddRelativeForce(Gravity, ForceMode.VelocityChange);
+                //playerRigidbody.AddForce(new Vector3(0, -Gravity.y * playerRigidbody.mass, 0));
+                playerRigidbody.AddForce(Gravity * playerRigidbody.mass);
             }
         }
 

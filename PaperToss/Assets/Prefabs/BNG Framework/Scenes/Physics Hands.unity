@@ -942,7 +942,7 @@ Transform:
   - {fileID: 2120866935}
   - {fileID: 1725933817}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 93
+  m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &19171648
 CapsuleCollider:
@@ -6768,7 +6768,7 @@ Transform:
   - {fileID: 1594597953}
   - {fileID: 1875983468}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 61
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: -4.839, y: 0, z: 0}
 --- !u!114 &123985887
 MonoBehaviour:
@@ -11661,7 +11661,7 @@ RectTransform:
   m_Children:
   - {fileID: 1742302552}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 84
+  m_RootOrder: 83
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -37141,7 +37141,7 @@ Transform:
   - {fileID: 1398832665}
   - {fileID: 717621273}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 67
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &601176164
 BoxCollider:
@@ -47845,7 +47845,7 @@ Transform:
   - {fileID: 2071714438}
   - {fileID: 48238345}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 50
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: -3.9290001, y: 6.4430003, z: 81.213005}
 --- !u!136 &858727470
 CapsuleCollider:
@@ -58831,7 +58831,7 @@ Transform:
   - {fileID: 54264117}
   - {fileID: 21620229}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 109
+  m_RootOrder: 98
   m_LocalEulerAnglesHint: {x: 0, y: -32.315002, z: 0}
 --- !u!114 &1062726797
 MonoBehaviour:
@@ -65477,13 +65477,14 @@ Transform:
   - {fileID: 1324078965}
   - {fileID: 892625190}
   - {fileID: 59952272}
+  - {fileID: 858727469}
   - {fileID: 784513284}
   - {fileID: 1187629340}
   - {fileID: 282115609}
   - {fileID: 1977138313}
   - {fileID: 1149473715}
   - {fileID: 1000353316}
-  - {fileID: 858727469}
+  - {fileID: 123985886}
   - {fileID: 287761474}
   - {fileID: 910182123}
   - {fileID: 1966551298}
@@ -65494,13 +65495,13 @@ Transform:
   - {fileID: 1588615264}
   - {fileID: 2005750920}
   - {fileID: 1695036518}
-  - {fileID: 123985886}
+  - {fileID: 601176163}
   - {fileID: 7743152}
   - {fileID: 1083411162}
   - {fileID: 1426903958}
   - {fileID: 1199624058}
   - {fileID: 1783399265}
-  - {fileID: 601176163}
+  - {fileID: 1725755279}
   - {fileID: 984069214}
   - {fileID: 189138186}
   - {fileID: 1446613177}
@@ -65508,16 +65509,16 @@ Transform:
   - {fileID: 753997054}
   - {fileID: 1027682585}
   - {fileID: 1110291222}
-  - {fileID: 1725755279}
+  - {fileID: 1644803135}
   - {fileID: 67480377}
   - {fileID: 242183390}
   - {fileID: 1624169151}
   - {fileID: 1719650695}
   - {fileID: 683054346}
   - {fileID: 1770109591}
-  - {fileID: 1644803135}
-  - {fileID: 108919606}
   - {fileID: 215474055}
+  - {fileID: 108919606}
+  - {fileID: 19171647}
   - {fileID: 135229802}
   - {fileID: 1379322050}
   - {fileID: 1014112482}
@@ -65526,11 +65527,11 @@ Transform:
   - {fileID: 814475393}
   - {fileID: 489828970}
   - {fileID: 332841501}
-  - {fileID: 19171647}
   - {fileID: 379006383}
+  - {fileID: 1270685212}
   - {fileID: 264856599}
   - {fileID: 949472264}
-  - {fileID: 1270685212}
+  - {fileID: 1062726796}
   - {fileID: 1465455847}
   - {fileID: 1335711151}
   - {fileID: 2046925456}
@@ -65542,7 +65543,6 @@ Transform:
   - {fileID: 1130447989}
   - {fileID: 47126304}
   - {fileID: 1048748953}
-  - {fileID: 1062726796}
   - {fileID: 1018208117}
   - {fileID: 671706688}
   - {fileID: 853345426}
@@ -66852,7 +66852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d86c507df3f6f742bd91539b44f3aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExitOnEscape: 1
   LabelToUpdate: {fileID: 0}
   DemoLauncher: {fileID: 0}
   MaxLaunchedObjects: 5
@@ -70009,7 +70008,7 @@ Transform:
   - {fileID: 1817658533}
   - {fileID: 1679783150}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 97
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1270685213
 CapsuleCollider:
@@ -89333,7 +89332,7 @@ RectTransform:
   m_Children:
   - {fileID: 120544269}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 82
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -94270,7 +94269,7 @@ Transform:
   - {fileID: 1305324648}
   - {fileID: 897779849}
   m_Father: {fileID: 1178234131}
-  m_RootOrder: 75
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: -90.00001, y: -90, z: -90.452}
 --- !u!54 &1725755280
 Rigidbody:
@@ -105117,6 +105116,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2762548519605689667, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: DisableHandCollidersOnGrab
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3719865057063539129, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
       propertyPath: m_IsActive
@@ -114206,12 +114210,13 @@ MonoBehaviour:
   LeftPointerTransform: {fileID: 0}
   RightPointerTransform: {fileID: 0}
   ControllerInput: 0f000000
+  UIInputAction: {fileID: -6728727643101440195, guid: e39f4b35a6db18348b41eb0262520e69,
+    type: 3}
   AddPhysicsRaycaster: 0
   PhysicsRaycasterEventMask:
     serializedVersion: 2
     m_Bits: 0
   RightThumbstickScroll: 1
-  AllowMouseInput: 1
   PressingObject: {fileID: 0}
   DraggingObject: {fileID: 0}
   ReleasingObject: {fileID: 0}

@@ -105,7 +105,10 @@ namespace BNG {
                 grabber.onAfterGrabEvent.AddListener(OnGrabberGrabbed);
                 grabber.onReleaseEvent.AddListener(OnGrabberReleased);
             }
-            
+
+            // Try getting child animator
+            SetHandAnimator();
+
             input = InputBridge.Instance;
         }
 
@@ -115,9 +118,6 @@ namespace BNG {
 
             // Set Hand state according to InputBridge
             UpdateFromInputs();
-
-            // Try getting child animator
-            SetHandAnimator();
             
             UpdateAnimimationStates();
                         
@@ -129,10 +129,11 @@ namespace BNG {
         public virtual void CheckForGrabChange() {
             if(grabber != null) {
 
-                if(grabber.HeldGrabbable == null && PreviousHeldObject != null) {
+                // Check for null object but no animator enabled
+                if(grabber.HeldGrabbable == null && PreviousHeldObject != null) {                    
                     OnGrabDrop();
                 }
-                else if(grabber.HeldGrabbable != null && grabber.HeldGrabbable != PreviousHeldObject) {
+                else if(grabber.HeldGrabbable != null && !GameObject.ReferenceEquals(grabber.HeldGrabbable.gameObject, PreviousHeldObject)) {
                     OnGrabChange(grabber.HeldGrabbable.gameObject);
                 }
             }
@@ -145,7 +146,7 @@ namespace BNG {
 
                 // Switch components based on held object properties
                 // Animator
-                if(grabber.HeldGrabbable.handPoseType == HandPoseType.AnimatorID) {
+                if (grabber.HeldGrabbable.handPoseType == HandPoseType.AnimatorID) {
                     EnableHandAnimator();
                 }
                 // Auto Poser - Once
@@ -188,7 +189,7 @@ namespace BNG {
             }
 
             PreviousHeldObject = null;
-        }
+        }       
 
         public virtual void SetHandAnimator() {
             if (HandAnimator == null || !HandAnimator.gameObject.activeInHierarchy) {
@@ -252,11 +253,6 @@ namespace BNG {
 
             if(DoUpdateAnimationStates == false) {
                 return;
-            }
-
-            // Hand Animator may have changed during a model swsap. Check for a new component.
-            if (HandAnimator == null || !HandAnimator.gameObject.activeInHierarchy) {
-                HandAnimator = GetComponentInChildren<Animator>(false);
             }
 
             // Enable Animator if it was disabled by the hand poser
@@ -348,8 +344,6 @@ namespace BNG {
             if(handPoser == null || grabber == null || grabber.HeldGrabbable == null || grabber.HeldGrabbable.handPoseType != HandPoseType.HandPose) {
                 return;
             }
-
-            
         }
 
         public virtual void EnableHandPoser() {
@@ -372,11 +366,9 @@ namespace BNG {
                 else {
                     autoPoser = GetComponentInChildren<AutoPoser>(false);
                 }
-                
-
-                // Try the same gameobject as the hand poser is on
             }
 
+            // Do the auto pose
             if (autoPoser != null) {
                 autoPoser.UpdateContinuously = continuous;
 
@@ -417,7 +409,7 @@ namespace BNG {
         }
 
         public virtual void OnGrabberReleased(Grabbable released) {
-
+            OnGrabDrop();
         }
     }
 }

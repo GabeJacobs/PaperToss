@@ -35,16 +35,17 @@ namespace BNG {
                 }
 
                 for (int i = 0; i < finger.destinationBones.Length - 1; i++) {
-                    // Get the Quaternion to rotate the current finger bone towards the next target bone position.
-                    Quaternion f = Quaternion.FromToRotation(finger.destinationBones[i + 1].position - finger.destinationBones[i].position, finger.targetBones[i + 1].position - finger.destinationBones[i].position);
+                    // Get the relative rotation from the current rotation to the target rotation
+                    Quaternion f = Quaternion.Inverse(finger.destinationBones[i].rotation) * finger.targetBones[i].rotation;
 
                     // Weight blending
                     if (weight < 1f) {
                         f = Quaternion.Slerp(Quaternion.identity, f, weight);
                     }
 
-                    // Rotate this finger bone
-                    finger.destinationBones[i].rotation = f * finger.destinationBones[i].rotation;
+                    // Append relative rotation
+                    finger.destinationBones[i].rotation *= f;
+
                 }
             }
         }

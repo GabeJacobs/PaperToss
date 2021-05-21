@@ -108,7 +108,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Teleport Select",
+                    "name": "Teleport Start",
                     "type": "Button",
                     "id": "cbeaf823-3b69-4004-8ec8-13ea2ca3fc31",
                     "expectedControlType": "Button",
@@ -232,18 +232,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Noncontinuous Move",
-                    "action": "Teleport Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "14a27f53-867e-4d15-92d9-3e36deb55b1b",
-                    "path": "<XRController>{LeftHand}/primaryButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Teleport Select",
+                    "action": "Teleport Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -460,7 +449,7 @@
                     "name": "",
                     "id": "583bd4fd-754c-4e71-972b-60d1e120215b",
                     "path": "<Keyboard>/space",
-                    "interactions": "Press",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
@@ -477,6 +466,28 @@
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector Keyboard",
+                    "id": "146a3d26-d500-465d-b918-3d044f109140",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Teleport Start",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "e85266c4-b52f-4046-bebd-87c1a98f5af0",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Teleport Start",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

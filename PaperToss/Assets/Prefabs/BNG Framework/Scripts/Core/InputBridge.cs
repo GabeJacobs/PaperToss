@@ -548,13 +548,13 @@ namespace BNG {
             prevVal = LeftTrigger;
             LeftTrigger = correctValue(SteamVR_Actions.vRIF_LeftTrigger.axis);
             LeftTriggerDown = prevVal < _downThreshold && LeftTrigger >= _downThreshold;
-            LeftTriggerUp = prevVal >= _downThreshold && LeftTrigger == 0;
+            LeftTriggerUp = prevVal > _downThreshold && LeftTrigger < _downThreshold;
             // LeftTriggerNear = SteamVR_Actions.vRIF_LeftTriggerNear.state;
 
             prevVal = RightTrigger;
             RightTrigger = correctValue(SteamVR_Actions.vRIF_RightTrigger.axis);
             RightTriggerDown = prevVal < _downThreshold && RightTrigger >= _downThreshold;
-            RightTriggerUp = prevVal >= _downThreshold && RightTrigger == 0;
+            RightTriggerUp = prevVal > _downThreshold && RightTrigger < _downThreshold;
             // RightTriggerNear = SteamVR_Actions.vRIF_RightTriggerNear.state;
 
             AButton = SteamVR_Actions.vRIF_AButton.state;
@@ -637,12 +637,12 @@ namespace BNG {
 
             prevVal = LeftTrigger;
             LeftTrigger = correctValue(getFeatureUsage(primaryLeftController, CommonUsages.trigger));
-            LeftTriggerUp = prevVal >= _downThreshold && LeftTrigger == 0;
+            LeftTriggerUp = prevVal > _downThreshold && LeftTrigger < _downThreshold;
             LeftTriggerDown = prevVal < _downThreshold && LeftTrigger >= _downThreshold;            
 
             prevVal = RightTrigger;
             RightTrigger = correctValue(getFeatureUsage(primaryRightController, CommonUsages.trigger));
-            RightTriggerUp = prevVal >= _downThreshold && RightTrigger == 0;
+            RightTriggerUp = prevVal > _downThreshold && RightTrigger < _downThreshold;
             RightTriggerDown = prevVal < _downThreshold && RightTrigger >= _downThreshold;
 
             // While OculusUsages.indexTouch is recommended, only CommonUsages.indexTouch is currently providing proper values on certain platforms
@@ -743,7 +743,7 @@ namespace BNG {
             LeftTrigger = correctValue(leftTrigger.ReadValue<float>());
             LeftTriggerDown = prevVal < _downThreshold && LeftTrigger >= _downThreshold;
             LeftTriggerNear = correctValue(leftTriggerNear.ReadValue<float>()) > 0;
-            LeftTriggerUp = prevVal >= _downThreshold && LeftTrigger == 0;
+            LeftTriggerUp = prevVal > _downThreshold && LeftTrigger < _downThreshold;
 
             prevVal = RightGrip;
             RightGrip = correctValue(rightGrip.ReadValue<float>());
@@ -752,8 +752,8 @@ namespace BNG {
             prevVal = RightTrigger;
             RightTrigger = correctValue(rightTrigger.ReadValue<float>());
             RightTriggerDown = prevVal < _downThreshold && RightTrigger >= _downThreshold;
-            RightTriggerNear = correctValue(rightTriggerNear.ReadValue<float>()) > 0;
-            RightTriggerUp = prevVal >= _downThreshold && RightTrigger == 0;
+            RightTriggerNear = correctValue(rightTriggerNear.ReadValue<float>()) > 0;            
+            RightTriggerUp = prevVal > _downThreshold && RightTrigger < _downThreshold;
 
             LeftThumbstickAxis = leftThumbstick.ReadValue<Vector2>();
             var prevBool = LeftThumbstick;
@@ -961,13 +961,13 @@ namespace BNG {
             RightGripDown = Pvr_UnitySDKAPI.Controller.UPvr_GetKeyDown(rightHand, Pvr_UnitySDKAPI.Pvr_KeyCode.Right);
 
             prevVal = LeftTrigger;
-            LeftTrigger = Pvr_UnitySDKAPI.Controller.UPvr_GetControllerTriggerValue(leftHand) / 255f;            
-            LeftTriggerUp = prevVal >= _downThreshold && LeftTrigger == 0;            
+            LeftTrigger = Pvr_UnitySDKAPI.Controller.UPvr_GetControllerTriggerValue(leftHand) / 255f;                        
+            LeftTriggerUp = prevVal > _downThreshold && LeftTrigger < _downThreshold;
             LeftTriggerDown = prevVal < _downThreshold && LeftTrigger >= _downThreshold;
 
             prevVal = RightTrigger;
             RightTrigger = Pvr_UnitySDKAPI.Controller.UPvr_GetControllerTriggerValue(rightHand) / 255f;
-            RightTriggerUp = prevVal >= _downThreshold && RightTrigger == 0;            
+            RightTriggerUp = prevVal > _downThreshold && RightTrigger < _downThreshold;
             RightTriggerDown = prevVal < _downThreshold && RightTrigger >= _downThreshold;
 
             prevBool = AButton;

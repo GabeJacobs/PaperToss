@@ -22,7 +22,7 @@ namespace BNG {
         [Tooltip("Controller Binding to use for input down, up, etc.")]
         public List<ControllerBinding> ControllerInput = new List<ControllerBinding>() { ControllerBinding.RightTrigger };
 
-        [Tooltip("Unity Input Action used to enable sprinting")]
+        [Tooltip("Unity Input Action used to simulate a click or touch event")]
         public InputActionReference UIInputAction;
 
         [Tooltip("If true a PhysicsRaycaster component will be added to the UI camera, allowing physical objects to use IPointer events such as OnPointClick, OnPointEnter, etc.")]

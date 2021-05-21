@@ -45,7 +45,14 @@ namespace BNG {
         [Tooltip("How far off the ground the player currently is. 0 = Grounded, 1 = 1 Meter in the air.")]
         public float DistanceFromGround = 0;
 
+        [Tooltip("DistanceFromGround will subtract this value when determining distance from ground")]
+        public float DistanceFromGroundOffset = 0;
+
         [Header("Player Capsule Settings : ")]
+
+        [Tooltip("Default Center of the CharacterController component")]
+        public float CapsuleCenter = -0.25f;
+
         /// <summary>
         /// Minimum Height our Player's capsule collider can be (in meters)
         /// </summary>
@@ -102,6 +109,10 @@ namespace BNG {
         // The controller to manipulate
         CharacterController characterController;
 
+        // The controller to manipulate
+        Rigidbody playerRigid;
+        CapsuleCollider playerCapsule;
+
         // Use smooth movement if available
         SmoothLocomotion smoothLocomotion;
 
@@ -116,12 +127,17 @@ namespace BNG {
 
         void Start() {
             characterController = GetComponentInChildren<CharacterController>();
+            playerRigid = GetComponent<Rigidbody>();
+            playerCapsule = GetComponent<CapsuleCollider>();
             smoothLocomotion = GetComponentInChildren<SmoothLocomotion>();
 
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
 
             if (characterController) {
                 _initialPosition = characterController.transform.position;
+            }
+            else if(playerRigid) {
+                _initialPosition = playerRigid.position;
             }
             else {
                 _initialPosition = transform.position;
@@ -148,12 +164,9 @@ namespace BNG {
 
             CheckCharacterCollisionMove();
 
-            if (characterController) {
-
-                // Align TrackingSpace with Camera
-                if (RotateCharacterWithCamera) {
-                    RotateTrackingSpaceToCamera();
-                }
+            // Align TrackingSpace with Camera
+            if (RotateCharacterWithCamera) {
+                RotateTrackingSpaceToCamera();
             }
         }
        
@@ -195,19 +208,28 @@ namespace BNG {
                     DistanceFromGround = (float)Math.Round(DistanceFromGround * 1000f) / 1000f;
                 }
                 else {
-                    DistanceFromGround = 9999f;
+                    DistanceFromGround = float.MaxValue;
                 }
             }
             // No CharacterController found. Update Distance based on current transform position
             else {
-                if (Physics.Raycast(transform.position, transform.up, out groundHit, 20, GroundedLayers, QueryTriggerInteraction.Ignore)) {
-                    DistanceFromGround = Vector3.Distance(transform.position, groundHit.point);
+                if (Physics.Raycast(transform.position, -transform.up, out groundHit, 20, GroundedLayers, QueryTriggerInteraction.Ignore)) {
+                    DistanceFromGround = Vector3.Distance(transform.position, groundHit.point) - 0.0875f;
                     // Round to nearest thousandth
                     DistanceFromGround = (float)Math.Round(DistanceFromGround * 1000f) / 1000f;
                 }
                 else {
-                    DistanceFromGround = 9999f;
+                    DistanceFromGround = float.MaxValue;
                 }
+            }
+
+            if (DistanceFromGround != float.MaxValue) {
+                DistanceFromGround -= DistanceFromGroundOffset;
+            }
+
+            // Smooth floating point issues from thousandths
+            if(DistanceFromGround < 0.001f && DistanceFromGround > -0.001f) {
+                DistanceFromGround = 0;
             }
         }
 
@@ -216,11 +238,20 @@ namespace BNG {
             Quaternion initialRotation = TrackingSpace.rotation;
 
             // Move the character controller to the proper rotation / alignment
-            characterController.transform.rotation = Quaternion.Euler(0.0f, CenterEyeAnchor.rotation.eulerAngles.y, 0.0f);
+            if(characterController) {
+                characterController.transform.rotation = Quaternion.Euler(0.0f, CenterEyeAnchor.rotation.eulerAngles.y, 0.0f);
 
-            // Now we can rotate our tracking space back to initial position / rotation
-            TrackingSpace.position = initialPosition;
-            TrackingSpace.rotation = initialRotation;
+                // Now we can rotate our tracking space back to initial position / rotation
+                TrackingSpace.position = initialPosition;
+                TrackingSpace.rotation = initialRotation;
+            }
+            else if(playerRigid) {
+                playerRigid.transform.rotation = Quaternion.Euler(0.0f, CenterEyeAnchor.rotation.eulerAngles.y, 0.0f);
+
+                // Now we can rotate our tracking space back to initial position / rotation
+                TrackingSpace.position = initialPosition;
+                TrackingSpace.rotation = initialRotation;
+            }
         }
 
         public virtual void UpdateCameraRigPosition() {
@@ -231,10 +262,14 @@ namespace BNG {
             if (characterController != null) {
                 yPos = -(0.5f * characterController.height) + characterController.center.y + CharacterControllerYOffset;
             }
-            
+            // Get character controller position based on the height and center of the capsule
+            else if (playerRigid != null) {
+                // yPos = -(0.5f * characterController.height) + characterController.center.y + CharacterControllerYOffset;
+            }
+
             // Offset the capsule a bit while climbing. This allows the player to more easily hoist themselves onto a ledge / platform.
             if (playerClimbing != null && playerClimbing.GrippingAtLeastOneClimbable()) {
-                yPos -= 0.25f;
+                yPos -= playerClimbing.ClimbingCapsuleHeight;
             }
 
             // If no HMD is active, bump our rig up a bit so it doesn't sit on the floor
@@ -262,10 +297,17 @@ namespace BNG {
                     characterController.center = new Vector3(0, playerClimbing.ClimbingCapsuleCenter, 0);
                 }
                 else {
-                    characterController.center = new Vector3(0, -0.25f, 0);
+                    characterController.center = new Vector3(0, CapsuleCenter, 0);
                 }
             }
+            else if(playerRigid && playerCapsule) {
+                // playerCapsule.
+                playerCapsule.height = Mathf.Clamp(CameraHeight + CharacterControllerYOffset, minHeight, MaximumCapsuleHeight);
+                playerCapsule.center = new Vector3(0, playerCapsule.height / 2 + (SphereColliderRadius * 2), 0);
+            }
         }
+
+        public float SphereColliderRadius = 0.08f;
 
         public virtual void UpdateCameraHeight() {
             // update camera height
@@ -313,9 +355,9 @@ namespace BNG {
                     return true;
                 }
             }
-
+            
             // DistanceFromGround is a bit more reliable as we can give a bit of leniency in what's considered grounded
-            return DistanceFromGround <= 0.001f;
+            return DistanceFromGround <= 0.007f;
         }
     }
 }
