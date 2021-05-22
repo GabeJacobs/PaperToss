@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17490569, g: 0.21879584, b: 0.30108234, a: 1}
+  m_IndirectSpecularColor: {r: 0.17490599, g: 0.2187963, b: 0.3010831, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -154,7 +154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 43
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1341648
 MeshRenderer:
@@ -234,7 +234,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1566551215}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7898697
 AudioSource:
@@ -362,7 +362,7 @@ Transform:
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 31
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &11838208
 MeshRenderer:
@@ -419,87 +419,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1900622152}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &18395054 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 329684136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &18395055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 329684136}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &18395056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18395054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &23285965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -551,98 +476,17 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 23285965}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &44087634 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 260597133}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &44087635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 260597133}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &44087636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44087634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!4 &47722795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4076840784717490, guid: 9b9ff3df15d109a48b665d8750e7d276,
     type: 3}
   m_PrefabInstance: {fileID: 2060892152}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &48788240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1390543407}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &48788241 stripped
 Transform:
@@ -650,75 +494,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1390543407}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &48788242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48788240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!4 &51305257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 641bb16b2f0bb0c48857f3cf92cf1aa9,
@@ -830,30 +605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -905,125 +660,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358358931865517502, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.109
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
---- !u!1 &121645497 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 965276351}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &121645498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 965276351}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &121645499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121645497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1 &136136530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +698,7 @@ Transform:
   m_LocalScale: {x: -1.7561574, y: -1.7561573, z: -1.7561574}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 30
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &136136532
 MeshRenderer:
@@ -1141,7 +785,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 36
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &163912822
 MeshRenderer:
@@ -1192,87 +836,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163912820}
   m_Mesh: {fileID: 7732964924091442697, guid: 93a97380c894f48ce9ac9f73f876c5c4, type: 3}
---- !u!1 &169989432 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 959125287}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &169989433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 959125287}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &169989434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169989432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!4 &170036783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6f2edcb5c8690d446b62b285782079db,
@@ -1291,30 +860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -1366,38 +915,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &195772412 stripped
 GameObject:
@@ -1497,6 +1015,60 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7180b27dacdbc274c9fb4e97f7aeab83, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9ff3df15d109a48b665d8750e7d276, type: 3}
+--- !u!1 &204573927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5117709272727730633, guid: 2af1d2045149fe743b81bc4d1a6f8406,
+    type: 3}
+  m_PrefabInstance: {fileID: 887740355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &204573934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204573927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76209d84eb35e742b0070ddc0561242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 0.173
+  FastFilter: 2
+  SampleCount: 6
+  motionBlurMaterial: {fileID: 2100000, guid: e751ebcfded655041b633ff6a5f4b87d, type: 2}
+--- !u!114 &204573935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204573927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: 0
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &204696555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1509,30 +1081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (17)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -1584,120 +1136,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
---- !u!1 &211346402 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 181063794}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &211346403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 181063794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &211346404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211346402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &260597133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1710,30 +1156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -1785,38 +1211,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!4 &261296300 stripped
 Transform:
@@ -2008,30 +1403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -2083,38 +1458,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1001 &326640688
 PrefabInstance:
@@ -2128,30 +1472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -2203,38 +1527,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1001 &329684136
 PrefabInstance:
@@ -2248,30 +1541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (23)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -2323,38 +1596,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!4 &336082864 stripped
 Transform:
@@ -2392,7 +1634,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 26
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &337954936
 MeshRenderer:
@@ -2469,8 +1711,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348277068}
   m_LocalRotation: {x: -0.37565684, y: 0.65377206, z: 0.5697482, w: 0.3268807}
-  m_LocalPosition: {x: -0.0024688265, y: 0.018333243, z: 0.07391541}
-  m_LocalScale: {x: -0.7832947, y: -0.7832947, z: -0.99999994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.7832947, y: -0.7832945, z: -0.99999994}
   m_Children: []
   m_Father: {fileID: 969982754}
   m_RootOrder: 2
@@ -2609,92 +1851,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 355063751}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &361312087 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 324873853}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &361312088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 324873853}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &361312089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361312087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
---- !u!1 &365013126 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 380453744}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &365013127 stripped
 Transform:
@@ -2702,75 +1863,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 380453744}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &365013128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365013126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &380453744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2783,30 +1875,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (13)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -2858,38 +1930,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1001 &391807119
 PrefabInstance:
@@ -2974,30 +2015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (20)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -3049,38 +2070,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &441101358
 GameObject:
@@ -3091,6 +2081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441101359}
+  - component: {fileID: 441101360}
   m_Layer: 0
   m_Name: level
   m_TagString: Untagged
@@ -3115,6 +2106,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &441101360
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441101358}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &451338631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,30 +2353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -3396,38 +2408,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &463838254
 GameObject:
@@ -3459,7 +2440,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 37
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &463838256
 MeshRenderer:
@@ -3644,87 +2625,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641bb16b2f0bb0c48857f3cf92cf1aa9, type: 3}
---- !u!1 &507399023 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1096809082}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &507399024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 1096809082}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &507399025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507399023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!4 &523505443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1d503b89d5aef134282d8fc38e41f52c,
@@ -3889,30 +2795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (18)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -3964,38 +2850,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!4 &570802324 stripped
 Transform:
@@ -4033,7 +2888,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 23
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &598972935
 MeshRenderer:
@@ -4361,7 +3216,7 @@ GameObject:
   - component: {fileID: 670054330}
   m_Layer: 0
   m_Name: Fan
-  m_TagString: Untagged
+  m_TagString: Wind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4373,15 +3228,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670054329}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -61.593, y: 16.148829, z: 21.863}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 3.33, y: 0, z: -0.643}
   m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_Children:
   - {fileID: 1215060615}
   - {fileID: 1180765425}
   - {fileID: 1837803808}
-  m_Father: {fileID: 1566551215}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1001 &670475007
 PrefabInstance:
@@ -4474,30 +3329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (16)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -4549,38 +3384,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &694082994
 GameObject:
@@ -4807,87 +3611,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728022921}
   m_Mesh: {fileID: 2745994737368711580, guid: 93a97380c894f48ce9ac9f73f876c5c4, type: 3}
---- !u!1 &730444711 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1540044730}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &730444712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 1540044730}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &730444713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730444711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &744829830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5005,8 +3734,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748177080}
   m_LocalRotation: {x: 0.32997635, y: -0.5679613, z: 0.65221447, w: 0.37835413}
-  m_LocalPosition: {x: 0.0068712924, y: 0.018030738, z: 0.071684875}
-  m_LocalScale: {x: 0.7832948, y: 0.7832948, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.78329486, y: 0.7832948, z: 1}
   m_Children: []
   m_Father: {fileID: 969982754}
   m_RootOrder: 0
@@ -5088,7 +3817,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 44
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &753048754
 GameObject:
@@ -5126,87 +3855,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &769374980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 204696555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &769374981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 204696555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &769374982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769374980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1 &774336195
 GameObject:
   m_ObjectHideFlags: 0
@@ -5472,6 +4126,65 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1230752369}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &813453667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 813453668}
+  - component: {fileID: 813453670}
+  - component: {fileID: 813453669}
+  m_Layer: 0
+  m_Name: Wind
+  m_TagString: Wind
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &813453668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813453667}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3276596, y: 1.6219425, z: -0.245}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &813453669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813453667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671cb7a872cc9b84c933cba6f68fe314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 15
+  direction: {x: -1, y: 0, z: 0}
+--- !u!65 &813453670
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813453667}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.7718985, y: 2.1328254, z: 1.2661229}
+  m_Center: {x: -0.08507049, y: 0.5664127, z: 0.546078}
 --- !u!1 &818660941
 GameObject:
   m_ObjectHideFlags: 0
@@ -5649,7 +4362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 38
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &828241616
 MeshRenderer:
@@ -6321,30 +5034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -6396,38 +5089,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &957933645
 GameObject:
@@ -6522,30 +5184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (15)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -6597,38 +5239,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1001 &965276351
 PrefabInstance:
@@ -6642,30 +5253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (24)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -6717,38 +5308,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 34
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &969982753
 GameObject:
@@ -6759,8 +5319,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 969982754}
+  - component: {fileID: 969982755}
   m_Layer: 0
-  m_Name: Group001
+  m_Name: Blades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6773,17 +5334,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969982753}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0015763855, y: -0.17516479, z: 0.6222989}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.013897745, y: 0.9375736, z: -0.066340975, w: 0.3411181}
+  m_LocalPosition: {x: -0.0021, y: -0.177, z: 0.6856}
+  m_LocalScale: {x: 1, y: 0.993518, z: 1.0120618}
   m_Children:
   - {fileID: 748177081}
   - {fileID: 1975211006}
   - {fileID: 348277069}
   - {fileID: 971258807}
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 7.694, y: 859.93896, z: -1.11}
+--- !u!114 &969982755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969982753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ac5c8d64340fe48b62bacf15dfb6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fanStrength: 0.834
 --- !u!1 &970309055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 6d2bdd4720a7ac44687edae6f95a1258,
@@ -6829,7 +5403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971258806}
   m_LocalRotation: {x: 0.0015566, y: 0.75401145, z: 0.656857, w: -0.0017876262}
-  m_LocalPosition: {x: 0.00010571956, y: -0.024108542, z: 0.08293915}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_Children: []
   m_Father: {fileID: 969982754}
@@ -6914,7 +5488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 35
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &980544430
 MeshRenderer:
@@ -6965,92 +5539,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980544428}
   m_Mesh: {fileID: -3342243652269611679, guid: 93a97380c894f48ce9ac9f73f876c5c4, type: 3}
---- !u!1 &1040740294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 559363091}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1040740295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 559363091}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1040740296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040740294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
---- !u!1 &1059966807 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097315715}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1059966808 stripped
 Transform:
@@ -7058,75 +5551,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2097315715}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1059966809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059966807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1 &1072370669
 GameObject:
   m_ObjectHideFlags: 0
@@ -7226,30 +5650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (11)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -7301,38 +5705,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &1102682519
 GameObject:
@@ -7547,7 +5920,9 @@ Transform:
   - {fileID: 1313950260}
   - {fileID: 957933646}
   - {fileID: 1250714554}
+  - {fileID: 1566843993}
   - {fileID: 969982754}
+  - {fileID: 1279332538}
   - {fileID: 598972934}
   - {fileID: 1380368968}
   - {fileID: 1357559646}
@@ -7642,30 +6017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -7717,38 +6072,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &1250714553
 GameObject:
@@ -7831,87 +6155,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250714553}
   m_Mesh: {fileID: -1586018566704744067, guid: 93a97380c894f48ce9ac9f73f876c5c4, type: 3}
---- !u!1 &1261068355 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 326640688}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1261068356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 326640688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1261068357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261068355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1 &1263351161
 GameObject:
   m_ObjectHideFlags: 0
@@ -7942,7 +6191,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 28
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1263351163
 MeshRenderer:
@@ -8074,6 +6323,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270429756}
   m_Mesh: {fileID: -4821300124380478740, guid: 93a97380c894f48ce9ac9f73f876c5c4, type: 3}
+--- !u!1 &1279332537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1279332538}
+  - component: {fileID: 1279332539}
+  m_Layer: 0
+  m_Name: BladesPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1279332538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279332537}
+  m_LocalRotation: {x: -0.07725756, y: 0.96332324, z: -0.01629647, w: 0.2564645}
+  m_LocalPosition: {x: -0.0002, y: -0.1733, z: 0.702}
+  m_LocalScale: {x: 1.0033216, y: 1.2448477, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1215060615}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: -0.472, y: 150.221, z: -9.045}
+--- !u!114 &1279332539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279332537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ac5c8d64340fe48b62bacf15dfb6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fanStrength: 0.662
 --- !u!1001 &1296672297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8123,92 +6416,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e7c9835ef504ec4b946488ea4724292, type: 3}
---- !u!1 &1303625610 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 687230407}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1303625611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 687230407}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1303625612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303625610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
---- !u!1 &1306868299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 943697455}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1306868300 stripped
 Transform:
@@ -8216,75 +6428,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 943697455}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1306868301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306868299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1 &1313950259
 GameObject:
   m_ObjectHideFlags: 0
@@ -8366,87 +6509,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313950259}
   m_Mesh: {fileID: 44245432783451315, guid: 93a97380c894f48ce9ac9f73f876c5c4, type: 3}
---- !u!1 &1320955580 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1541813967}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1320955581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 1541813967}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1320955582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320955580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1 &1326198482
 GameObject:
   m_ObjectHideFlags: 0
@@ -8477,7 +6545,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 34
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1326198484
 MeshRenderer:
@@ -8903,7 +6971,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 25
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373524185
 GameObject:
@@ -9014,7 +7082,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 24
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1390543407
 PrefabInstance:
@@ -9028,30 +7096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -9103,38 +7151,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1001 &1395502969
 PrefabInstance:
@@ -9489,7 +7506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 27
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1501689965
 MeshRenderer:
@@ -9576,7 +7593,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 40
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1512453203
 MeshRenderer:
@@ -9793,30 +7810,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (14)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -9868,38 +7865,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1001 &1541813967
 PrefabInstance:
@@ -9913,30 +7879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (25)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -9988,38 +7934,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1 &1551443770
 GameObject:
@@ -10135,10 +8050,39 @@ Transform:
   - {fileID: 600433185}
   - {fileID: 1120383776}
   - {fileID: 1790135204}
-  - {fileID: 670054330}
   - {fileID: 7898696}
   m_Father: {fileID: 441101359}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1566843992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1566843993}
+  m_Layer: 0
+  m_Name: BladesContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1566843993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566843992}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0015756767, y: -0.17516482, z: 0.6223001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1215060615}
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1568936083
 PrefabInstance:
@@ -10152,30 +8096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (19)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -10227,150 +8151,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358358931865517502, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6580194
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358358931865517502, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.65778977
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358358931865517502, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.25911024
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358358931865517502, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.25920072
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358358931865517502, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358358931865517502, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 43
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
---- !u!1 &1667489852 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2139387596}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1667489853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 2139387596}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1667489854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667489852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &1676359645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10539,7 +8327,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 41
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1697086694
 MeshRenderer:
@@ -10671,6 +8459,20 @@ MonoBehaviour:
   UseCustomInspector: 1
   lastFlickTime: 0
   FlickForce: 1
+--- !u!114 &1700417408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700417403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d420d7d47e349ba96895502da7d23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inWindZone: 0
+  windZone: {fileID: 813453667}
 --- !u!1 &1704897640
 GameObject:
   m_ObjectHideFlags: 0
@@ -10701,7 +8503,7 @@ Transform:
   m_LocalScale: {x: -1.7561574, y: -1.7561573, z: -1.7561574}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 33
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1704897642
 MeshRenderer:
@@ -10752,87 +8554,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704897640}
   m_Mesh: {fileID: -3283163065587079804, guid: 93a97380c894f48ce9ac9f73f876c5c4, type: 3}
---- !u!1 &1719771505 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1738409583}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1719771506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 1738409583}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1719771507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719771505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &1738409583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10845,30 +8572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (12)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -10920,38 +8627,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1001 &1738719344
 PrefabInstance:
@@ -11096,87 +8772,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.855638, y: 2.2487683, z: 0.7972051}
   m_Center: {x: 0.010180608, y: 1.1243842, z: 0.035848457}
---- !u!1 &1788607536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 121345554}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1788607537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 121345554}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1788607538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788607536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1 &1790135203
 GameObject:
   m_ObjectHideFlags: 0
@@ -11209,87 +8810,12 @@ Transform:
   m_Father: {fileID: 1566551215}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1790935980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 462311868}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1790935981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 462311868}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1790935982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790935980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &1816638990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11389,6 +8915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1837803808}
   - component: {fileID: 1837803809}
+  - component: {fileID: 1837803810}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -11506,6 +9033,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1837803810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837803807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2a6a098dbc74a1ea02f4df091775d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1853247053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4076840784717490, guid: 9b9ff3df15d109a48b665d8750e7d276,
@@ -11524,30 +9063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (10)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -11599,38 +9118,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!1001 &1870063461
 PrefabInstance:
@@ -11948,7 +9436,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 42
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1870137167
 MeshRenderer:
@@ -12061,7 +9549,7 @@ Transform:
   m_LocalScale: {x: 1.7561574, y: 1.7561573, z: 1.7561574}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 29
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1880376985
 MeshRenderer:
@@ -12624,9 +10112,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975211005}
-  m_LocalRotation: {x: -0.7540114, y: 0.001556989, z: 0.0017872801, w: 0.6568571}
-  m_LocalPosition: {x: -0.0039307936, y: 0.018327637, z: 0.07388153}
-  m_LocalScale: {x: -0.7832947, y: -0.7832947, z: -1}
+  m_LocalRotation: {x: -0.75401133, y: 0.001556989, z: 0.0017872801, w: 0.6568571}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.7832947, y: -0.78329444, z: -1}
   m_Children: []
   m_Father: {fileID: 969982754}
   m_RootOrder: 1
@@ -12680,87 +10168,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975211005}
   m_Mesh: {fileID: -6210541040425990628, guid: 93a97380c894f48ce9ac9f73f876c5c4, type: 3}
---- !u!1 &1975793291 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1240739928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1975793292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 1240739928}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1975793293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975793291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &1984487783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12853,38 +10266,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!4 &1985036263 stripped
 Transform:
@@ -12892,87 +10275,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1738719344}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1988578920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1854713600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1988578921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 1854713600}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1988578922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988578920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &1991201617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13030,87 +10338,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 272d9501e72e3c44b97e02c68ca6835f, type: 3}
---- !u!1 &2005277924 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1568936083}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2005277925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 1568936083}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2005277926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005277924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1001 &2009367681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13220,7 +10453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 39
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2011855255
 MeshRenderer:
@@ -13301,7 +10534,7 @@ Transform:
   m_LocalScale: {x: 1.7561574, y: 1.7561573, z: 1.7561574}
   m_Children: []
   m_Father: {fileID: 1215060615}
-  m_RootOrder: 32
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2017249986
 MeshRenderer:
@@ -13595,30 +10828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (22)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -13670,120 +10883,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
---- !u!1 &2101862536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2896786977135483049, guid: 65407a71376864193ac20fa57778c9c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 395636943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2101862537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
     type: 3}
   m_PrefabInstance: {fileID: 395636943}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2101862538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101862536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeingHeld: 0
-  GrabButton: 2
-  Grabtype: 2
-  GrabPhysics: 4
-  GrabMechanic: 1
-  GrabSpeed: 15
-  RemoteGrabbable: 0
-  RemoteGrabMechanic: 0
-  RemoteGrabDistance: 86
-  ThrowForceMultiplier: 2
-  ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
-  HideHandGraphics: 0
-  ParentToHands: 0
-  ParentHandModel: 1
-  SnapHandModel: 1
-  CanBeDropped: 1
-  CanBeSnappedToSnapZone: 1
-  ForceDisableKinematicOnDrop: 0
-  InstantMovement: 0
-  MakeChildCollidersGrabbable: 0
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  CustomHandPose: 0
-  SecondaryGrabBehavior: 0
-  TwoHandedPosition: 0
-  TwoHandedPostionLerpAmount: 0.5
-  TwoHandedRotation: 1
-  TwoHandedRotationLerpAmount: 0.5
-  TwoHandedDropBehavior: 0
-  TwoHandedLookVector: 0
-  SecondHandLookSpeed: 40
-  SecondaryGrabbable: {fileID: 0}
-  OtherGrabbableMustBeGrabbed: {fileID: 0}
-  CollisionSpring: 3000
-  CollisionSlerp: 500
-  CollisionLinearMotionX: 2
-  CollisionLinearMotionY: 2
-  CollisionLinearMotionZ: 2
-  CollisionAngularMotionX: 2
-  CollisionAngularMotionY: 2
-  CollisionAngularMotionZ: 2
-  ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
-  AddControllerVelocityOnDrop: 1
-  collisions: []
-  ActiveGrabPoint: {fileID: 0}
-  SecondaryLookOffset: {x: 0, y: 0, z: 0}
-  SecondaryLookAtTransform: {fileID: 0}
-  LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
-  UseCustomInspector: 1
-  lastFlickTime: 0
-  FlickForce: 1
 --- !u!1 &2123890674
 GameObject:
   m_ObjectHideFlags: 0
@@ -13977,30 +11084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBall (21)
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483052, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2896786977135483053, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
@@ -14052,38 +11139,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: Grabtype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabButton
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: GrabMechanic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: ParentHandModel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9,
-        type: 3}
-      propertyPath: RemoteGrabbable
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2896786977135483055, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65407a71376864193ac20fa57778c9c9, type: 3}
 --- !u!4 &2144358580 stripped
 Transform:
