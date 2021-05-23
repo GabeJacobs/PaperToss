@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
+    public Transform windSource;
     public bool inWindZone;
     public GameObject windZone;
     private Rigidbody rb;
@@ -22,9 +24,13 @@ public class BallMovement : MonoBehaviour
     {
         if (inWindZone)
         {
-            Debug.Log("force added");
+            float distanceChangecoefficient = .8f;
+            float distanceFromSource = Vector3.Distance(transform.position, windSource.position);
+            float distanceMultiplier = distanceChangecoefficient / distanceFromSource;
+            Debug.Log(distanceFromSource); 
+           
 
-            rb.AddForce(_fanWind.direction * _fanWind.strength);
+            rb.AddForce(_fanWind.direction * (_fanWind.strength * distanceMultiplier) );
         }
     }
 
