@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = System.Random;
 
 public class TrashCanManager : MonoBehaviour {
     // Start is called before the first frame update
 
+    public static event Action onScoreEvent;
     void Start() {
 
     }
@@ -19,6 +22,12 @@ public class TrashCanManager : MonoBehaviour {
          if (other.tag == "Ball")
          {
              SoundManager.PlaySound("point");
+             other.gameObject.GetComponent<Ball>().isInBasket = true;
+             
+             if (onScoreEvent != null)
+             {
+                 onScoreEvent.Invoke();
+             }
          }
     }
 }

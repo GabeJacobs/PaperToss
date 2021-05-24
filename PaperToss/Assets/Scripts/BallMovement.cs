@@ -27,7 +27,6 @@ public class BallMovement : MonoBehaviour
             float distanceChangecoefficient = .8f;
             float distanceFromSource = Vector3.Distance(transform.position, windSource.position);
             float distanceMultiplier = distanceChangecoefficient / distanceFromSource;
-            Debug.Log(distanceFromSource); 
            
 
             rb.AddForce(_fanWind.direction * (_fanWind.strength * distanceMultiplier) );
@@ -38,7 +37,6 @@ public class BallMovement : MonoBehaviour
     {
         if (other.CompareTag("Wind"))
         {
-            Debug.Log("in Wind Zone");
             inWindZone = true;
         }
     }
@@ -47,8 +45,6 @@ public class BallMovement : MonoBehaviour
     {
         if (other.CompareTag("Wind"))
         {
-            Debug.Log("out of Wind Zone");
-
             inWindZone = false;
         }
     }
