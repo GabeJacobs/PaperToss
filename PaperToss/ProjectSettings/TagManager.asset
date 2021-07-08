@@ -9,6 +9,7 @@ TagManager:
   - Wind
   - DestroyZone
   - FanSpawnPoint
+  - Music
   layers:
   - Default
   - TransparentFX
