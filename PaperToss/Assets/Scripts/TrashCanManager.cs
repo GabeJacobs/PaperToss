@@ -21,6 +21,7 @@ public class TrashCanManager : MonoBehaviour {
      private void OnTriggerEnter(Collider other) {
          if (other.tag == "Ball")
          {
+             EventManager.TriggerEvent("PlayerScored");
              SoundManager.PlaySound("point");
              other.gameObject.GetComponent<Ball>().isInBasket = true;
              

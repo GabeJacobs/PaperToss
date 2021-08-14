@@ -28,6 +28,7 @@ public class GameCountdown : MonoBehaviour
 
     void StartCountdown()
     {
+        audioSource.clip = clips[0];
         audioSource.Play();
         gameObject.SetActive(true);
         Text gameClockTxt = gameObject.GetComponentInChildren<Text>();

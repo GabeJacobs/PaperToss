@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Global
+public static class GameManager
 {
-    static public int score = 0;
+    static public int highscore = 0;
 }
