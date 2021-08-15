@@ -13,18 +13,6 @@ public class TimerCountdown : MonoBehaviour
 
     // Start is called before the first frame update
 
-    private void OnEnable()
-    {
-        EventManager.StartListening("StartArcade", BeginCountdown);
-
-    }
-
-    private void OnDisable()
-    {
-        EventManager.StopListening("StartArcade", BeginCountdown);
-    }
-
-    
     private void Awake()
     {
         textDisplay = gameObject.GetComponentInChildren<Text>();
@@ -66,7 +54,7 @@ public class TimerCountdown : MonoBehaviour
         }
     }
 
-    void BeginCountdown()
+    public void BeginCountdown()
     {
         shouldCountDown = true;
     }

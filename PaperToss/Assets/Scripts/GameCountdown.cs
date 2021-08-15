@@ -26,7 +26,7 @@ public class GameCountdown : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
-    void StartCountdown()
+    public void StartCountdown()
     {
         audioSource.clip = clips[0];
         audioSource.Play();
@@ -63,7 +63,7 @@ public class GameCountdown : MonoBehaviour
         audioSource.clip = clips[1];
         yield return StartCoroutine(PlayBeginGameClip());
         gameObject.SetActive(false);
-        EventManager.TriggerEvent("StartArcade");
+        GameController.instance.StartArcade();
         //do something
     }
     

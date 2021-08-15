@@ -10,12 +10,12 @@ public class FanPlacement : MonoBehaviour
 
     private void OnEnable()
     {
-        TrashCanManager.onScoreEvent += scoreEventRecieved;
+        TrashCan.onScoreEvent += scoreEventRecieved;
     }
 
     private void OnDisable()
     {
-        TrashCanManager.onScoreEvent -= scoreEventRecieved;
+        TrashCan.onScoreEvent -= scoreEventRecieved;
     }
 
     // Start is called before the first frame update
