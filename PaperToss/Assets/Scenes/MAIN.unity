@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeldItem: {fileID: 601075942}
   CanDropItem: 1
-  CanSwapItem: 1
+  CanSwapItem: 0
   CanRemoveItem: 1
   ScaleItem: 0.9
   DisableColliders: 1
@@ -2294,7 +2294,8 @@ MonoBehaviour:
   SecondaryLookOffset: {x: 0, y: 0, z: 0}
   SecondaryLookAtTransform: {fileID: 0}
   LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
+  GrabPoints:
+  - {fileID: 0}
   UseCustomInspector: 1
   lastFlickTime: 0
   FlickForce: 1
@@ -2312,7 +2313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClosestGrabbable: {fileID: 0}
   ClosestRemoteGrabbable: {fileID: 0}
-  FireGrabbableEvents: 1
+  FireGrabbableEvents: 0
 --- !u!135 &449548941
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3677,7 +3678,7 @@ MonoBehaviour:
   GrabButton: 1
   Grabtype: 0
   GrabPhysics: 4
-  GrabMechanic: 1
+  GrabMechanic: 0
   GrabSpeed: 15
   RemoteGrabbable: 0
   RemoteGrabMechanic: 0
@@ -3726,7 +3727,8 @@ MonoBehaviour:
   SecondaryLookOffset: {x: 0, y: 0, z: 0}
   SecondaryLookAtTransform: {fileID: 0}
   LocalOffsetTransform: {fileID: 0}
-  GrabPoints: []
+  GrabPoints:
+  - {fileID: 0}
   UseCustomInspector: 1
   lastFlickTime: 0
   FlickForce: 1
@@ -7311,7 +7313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1186114067
 Transform:
   m_ObjectHideFlags: 0
@@ -7486,6 +7488,16 @@ PrefabInstance:
       propertyPath: ClimbingCapsuleCenter
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 512995850085324667, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 612891326424754169, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 800798482534677969, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
       propertyPath: m_IsActive
@@ -7586,6 +7598,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3713136314061722535, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3719865056894424519, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -7650,6 +7667,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959677274440945754, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: ToggleHandsInput
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959677274440945754, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: DefaultHandsModel
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6065732222583390601, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
@@ -11042,6 +11069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896786977135483054, guid: 65407a71376864193ac20fa57778c9c9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7377932005630739696, guid: 65407a71376864193ac20fa57778c9c9,
         type: 3}
