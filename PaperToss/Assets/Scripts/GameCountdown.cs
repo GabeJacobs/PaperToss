@@ -11,6 +11,7 @@ public class GameCountdown : MonoBehaviour
 
     private void OnEnable()
     {
+        
         EventManager.StartListening("StartCountdown", StartCountdown);
 
     }
@@ -63,6 +64,7 @@ public class GameCountdown : MonoBehaviour
         audioSource.clip = clips[1];
         yield return StartCoroutine(PlayBeginGameClip());
         gameObject.SetActive(false);
+        reset();
         GameController.instance.StartArcade();
         //do something
     }
@@ -71,6 +73,11 @@ public class GameCountdown : MonoBehaviour
         audioSource.Play ();
         yield return new WaitWhile (()=> audioSource.isPlaying);
         //do something
+    }
+
+    void reset()
+    {
+        clock = 3;
     }
 }
 

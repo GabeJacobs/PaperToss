@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimerCountdown : MonoBehaviour
 {
     public Text textDisplay;
-    public int secondsLeft = 60;
+    public int secondsLeft = 5;
     public bool takingAway = false;
     public bool shouldCountDown = false;
 

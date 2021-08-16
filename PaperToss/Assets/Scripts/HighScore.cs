@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ScoreCounter : MonoBehaviour
+public class HighScore : MonoBehaviour
 {
     public Text textDisplay;
-    public int score = 0;
+    public int highScore = 0;
     // Start is called before the first frame update
 
     private void OnEnable()
     {
-        EventManager.StartListening("PlayerScored", PlayerScored);
+        EventManager.StartListening("NewHighScore", NewHighScore);
 
     }
 
     private void OnDisable()
     {
-        EventManager.StopListening("PlayerScored", PlayerScored);
+        EventManager.StopListening("NewHighScore", NewHighScore);
     }
 
     
@@ -27,7 +27,8 @@ public class ScoreCounter : MonoBehaviour
 
     void Start()
     {
-        textDisplay.text = "0";
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        textDisplay.text = "High Score: " + highScore;
     }
 
     // Update is called once per frame
@@ -36,11 +37,11 @@ public class ScoreCounter : MonoBehaviour
       
     }
 
-    void PlayerScored()
+    void NewHighScore()
     {
-        score++;
-        textDisplay.text = score.ToString();
-        GameController.instance.checkHighScore(score);
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        textDisplay.text = "High Score: " + highScore;
+
     }
 
 }
