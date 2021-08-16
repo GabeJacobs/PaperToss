@@ -49,7 +49,7 @@ public class TimerCountdown : MonoBehaviour
         takingAway = false;
         if (secondsLeft == 0)
         {
-            EventManager.TriggerEvent("ArcadeFinished");
+            GameController.instance.ArcadeFinished();
             shouldCountDown = false;
         }
     }

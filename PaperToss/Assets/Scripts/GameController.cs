@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
     public GameObject menu;
     public GameCountdown gameCountdown;
     public TimerCountdown timerCountdown;
+    public GameObject highScoreUI;
 
     // Use this for initialization
     void Awake () {
@@ -32,6 +33,11 @@ public class GameController : MonoBehaviour {
     public void StartArcade()
     {
         timerCountdown.BeginCountdown();
+    }
+    
+    public void ArcadeFinished()
+    {
+       menu.SetActive(true);
     }
     public void ToggleMenu()
     {

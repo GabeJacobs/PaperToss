@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 14604874}
   - component: {fileID: 14604873}
   m_Layer: 5
-  m_Name: Heading
+  m_Name: CurrentGameScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6856,6 +6856,7 @@ MonoBehaviour:
   menu: {fileID: 7428048668545795754}
   gameCountdown: {fileID: 555138943}
   timerCountdown: {fileID: 1248555902}
+  highScoreUI: {fileID: 0}
 --- !u!4 &1131528768
 Transform:
   m_ObjectHideFlags: 0
@@ -7313,7 +7314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1186114067
 Transform:
   m_ObjectHideFlags: 0
