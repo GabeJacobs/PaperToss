@@ -8,6 +8,8 @@ public class GameCountdown : MonoBehaviour
     int clock = 3;
     public AudioSource audioSource;
     public AudioClip[] clips; // The array controlling the sounds
+    private Coroutine timerCoroutine;
+    private Text gameClockTxt;
 
     private void OnEnable()
     {
@@ -25,16 +27,21 @@ public class GameCountdown : MonoBehaviour
     public void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
+        gameClockTxt = gameObject.GetComponentInChildren<Text>();
+
     }
 
     public void StartCountdown()
     {
+        clock = 3;
+        gameClockTxt.enabled = true;
+
+        gameClockTxt.text = clock.ToString();
         audioSource.clip = clips[0];
         audioSource.Play();
-        gameObject.SetActive(true);
-        Text gameClockTxt = gameObject.GetComponentInChildren<Text>();
         gameClockTxt.text = clock.ToString();
-        StartCoroutine(time());
+        
+        timerCoroutine = StartCoroutine(time());
     }
     IEnumerator time(){
         while (clock != 0)
@@ -46,7 +53,6 @@ public class GameCountdown : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     void timeCount(){
         clock -= 1;
-        Text gameClockTxt = gameObject.GetComponentInChildren<Text>();
         if (clock != 0)
         {
             audioSource.clip = clips[0];
@@ -63,9 +69,9 @@ public class GameCountdown : MonoBehaviour
     IEnumerator PlayBeginGameThenGo(){
         audioSource.clip = clips[1];
         yield return StartCoroutine(PlayBeginGameClip());
-        gameObject.SetActive(false);
-        reset();
-        GameController.instance.StartArcade();
+        ArcadeGameController.instance.StartArcade();
+        StopAllCoroutines();
+        gameClockTxt.enabled = false;
         //do something
     }
     
@@ -73,11 +79,6 @@ public class GameCountdown : MonoBehaviour
         audioSource.Play ();
         yield return new WaitWhile (()=> audioSource.isPlaying);
         //do something
-    }
-
-    void reset()
-    {
-        clock = 3;
     }
 }
 

@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour
 
     public void StartArcade()
     {
-        GameController.instance.StartArcadeCountdown();
+        ArcadeGameController.instance.StartArcadeCountdown();
 
        //  EventManager.TriggerEvent("StartArcade");
        //

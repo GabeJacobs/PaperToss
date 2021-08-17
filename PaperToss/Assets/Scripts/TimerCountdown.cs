@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class TimerCountdown : MonoBehaviour
 {
     public Text textDisplay;
-    public int secondsLeft = 5;
+    public int gameLength;
     public bool takingAway = false;
     public bool shouldCountDown = false;
+
+    private int secondsLeft;
 
     // Start is called before the first frame update
 
@@ -20,7 +22,7 @@ public class TimerCountdown : MonoBehaviour
 
     void Start()
     {
-        textDisplay.text = "1:00";
+        SetClock(gameLength);
     }
 
     // Update is called once per frame
@@ -36,21 +38,11 @@ public class TimerCountdown : MonoBehaviour
     {
         takingAway = true;
         yield return new WaitForSeconds(1);
-        secondsLeft -= 1;
-        if (secondsLeft < 10)
-        {
-            textDisplay.text = "0:0" + secondsLeft;
-
-        }
-        else
-        {
-            textDisplay.text = "0:" + secondsLeft;
-        }
+        SetClock(secondsLeft-1);
         takingAway = false;
         if (secondsLeft == 0)
         {
-            GameController.instance.ArcadeFinished();
-            shouldCountDown = false;
+            ArcadeGameController.instance.ArcadeFinished();
         }
     }
 
@@ -58,6 +50,28 @@ public class TimerCountdown : MonoBehaviour
     {
         shouldCountDown = true;
     }
-    
-    
+
+    public void Reset()
+    {
+        SetClock(60);
+        takingAway = false;
+        shouldCountDown = false;
+    }
+
+    private void SetClock(int seconds)
+    {
+        secondsLeft = seconds;
+        if (secondsLeft == 60)
+        {
+            textDisplay.text = "1:00";
+        }
+        else if (secondsLeft < 10)
+        {
+            textDisplay.text = "0:0" + secondsLeft;
+        }
+        else
+        {
+            textDisplay.text = "0:" + secondsLeft;
+        }
+    }
 }

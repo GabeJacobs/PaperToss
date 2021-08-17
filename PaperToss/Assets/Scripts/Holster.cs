@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class Holster : MonoBehaviour
 {
+    private Vector3 correctHolsterPosition;
     // Start is called before the first frame update
     void Start()
     {
-        // for(int i=0; i<gameObject.transform.childCount; i++)
-        // {
-        //     gameObject.transform.GetChild(i).gameObject.SetActive(false);
-        // }
+        correctHolsterPosition = transform.position;
+        SetVisible(false);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    
+    public void SetVisible(bool visible)
     {
-        
+        if (visible == true)
+        {
+            gameObject.transform.position = correctHolsterPosition;
+
+        }
+        else
+        {
+            gameObject.transform.position = new Vector3(10000, 0, 0);
+            
+        }
     }
 }

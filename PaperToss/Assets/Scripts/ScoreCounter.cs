@@ -40,7 +40,7 @@ public class ScoreCounter : MonoBehaviour
     {
         score++;
         textDisplay.text = score.ToString();
-        GameController.instance.checkHighScore(score);
+        ArcadeGameController.instance.checkHighScore(score);
     }
 
 }
