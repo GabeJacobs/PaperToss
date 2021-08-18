@@ -238,9 +238,15 @@ namespace BNG {
             if(HeldItem != null) {
                 ReleaseAll();
             }
-
+            
             HeldItem = grab;
             heldItemRigid = HeldItem.GetComponent<Rigidbody>();
+            
+            if (HeldItem.CompareTag("Ball"))
+            {
+                HeldItem.GetComponent<Ball>().isInHolster = false;
+            }
+            
 
             // Mark as kinematic so it doesn't fall down
             if(heldItemRigid) {

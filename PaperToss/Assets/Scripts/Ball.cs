@@ -5,35 +5,20 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public bool isInBasket;
-    private bool shouldFade;
-    public float fadeSpeed = 1.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public bool isInBasket = false;
+    public bool isInHolster;
 
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (shouldFade)
-        {
-            // Color objectColor = this.GetComponentInChildren<Renderer>().material.color;
-            // Debug.Log(objectColor);
-            //
-            // float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
-            //
-            // objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-            // this.GetComponentInChildren<Renderer>().material.color = objectColor;
-        }
+        isInHolster = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
+
         if (!isInBasket && other.CompareTag("DestroyZone"))
         {
-            shouldFade = true;
             Destroy(gameObject, 2f);
         }
     }

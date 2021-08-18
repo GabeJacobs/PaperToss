@@ -19,16 +19,20 @@ public class TrashCan : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Ball")
+        if (ArcadeGameController.instance.arcadeIsRunning)
         {
-            EventManager.TriggerEvent("PlayerScored");
-            SoundManager.PlaySound("point");
-            other.gameObject.GetComponent<Ball>().isInBasket = true;
-             
-            if (onScoreEvent != null)
+            if (other.tag == "Ball")
             {
-                onScoreEvent.Invoke();
-            }
+                // EventManager.TriggerEvent("PlayerScored");
+                ArcadeGameController.instance.PlayerDidScore();
+                SoundManager.PlaySound("point");
+                other.gameObject.GetComponent<Ball>().isInBasket = true;
+             
+                if (onScoreEvent != null)
+                {
+                    onScoreEvent.Invoke();
+                }
+            }      
         }
     }
 }

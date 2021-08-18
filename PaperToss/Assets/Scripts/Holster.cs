@@ -18,12 +18,10 @@ public class Holster : MonoBehaviour
         if (visible == true)
         {
             gameObject.transform.position = correctHolsterPosition;
-
         }
         else
         {
             gameObject.transform.position = new Vector3(10000, 0, 0);
-            
         }
     }
 }

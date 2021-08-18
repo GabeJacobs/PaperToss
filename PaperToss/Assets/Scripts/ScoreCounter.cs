@@ -7,18 +7,6 @@ public class ScoreCounter : MonoBehaviour
     public Text textDisplay;
     public int score = 0;
     // Start is called before the first frame update
-
-    private void OnEnable()
-    {
-        EventManager.StartListening("PlayerScored", PlayerScored);
-
-    }
-
-    private void OnDisable()
-    {
-        EventManager.StopListening("PlayerScored", PlayerScored);
-    }
-
     
     private void Awake()
     {
@@ -36,11 +24,10 @@ public class ScoreCounter : MonoBehaviour
       
     }
 
-    void PlayerScored()
+    public void PlayerScored()
     {
         score++;
         textDisplay.text = score.ToString();
-        ArcadeGameController.instance.checkHighScore(score);
     }
 
 }

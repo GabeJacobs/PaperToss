@@ -10,6 +10,12 @@ TagManager:
   - DestroyZone
   - FanSpawnPoint
   - Music
+  - Holster
+  - GameStartCountdown
+  - MainMenu
+  - TimerCountdown
+  - HighScoreUI
+  - Fan
   layers:
   - Default
   - TransparentFX
