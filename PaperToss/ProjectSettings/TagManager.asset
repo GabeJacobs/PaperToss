@@ -16,6 +16,9 @@ TagManager:
   - TimerCountdown
   - HighScoreUI
   - Fan
+  - WindSpeedUI
+  - TrashCan
+  - Scoreboard
   layers:
   - Default
   - TransparentFX

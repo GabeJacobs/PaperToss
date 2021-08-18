@@ -115,13 +115,13 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
-    - _Sharpness: 0
+    - _Sharpness: 0.7
     - _SpecularPower: 2
     - _Stencil: 0
     - _StencilComp: 8
@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: LakkiReddy-Regular SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1023011924
   material: {fileID: -717065001495249540}
-  materialHashCode: 0
+  materialHashCode: 573863180
   m_Version: 1.1.0
   m_SourceFontFileGUID: 2fe832be5d826ab44b635677aeeb1a22
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 2fe832be5d826ab44b635677aeeb1a22,
