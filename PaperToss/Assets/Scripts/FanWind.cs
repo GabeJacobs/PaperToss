@@ -11,12 +11,12 @@ public class FanWind : MonoBehaviour
 
     private void Start()
     {
-        GetFanStrength();
+        UpdateFanStrength();
     }
 
-    private void GetFanStrength()
+    public void UpdateFanStrength()
     {
-        float difficulty = ArcadeGameController.instance.gameDifficulty / 10.0f;
-        strength = Mathf.Lerp(15, 60, difficulty);
+        float difficulty = ArcadeGameController.instance.currentFanSpeed() / 10.0f;
+        strength = Mathf.Lerp(10, 60, difficulty);
     }
 }

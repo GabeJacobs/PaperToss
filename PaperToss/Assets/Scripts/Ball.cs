@@ -15,8 +15,6 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
-
         if (!isInBasket && other.CompareTag("DestroyZone"))
         {
             Destroy(gameObject, 2f);

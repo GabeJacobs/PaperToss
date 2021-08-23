@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class TimerCountdown : MonoBehaviour
 {
     public Text textDisplay;
-    public int gameLength;
     public bool takingAway = false;
     public bool shouldCountDown = false;
 
@@ -22,7 +21,7 @@ public class TimerCountdown : MonoBehaviour
 
     void Start()
     {
-        SetClock(gameLength);
+        SetClock(ArcadeGameController.instance.gameLength);
     }
 
     // Update is called once per frame
@@ -53,7 +52,7 @@ public class TimerCountdown : MonoBehaviour
 
     public void Reset()
     {
-        SetClock(60);
+        SetClock(ArcadeGameController.instance.gameLength);
         takingAway = false;
         shouldCountDown = false;
     }

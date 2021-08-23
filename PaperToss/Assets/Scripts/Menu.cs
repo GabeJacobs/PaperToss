@@ -16,13 +16,6 @@ public class Menu : MonoBehaviour
     public void StartArcade()
     {
         ArcadeGameController.instance.StartArcadeCountdown();
-
-       //  EventManager.TriggerEvent("StartArcade");
-       //
-       //  EventManager.TriggerEvent("ToggleShowMenu");
-       // EventManager.TriggerEvent("StartCountdown");
-
-       // gameObject.SetActive(false);
     }
 
     void ToggleShowMenu()

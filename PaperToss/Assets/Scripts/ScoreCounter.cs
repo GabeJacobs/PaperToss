@@ -15,7 +15,8 @@ public class ScoreCounter : MonoBehaviour
 
     void Start()
     {
-        textDisplay.text = "0";
+            ResetScore();
+
     }
 
     // Update is called once per frame
@@ -29,5 +30,12 @@ public class ScoreCounter : MonoBehaviour
         score++;
         textDisplay.text = score.ToString();
     }
+
+    public void ResetScore()
+    {
+        score = 0;
+        textDisplay.text = "0";
+    }
+    
 
 }

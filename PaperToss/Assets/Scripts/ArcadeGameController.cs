@@ -13,8 +13,8 @@ public class ArcadeGameController : MonoBehaviour {
     public static ArcadeGameController instance { get; private set; }
 
     public bool arcadeIsRunning;
-    public float currentFanSpeed = 0;
     public float gameDifficulty = 0;
+    public int gameLength;
 
     public Fan fan;
     public Holster holster;
@@ -23,6 +23,9 @@ public class ArcadeGameController : MonoBehaviour {
     public GameCountdown gameStartCountdown;
     public TimerCountdown timerCountdown;
     public ScoreCounter scoreboard;
+
+    public AudioClip pointClip;
+    public AudioClip arcadeOverClip;
 
 
     // Use this for initialization
@@ -49,6 +52,9 @@ public class ArcadeGameController : MonoBehaviour {
 
     public void StartArcadeCountdown()
     {
+        scoreboard.ResetScore();
+        fan.SetFanSpeedUI();
+        fan.UpdateFanStrength();
         fan.SetVisible(true);
         menu.SetActive(false);
         holster.SetVisible(true);
@@ -62,6 +68,7 @@ public class ArcadeGameController : MonoBehaviour {
     
     public void ArcadeFinished()
     { 
+        SoundManager.Instance.Play(arcadeOverClip);
         fan.SetVisible(false);
         menu.SetActive(true);
         holster.SetVisible(false);
@@ -69,6 +76,8 @@ public class ArcadeGameController : MonoBehaviour {
         timerCountdown.Reset();
         arcadeIsRunning = false;
         gameDifficulty = 0;
+        fan.currentFanSpeed = 0;
+        fan.UpdateFanStrength();
         DestoryAllBalls();
        
     }
@@ -80,22 +89,20 @@ public class ArcadeGameController : MonoBehaviour {
     
     public void PlayerDidScore()
     {
+        SoundManager.Instance.Play(pointClip);
         scoreboard.PlayerScored();
         bool gotNewHighScore = CheckSaveHighScore(scoreboard.score);
         
         increaseGameDifficulty();
-        
-        
         fan.ChangeFanPosition();
         fan.SetFanSpeedUI();
     }
 
     private void increaseGameDifficulty()
     {
-        gameDifficulty += 0.3f;
-        currentFanSpeed = Random.Range(Mathf.Clamp(gameDifficulty - 1.0f, 0.1f, 10.0f) ,Mathf.Clamp(gameDifficulty + 1.0f, 0.1f, 10.0f));
-
-      
+        gameDifficulty += 0.4f;
+        fan.currentFanSpeed = Random.Range(Mathf.Clamp(gameDifficulty - 0.7f, 0.1f, 10.0f), Mathf.Clamp(gameDifficulty + 0.7f, 0.1f, 10.0f));
+        fan.UpdateFanStrength();
     }
     
     private bool CheckSaveHighScore(int newScore)
@@ -123,6 +130,11 @@ public class ArcadeGameController : MonoBehaviour {
                 Destroy(balls[i]);
             }
         }
+    }
+
+    public float currentFanSpeed()
+    {
+        return fan.currentFanSpeed;
     }
     
 
