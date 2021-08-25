@@ -18,6 +18,7 @@ public class ArcadeGameController : MonoBehaviour {
 
     public Fan fan;
     public Holster holster;
+    public Holster goldHolster;
     public GameObject menu;
     public GameObject highScoreUI;
     public GameCountdown gameStartCountdown;
@@ -42,6 +43,7 @@ public class ArcadeGameController : MonoBehaviour {
     {
         fan = GameObject.FindGameObjectWithTag("Fan").GetComponent<Fan>();;
         holster = GameObject.FindGameObjectWithTag("Holster").GetComponent<Holster>();
+        goldHolster = GameObject.FindGameObjectWithTag("GoldHolster").GetComponent<Holster>();
         menu = GameObject.FindGameObjectWithTag("MainMenu");
         gameStartCountdown = GameObject.FindGameObjectWithTag("GameStartCountdown").GetComponent<GameCountdown>();
         timerCountdown = GameObject.FindGameObjectWithTag("TimerCountdown").GetComponent<TimerCountdown>();
@@ -72,6 +74,7 @@ public class ArcadeGameController : MonoBehaviour {
         fan.SetVisible(false);
         menu.SetActive(true);
         holster.SetVisible(false);
+        goldHolster.SetVisible(false);
         fan.SetVisible(false);
         timerCountdown.Reset();
         arcadeIsRunning = false;
@@ -91,11 +94,34 @@ public class ArcadeGameController : MonoBehaviour {
     {
         SoundManager.Instance.Play(pointClip);
         scoreboard.PlayerScored();
+        updateAfterScore();
+    }
+    
+    public void PlayerDidScoreGoldBall()
+    {
+        SoundManager.Instance.Play(pointClip);
+        scoreboard.PlayerScoredGold();
+        updateAfterScore();
+    }
+
+    void updateAfterScore()
+    {
         bool gotNewHighScore = CheckSaveHighScore(scoreboard.score);
         
         increaseGameDifficulty();
         fan.ChangeFanPosition();
         fan.SetFanSpeedUI();
+
+        if (holster.isVisible)
+        {
+            goldHolster.SetVisible(true);
+            holster.SetVisible(false);
+        }
+        else
+        {
+            goldHolster.SetVisible(false);
+            holster.SetVisible(true);
+        }
     }
 
     private void increaseGameDifficulty()

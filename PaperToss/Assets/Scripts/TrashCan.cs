@@ -16,6 +16,11 @@ public class TrashCan : MonoBehaviour {
                 ArcadeGameController.instance.PlayerDidScore();
                 other.gameObject.GetComponent<Ball>().isInBasket = true;
             }      
+            else if (other.tag == "GoldBall")
+            {
+                ArcadeGameController.instance.PlayerDidScoreGoldBall();
+                other.gameObject.GetComponent<Ball>().isInBasket = true;
+            }     
         }
     }
 }

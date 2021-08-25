@@ -30,6 +30,11 @@ public class ScoreCounter : MonoBehaviour
         score++;
         textDisplay.text = score.ToString();
     }
+    public void PlayerScoredGold()
+    {
+        score+=3;
+        textDisplay.text = score.ToString();
+    }
 
     public void ResetScore()
     {

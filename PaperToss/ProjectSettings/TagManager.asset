@@ -19,6 +19,8 @@ TagManager:
   - WindSpeedUI
   - TrashCan
   - Scoreboard
+  - GoldBall
+  - GoldHolster
   layers:
   - Default
   - TransparentFX

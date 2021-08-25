@@ -5,6 +5,8 @@ using UnityEngine;
 public class Holster : MonoBehaviour
 {
     private Vector3 correctHolsterPosition;
+    public bool isVisible;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +25,6 @@ public class Holster : MonoBehaviour
         {
             gameObject.transform.position = new Vector3(10000, 0, 0);
         }
+        isVisible = visible;
     }
 }
