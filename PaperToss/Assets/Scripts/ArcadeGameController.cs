@@ -18,7 +18,6 @@ public class ArcadeGameController : MonoBehaviour {
 
     public Fan fan;
     public Holster holster;
-    public Holster goldHolster;
     public GameObject menu;
     public GameObject highScoreUI;
     public GameCountdown gameStartCountdown;
@@ -26,6 +25,7 @@ public class ArcadeGameController : MonoBehaviour {
     public ScoreCounter scoreboard;
 
     public AudioClip pointClip;
+    public AudioClip goldPointClip;
     public AudioClip arcadeOverClip;
 
 
@@ -43,7 +43,6 @@ public class ArcadeGameController : MonoBehaviour {
     {
         fan = GameObject.FindGameObjectWithTag("Fan").GetComponent<Fan>();;
         holster = GameObject.FindGameObjectWithTag("Holster").GetComponent<Holster>();
-        goldHolster = GameObject.FindGameObjectWithTag("GoldHolster").GetComponent<Holster>();
         menu = GameObject.FindGameObjectWithTag("MainMenu");
         gameStartCountdown = GameObject.FindGameObjectWithTag("GameStartCountdown").GetComponent<GameCountdown>();
         timerCountdown = GameObject.FindGameObjectWithTag("TimerCountdown").GetComponent<TimerCountdown>();
@@ -74,7 +73,6 @@ public class ArcadeGameController : MonoBehaviour {
         fan.SetVisible(false);
         menu.SetActive(true);
         holster.SetVisible(false);
-        goldHolster.SetVisible(false);
         fan.SetVisible(false);
         timerCountdown.Reset();
         arcadeIsRunning = false;
@@ -99,7 +97,7 @@ public class ArcadeGameController : MonoBehaviour {
     
     public void PlayerDidScoreGoldBall()
     {
-        SoundManager.Instance.Play(pointClip);
+        SoundManager.Instance.Play(goldPointClip);
         scoreboard.PlayerScoredGold();
         updateAfterScore();
     }
@@ -112,16 +110,26 @@ public class ArcadeGameController : MonoBehaviour {
         fan.ChangeFanPosition();
         fan.SetFanSpeedUI();
 
-        if (holster.isVisible)
+
+        if (ShouldShowGoldBall())
         {
-            goldHolster.SetVisible(true);
-            holster.SetVisible(false);
+            holster.SetNextBallToBeGold();
         }
         else
         {
-            goldHolster.SetVisible(false);
-            holster.SetVisible(true);
+            holster.SetNextBallToBeNormal();
         }
+        
+    }
+
+    private bool ShouldShowGoldBall()
+    {
+        int r = UnityEngine.Random.Range(0, 3);
+        if (r == 2)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void increaseGameDifficulty()

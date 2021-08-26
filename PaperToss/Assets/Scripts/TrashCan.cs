@@ -13,14 +13,19 @@ public class TrashCan : MonoBehaviour {
         {
             if (other.tag == "Ball")
             {
-                ArcadeGameController.instance.PlayerDidScore();
-                other.gameObject.GetComponent<Ball>().isInBasket = true;
-            }      
-            else if (other.tag == "GoldBall")
-            {
-                ArcadeGameController.instance.PlayerDidScoreGoldBall();
-                other.gameObject.GetComponent<Ball>().isInBasket = true;
-            }     
+
+                if (other.GetComponent<Ball>().isGoldBall == true)
+                {
+                    ArcadeGameController.instance.PlayerDidScoreGoldBall(); 
+                    other.gameObject.GetComponent<Ball>().isInBasket = true;
+                     
+                }
+                else
+                {
+                    ArcadeGameController.instance.PlayerDidScore();
+                    other.gameObject.GetComponent<Ball>().isInBasket = true;
+                }
+            }
         }
     }
 }
