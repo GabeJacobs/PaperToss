@@ -97,6 +97,8 @@ namespace BNG {
 
         SnapZoneOffset offset;
 
+        public bool nextBallIsGold;
+
         // Start is called before the first frame update
         void Start() {
             gZone = GetComponent<GrabbablesInTrigger>();
@@ -352,6 +354,15 @@ namespace BNG {
 
                         // Instantiate the object before it is grabbed
                         GameObject go = Instantiate(g.gameObject, transform.position, Quaternion.identity) as GameObject;
+                        if (nextBallIsGold == true)
+                        {
+                            go.GetComponent<Ball>().SetGoldBall(true);
+                            nextBallIsGold = false;
+                        }
+                        else
+                        {
+                            go.GetComponent<Ball>().SetGoldBall(false);
+                        }
                         Grabbable grab = go.GetComponent<Grabbable>();
 
                         // Ok to attach it to snap zone now
