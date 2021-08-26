@@ -23,6 +23,8 @@ public class ArcadeGameController : MonoBehaviour {
     public GameCountdown gameStartCountdown;
     public TimerCountdown timerCountdown;
     public ScoreCounter scoreboard;
+    public TrashCan trashCan;
+
 
     public AudioClip pointClip;
     public AudioClip goldPointClip;
@@ -48,6 +50,7 @@ public class ArcadeGameController : MonoBehaviour {
         timerCountdown = GameObject.FindGameObjectWithTag("TimerCountdown").GetComponent<TimerCountdown>();
         highScoreUI = GameObject.FindGameObjectWithTag("HighScoreUI");
         scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreCounter>();
+        trashCan = GameObject.FindGameObjectWithTag("TrashCan").GetComponent<TrashCan>();
 
     }
 
@@ -59,7 +62,9 @@ public class ArcadeGameController : MonoBehaviour {
         fan.SetVisible(true);
         menu.SetActive(false);
         holster.SetVisible(true);
+        holster.SetHolsterPosition();
         gameStartCountdown.StartCountdown();
+        trashCan.SetVisible(true);
     }
     public void StartArcade()
     {
@@ -74,12 +79,15 @@ public class ArcadeGameController : MonoBehaviour {
         menu.SetActive(true);
         holster.SetVisible(false);
         fan.SetVisible(false);
+        trashCan.SetVisible(false);
+        
         timerCountdown.Reset();
         arcadeIsRunning = false;
         gameDifficulty = 0;
         fan.currentFanSpeed = 0;
         fan.UpdateFanStrength();
         DestoryAllBalls();
+        
        
     }
     

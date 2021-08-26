@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Fan : MonoBehaviour
 {
@@ -52,16 +53,8 @@ public class Fan : MonoBehaviour
 
     public void ChangeFanPosition()
     {
-        int placementPosition;
-        if (currentFanPositionIndex == 0)
-        {
-            placementPosition = 1;
-        }
-        else
-        {
-            placementPosition = 0;
-        }
-        placeFanInPosition(placementPosition);
+
+        placeFanInPosition(Random.Range(0,2));
     }
 
     public void SetFanSpeedUI()

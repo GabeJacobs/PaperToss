@@ -6,6 +6,10 @@ using UnityEngine;
 using Random = System.Random;
 
 public class TrashCan : MonoBehaviour {
+    private void Start()
+    {
+        SetVisible(false);
+    }
     // Start is called before the first frame update
     
     private void OnTriggerEnter(Collider other) {
@@ -26,6 +30,19 @@ public class TrashCan : MonoBehaviour {
                     other.gameObject.GetComponent<Ball>().isInBasket = true;
                 }
             }
+        }
+    }
+
+    public void SetVisible(bool isVisible)
+    {
+        if (isVisible == false)
+        {
+            gameObject.GetComponentInChildren<Renderer>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponentInChildren<Renderer>().enabled = true;
+
         }
     }
 }
