@@ -25,6 +25,7 @@ public class ArcadeGameController : MonoBehaviour {
     public ScoreCounter scoreboard;
     public TrashCan trashCan;
     public GameObject fireworks;
+    public HighScoreTextAnimator highScoreAnmator;
 
     public AudioClip pointClip;
     public AudioClip goldPointClip;
@@ -45,6 +46,7 @@ public class ArcadeGameController : MonoBehaviour {
 
     private void Start()
     {
+        
         fan = GameObject.FindGameObjectWithTag("Fan").GetComponent<Fan>();;
         holster = GameObject.FindGameObjectWithTag("Holster").GetComponent<Holster>();
         menu = GameObject.FindGameObjectWithTag("MainMenu");
@@ -55,11 +57,13 @@ public class ArcadeGameController : MonoBehaviour {
         trashCan = GameObject.FindGameObjectWithTag("TrashCan").GetComponent<TrashCan>();
         fireworks = GameObject.FindGameObjectWithTag("Fireworks");
         fireworks.SetActive(false);
+        highScoreAnmator.SetVisible(false);
     }
 
     public void StartArcadeCountdown()
     {
         fireworks.SetActive(false);
+        highScoreAnmator.SetVisible(false);
         scoreboard.ResetScore();
         fan.SetFanSpeedUI();
         fan.UpdateFanStrength();
@@ -96,6 +100,8 @@ public class ArcadeGameController : MonoBehaviour {
         {
             fireworks.SetActive(true);
             shouldCelebrateNewHighScore = false;
+            highScoreAnmator.SetVisible(true);
+            highScoreAnmator.startAnimation();
             EventManager.TriggerEvent("NewHighScore");
         }
     }
