@@ -18,7 +18,6 @@ public class HighScore : MonoBehaviour
     {
         EventManager.StopListening("NewHighScore", NewHighScore);
     }
-
     
     private void Awake()
     {
@@ -30,18 +29,13 @@ public class HighScore : MonoBehaviour
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         textDisplay.text = "High Score: " + highScore;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
-
+    
     void NewHighScore()
     {
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         textDisplay.text = "High Score: " + highScore;
 
+        
     }
 
 }

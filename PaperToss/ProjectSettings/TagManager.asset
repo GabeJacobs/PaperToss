@@ -21,6 +21,7 @@ TagManager:
   - Scoreboard
   - GoldBall
   - GoldHolster
+  - Fireworks
   layers:
   - Default
   - TransparentFX

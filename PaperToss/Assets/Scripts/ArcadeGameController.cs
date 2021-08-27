@@ -24,11 +24,13 @@ public class ArcadeGameController : MonoBehaviour {
     public TimerCountdown timerCountdown;
     public ScoreCounter scoreboard;
     public TrashCan trashCan;
-
+    public GameObject fireworks;
 
     public AudioClip pointClip;
     public AudioClip goldPointClip;
     public AudioClip arcadeOverClip;
+
+    private bool shouldCelebrateNewHighScore;
 
 
     // Use this for initialization
@@ -51,11 +53,13 @@ public class ArcadeGameController : MonoBehaviour {
         highScoreUI = GameObject.FindGameObjectWithTag("HighScoreUI");
         scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreCounter>();
         trashCan = GameObject.FindGameObjectWithTag("TrashCan").GetComponent<TrashCan>();
-
+        fireworks = GameObject.FindGameObjectWithTag("Fireworks");
+        fireworks.SetActive(false);
     }
 
     public void StartArcadeCountdown()
     {
+        fireworks.SetActive(false);
         scoreboard.ResetScore();
         fan.SetFanSpeedUI();
         fan.UpdateFanStrength();
@@ -87,8 +91,13 @@ public class ArcadeGameController : MonoBehaviour {
         fan.currentFanSpeed = 0;
         fan.UpdateFanStrength();
         DestoryAllBalls();
-        
-       
+
+        if (shouldCelebrateNewHighScore == true)
+        {
+            fireworks.SetActive(true);
+            shouldCelebrateNewHighScore = false;
+            EventManager.TriggerEvent("NewHighScore");
+        }
     }
     
     public void ToggleMenu()
@@ -156,7 +165,7 @@ public class ArcadeGameController : MonoBehaviour {
         {
             PlayerPrefs.SetInt("HighScore", newScore);
             PlayerPrefs.Save();
-            EventManager.TriggerEvent("NewHighScore");
+            shouldCelebrateNewHighScore = true;
         }
 
         return gotNewHighScore;

@@ -6843,7 +6843,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 1d503b89d5aef134282d8fc38e41f52c, type: 3}
       propertyPath: m_Name
-      value: mesh_chair02 (10)
+      value: Chair
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 1d503b89d5aef134282d8fc38e41f52c, type: 3}
       propertyPath: m_Layer
@@ -6851,7 +6851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 1d503b89d5aef134282d8fc38e41f52c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d503b89d5aef134282d8fc38e41f52c, type: 3}
       propertyPath: m_RootOrder
@@ -6867,7 +6867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d503b89d5aef134282d8fc38e41f52c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -64.41
+      value: -65.077
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d503b89d5aef134282d8fc38e41f52c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8522,7 +8522,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Dominant Hand:'
+  m_Text: 'Throwing Hand:'
 --- !u!222 &1334934923
 CanvasRenderer:
   m_ObjectHideFlags: 0
