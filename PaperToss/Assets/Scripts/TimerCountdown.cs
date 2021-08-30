@@ -49,6 +49,10 @@ public class TimerCountdown : MonoBehaviour
     {
         shouldCountDown = true;
     }
+    public void PauseCountdown()
+    {
+        shouldCountDown = false;
+    }
 
     public void Reset()
     {

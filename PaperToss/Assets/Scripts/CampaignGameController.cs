@@ -8,27 +8,23 @@ using System.Collections;
 using UnityEngine.SocialPlatforms.Impl;
 using Random=UnityEngine.Random;
 
-public class ArcadeGameController : MonoBehaviour {
+public class CampaignGameController : MonoBehaviour {
  
-    public static ArcadeGameController instance { get; private set; }
+    public static CampaignGameController instance { get; private set; }
 
     public bool arcadeIsRunning;
-    public bool arcadeIsPaused;
     public float gameDifficulty = 0;
     public int gameLength;
 
     public Fan fan;
     public Holster holster;
     public GameObject menu;
-    public GameObject pauseMenu;
     public GameObject highScoreUI;
     public GameCountdown gameStartCountdown;
     public TimerCountdown timerCountdown;
     public ScoreCounter scoreboard;
     public TrashCan trashCan;
     public GameObject fireworks;
-    public HighScoreTextAnimator highScoreAnmator;
-
     public AudioClip pointClip;
     public AudioClip goldPointClip;
     public AudioClip arcadeOverClip;
@@ -58,17 +54,11 @@ public class ArcadeGameController : MonoBehaviour {
         scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreCounter>();
         trashCan = GameObject.FindGameObjectWithTag("TrashCan").GetComponent<TrashCan>();
         fireworks = GameObject.FindGameObjectWithTag("Fireworks");
-        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
-
-        fireworks.SetActive(false);
-        highScoreAnmator.SetVisible(false);
-        
     }
 
     public void StartArcadeCountdown()
     {
         fireworks.SetActive(false);
-        highScoreAnmator.SetVisible(false);
         scoreboard.ResetScore();
         fan.SetFanSpeedUI();
         fan.UpdateFanStrength();
@@ -81,15 +71,14 @@ public class ArcadeGameController : MonoBehaviour {
     }
     public void StartArcade()
     {
-        arcadeIsPaused = false;
         arcadeIsRunning = true;
         timerCountdown.BeginCountdown();
     }
     
     public void ArcadeFinished()
     { 
-        arcadeIsPaused = false;
         SoundManager.Instance.Play(arcadeOverClip);
+        fan.SetVisible(false);
         menu.SetActive(true);
         holster.SetVisible(false);
         fan.SetVisible(false);
@@ -106,8 +95,6 @@ public class ArcadeGameController : MonoBehaviour {
         {
             fireworks.SetActive(true);
             shouldCelebrateNewHighScore = false;
-            highScoreAnmator.SetVisible(true);
-            highScoreAnmator.startAnimation();
             EventManager.TriggerEvent("NewHighScore");
         }
     }
@@ -199,27 +186,6 @@ public class ArcadeGameController : MonoBehaviour {
     {
         return fan.currentFanSpeed;
     }
-
-    public void PauseGame()
-    {
-        timerCountdown.PauseCountdown();
-        arcadeIsPaused = true;
-        
-        fan.SetVisible(false);
-        holster.SetVisible(false);
-        trashCan.SetVisible(false);
-
-    }
     
-    public void ResumeGame()
-    {
-        arcadeIsPaused = false;
-        timerCountdown.BeginCountdown();
-        
-        holster.SetVisible(true);
-        fan.SetVisible(true);
-        trashCan.SetVisible(true);
-
-    }
 
 }

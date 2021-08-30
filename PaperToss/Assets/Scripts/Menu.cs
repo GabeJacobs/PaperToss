@@ -12,6 +12,7 @@ public class Menu : MonoBehaviour
     public Text menuHeader;
     public GameObject arcadeButton;
     public GameObject settingButton;
+    public GameObject campaignButton;
     public GameObject leftHandedButton;
     public GameObject rightHandedButton;
     public GameObject settingsUI;
@@ -37,6 +38,7 @@ public class Menu : MonoBehaviour
     {
         arcadeButton.SetActive(true);
         settingButton.SetActive(true);
+        campaignButton.SetActive(true);
         settingsUI.SetActive(false);
         menuHeader.text = "Paper Toss VR";
     }
@@ -47,6 +49,7 @@ public class Menu : MonoBehaviour
         settingsUI.SetActive(true);
         arcadeButton.SetActive(false);
         settingButton.SetActive(false);
+        campaignButton.SetActive(false);
         menuHeader.text = "Settings";
 
     }

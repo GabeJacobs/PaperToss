@@ -22,6 +22,7 @@ TagManager:
   - GoldBall
   - GoldHolster
   - Fireworks
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
