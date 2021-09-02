@@ -246,7 +246,7 @@ namespace BNG {
             
             if (HeldItem.CompareTag("Ball"))
             {
-                HeldItem.GetComponent<Ball>().isInHolster = false;
+                HeldItem.GetComponent<Ball>().isInHolster = true;
             }
             
 

@@ -23,6 +23,7 @@ TagManager:
   - GoldHolster
   - Fireworks
   - PauseMenu
+  - NightLight
   layers:
   - Default
   - TransparentFX

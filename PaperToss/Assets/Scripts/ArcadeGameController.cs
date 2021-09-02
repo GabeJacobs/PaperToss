@@ -5,8 +5,10 @@ using UnityEngine;
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SocialPlatforms.Impl;
 using Random=UnityEngine.Random;
+using RenderSettings = UnityEngine.RenderSettings;
 
 public class ArcadeGameController : MonoBehaviour {
  
@@ -22,11 +24,11 @@ public class ArcadeGameController : MonoBehaviour {
     public GameObject menu;
     public GameObject pauseMenu;
     public GameObject highScoreUI;
+    public GameObject fireworks;
     public GameCountdown gameStartCountdown;
     public TimerCountdown timerCountdown;
     public ScoreCounter scoreboard;
     public TrashCan trashCan;
-    public GameObject fireworks;
     public HighScoreTextAnimator highScoreAnmator;
 
     public AudioClip pointClip;
@@ -34,6 +36,11 @@ public class ArcadeGameController : MonoBehaviour {
     public AudioClip arcadeOverClip;
 
     private bool shouldCelebrateNewHighScore;
+    private Coroutine fadeInOutNightLightCoroutine;
+
+    [SerializeField] private Material nightSkyBox;
+    [SerializeField] private Material daySkyBox;
+    [SerializeField] private Light nightLight;
 
 
     // Use this for initialization
@@ -48,6 +55,7 @@ public class ArcadeGameController : MonoBehaviour {
 
     private void Start()
     {
+        PlayerPrefs.DeleteAll();
         
         fan = GameObject.FindGameObjectWithTag("Fan").GetComponent<Fan>();;
         holster = GameObject.FindGameObjectWithTag("Holster").GetComponent<Holster>();
@@ -59,14 +67,19 @@ public class ArcadeGameController : MonoBehaviour {
         trashCan = GameObject.FindGameObjectWithTag("TrashCan").GetComponent<TrashCan>();
         fireworks = GameObject.FindGameObjectWithTag("Fireworks");
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
-
+        nightLight = GameObject.FindGameObjectWithTag("NightLight").GetComponent<Light>();
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
-        
+
     }
 
     public void StartArcadeCountdown()
     {
+        Debug.Log(nightLight.intensity);
+        if (!Mathf.Approximately(0.0f, nightLight.intensity))
+        {
+            changeSceneLight(true);
+        }
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
         scoreboard.ResetScore();
@@ -104,11 +117,64 @@ public class ArcadeGameController : MonoBehaviour {
 
         if (shouldCelebrateNewHighScore == true)
         {
-            fireworks.SetActive(true);
-            shouldCelebrateNewHighScore = false;
-            highScoreAnmator.SetVisible(true);
-            highScoreAnmator.startAnimation();
             EventManager.TriggerEvent("NewHighScore");
+            runHighScoreAnimations();
+        }
+    }
+    
+
+    private void runHighScoreAnimations()
+    {
+        fireworks.SetActive(true);
+        shouldCelebrateNewHighScore = false;
+        highScoreAnmator.SetVisible(true);
+        highScoreAnmator.startAnimation();
+        changeSceneLight(false);
+    }
+
+    private void changeSceneLight(bool day)
+    {
+        if (day)
+        {
+            RenderSettings.skybox = daySkyBox;
+            if (fadeInOutNightLightCoroutine != null)
+            {
+                StopCoroutine(fadeInOutNightLightCoroutine);
+            }
+            StartCoroutine(fadeInOutNightLight(nightLight, false, 1.5f));
+        }
+        else
+        {
+            RenderSettings.skybox = nightSkyBox;
+            fadeInOutNightLightCoroutine = StartCoroutine(fadeInOutNightLight(nightLight, true, 1.5f));
+        }
+    }
+    IEnumerator fadeInOutNightLight(Light lightToFade, bool fadeIn, float duration)
+    {
+        float minLuminosity = 0; // min intensity
+        float maxLuminosity = 30; // max intensity
+
+        float counter = 0f;
+
+        //Set Values depending on if fadeIn or fadeOut
+        float a, b;
+
+        if (fadeIn)
+        {
+            a = minLuminosity;
+            b = maxLuminosity;
+        } else
+        {
+            a = maxLuminosity;
+            b = minLuminosity;
+        }
+
+        float currentIntensity = lightToFade.intensity;
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            lightToFade.intensity = Mathf.Lerp(a, b, counter / duration);
+            yield return null;
         }
     }
     
