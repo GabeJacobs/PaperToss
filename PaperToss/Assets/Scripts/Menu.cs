@@ -16,6 +16,7 @@ public class Menu : MonoBehaviour
     public GameObject leftHandedButton;
     public GameObject rightHandedButton;
     public GameObject settingsUI;
+    public GameObject campaignMenu;
 
 
     private void Start()
@@ -28,6 +29,13 @@ public class Menu : MonoBehaviour
     {
         ArcadeGameController.instance.StartArcadeCountdown();
     }
+    
+    public void ShowCampaign()
+    {
+        gameObject.SetActive(false);
+        campaignMenu.SetActive(true);
+    }
+
 
     void ToggleShowMenu()
     {
@@ -63,7 +71,7 @@ public class Menu : MonoBehaviour
     void SetHandenessButtonStyles()
     {
         bool isLeft = Convert.ToBoolean(PlayerPrefs.GetInt("isLefty"));
-        Color darkRedColor = new Color32(106,0, 0, 255);
+        Color darkRedColor = new Color32(146,0, 0, 255);
 
         if (isLeft)
         {

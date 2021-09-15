@@ -55,7 +55,7 @@ public class ArcadeGameController : MonoBehaviour {
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
         
         fan = GameObject.FindGameObjectWithTag("Fan").GetComponent<Fan>();;
         holster = GameObject.FindGameObjectWithTag("Holster").GetComponent<Holster>();

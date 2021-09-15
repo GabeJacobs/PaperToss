@@ -24,6 +24,7 @@ TagManager:
   - Fireworks
   - PauseMenu
   - NightLight
+  - CampaignMenu
   layers:
   - Default
   - TransparentFX
