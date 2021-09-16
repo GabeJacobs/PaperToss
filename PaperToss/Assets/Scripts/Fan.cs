@@ -10,13 +10,15 @@ public class Fan : MonoBehaviour
     public GameObject fanModel;
     public GameObject windSpeedCanvas;
     public GameObject windSpeedText;
+
     public GameObject[] fanSpawnObjects;
     public int currentFanPositionIndex = 0;
     private Vector3 currentFanPosition;
     public AudioSource fanNoise;
     public FanWind fanWind;
-
     public float currentFanSpeed = 0;
+
+    public Transform trashBin;
 
     // Start is called before the first frame update
     void Start()
@@ -25,41 +27,37 @@ public class Fan : MonoBehaviour
         currentFanSpeed = 0;
         placeFanInPosition(currentFanPositionIndex);
         SetVisible(false);
+        
     }
 
     private void placeFanInPosition(int position)
     {
+
+
         currentFanPositionIndex = position;
-        if (currentFanPositionIndex == 0)
-        {
-            windSpeedText.transform.SetParent(transform.parent);
-            transform.rotation = Quaternion.Euler(0, 270, 0);
-            windSpeedText.transform.SetParent(windSpeedCanvas.transform);
-            fanWind.direction = Vector3.left;
-        }
-        else
-        {
-            windSpeedText.transform.SetParent(transform.parent);
-            transform.rotation = Quaternion.Euler(0, 90, 0);
-            windSpeedText.transform.SetParent(windSpeedCanvas.transform);
-            fanWind.direction = Vector3.right;
-        }
+        
 
         GameObject fawnPositionWaypoint = fanSpawnObjects[currentFanPositionIndex];
         transform.position = fawnPositionWaypoint.transform.position;
         currentFanPosition = transform.position;
 
+        windSpeedText.transform.SetParent(transform.parent);
+        transform.LookAt(trashBin.transform.position);
+        windSpeedText.transform.SetParent(windSpeedCanvas.transform);
+        
+        fanWind.direction = (trashBin.transform.position - transform.position).normalized;
+        
+   
     }
 
     public void ChangeFanPosition()
     {
-
-        placeFanInPosition(Random.Range(0,2));
+        placeFanInPosition(Random.Range(0,6));
     }
 
-    public void SetFanSpeedUI()
+    private void SetFanSpeedUI()
     {
-        windSpeedText.GetComponent<TextMeshProUGUI>().text = Mathf.Lerp(0.1f, 11.0f, ArcadeGameController.instance.currentFanSpeed() / 10.0f).ToString("F1");
+        windSpeedText.GetComponent<TextMeshProUGUI>().text = Mathf.Lerp(0.1f, 11.0f, GameController.instance.currentFanSpeed() / 10.0f).ToString("F1");
     }
     
     public void SetVisible(bool visible)
@@ -79,5 +77,6 @@ public class Fan : MonoBehaviour
     public void UpdateFanStrength()
     {
         fanWind.UpdateFanStrength();
+        SetFanSpeedUI();
     }
 }

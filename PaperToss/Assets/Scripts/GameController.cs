@@ -10,13 +10,20 @@ using UnityEngine.SocialPlatforms.Impl;
 using Random=UnityEngine.Random;
 using RenderSettings = UnityEngine.RenderSettings;
 
-public class ArcadeGameController : MonoBehaviour {
- 
-    public static ArcadeGameController instance { get; private set; }
+public enum GameMode
+{
+    Arcade,
+    Campaign
+}
+public class GameController : MonoBehaviour {
 
-    public bool arcadeIsRunning;
-    public bool arcadeIsPaused;
+    public static GameController instance { get; private set; }
+
+    public bool gameIsRunning;
+    public bool gameIsPaused;
+    public GameMode mode;
     public float gameDifficulty = 0;
+    public float gameDifficultyDelta = 0;
     public int gameLength;
 
     public Fan fan;
@@ -24,6 +31,8 @@ public class ArcadeGameController : MonoBehaviour {
     public GameObject menu;
     public GameObject pauseMenu;
     public GameObject highScoreUI;
+    public GameObject campaignMenu;
+    public GameObject instructionsMenu;
     public GameObject fireworks;
     public GameCountdown gameStartCountdown;
     public TimerCountdown timerCountdown;
@@ -41,6 +50,9 @@ public class ArcadeGameController : MonoBehaviour {
     [SerializeField] private Material nightSkyBox;
     [SerializeField] private Material daySkyBox;
     [SerializeField] private Light nightLight;
+    
+    private int currentLevelSelected;
+    private int currentStageSelected;
 
 
     // Use this for initialization
@@ -67,62 +79,154 @@ public class ArcadeGameController : MonoBehaviour {
         trashCan = GameObject.FindGameObjectWithTag("TrashCan").GetComponent<TrashCan>();
         fireworks = GameObject.FindGameObjectWithTag("Fireworks");
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        campaignMenu = GameObject.FindGameObjectWithTag("CampaignMenu");
+
         nightLight = GameObject.FindGameObjectWithTag("NightLight").GetComponent<Light>();
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
 
     }
 
-    public void StartArcadeCountdown()
+    public void SetUpGame(GameMode gameMode)
     {
-        Debug.Log(nightLight.intensity);
+        mode = gameMode;
+        if (gameMode == GameMode.Arcade)
+        {
+            gameDifficulty = 0;
+            gameLength = 60;
+            timerCountdown.UpdateGameLength();
+            gameDifficultyDelta = 0.7f;
+        }
+        else if (gameMode == GameMode.Campaign)
+        {
+            gameLength = 30;
+            timerCountdown.UpdateGameLength();
+            gameDifficultyDelta = 1.0f;
+            switch (currentLevelSelected)
+            {
+                case 1:
+                    gameDifficulty = 0.0f;
+                    break;
+                case 2:
+                    gameDifficulty = 0.5f;
+                    break;
+                case 3:
+                    gameDifficulty = 1.0f;
+                    break;
+                case 4:
+                    gameDifficulty = 1.5f;
+                    break;
+                case 5:
+                    gameDifficulty = 2.0f;
+                    break;
+                case 6:
+                    gameDifficulty = 2.5f;
+                    break;
+                case 7:
+                    gameDifficulty = 3.0f;
+                    break;
+                case 8:
+                    gameDifficulty = 3.5f;
+                    break;
+                case 9:
+                    gameDifficulty = 4.0f;
+                    break;
+            }
+        }
+        scoreboard.ResetScore();
+        holster.SetHolsterPosition();
+        GetNewFanSpeed();
+    }
+    
+    public void SetUpGame(GameMode gameMode, int stage, int level)
+    {
+        currentLevelSelected = level;
+        currentStageSelected = stage;
+        SetUpGame(gameMode);
+
+    }
+
+    public void StartGameCountdown()
+    {
         if (!Mathf.Approximately(0.0f, nightLight.intensity))
         {
             changeSceneLight(true);
         }
+
+        if (mode == GameMode.Campaign)
+        {
+            instructionsMenu.SetActive(false);
+            highScoreUI.SetActive(false);
+        }
+        else
+        {
+            highScoreUI.SetActive(true);
+        }
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
-        scoreboard.ResetScore();
-        fan.SetFanSpeedUI();
-        fan.UpdateFanStrength();
         fan.SetVisible(true);
         menu.SetActive(false);
         holster.SetVisible(true);
-        holster.SetHolsterPosition();
-        gameStartCountdown.StartCountdown();
         trashCan.SetVisible(true);
+        gameStartCountdown.StartCountdown();
+    }
+
+    public void ShowInstructions()
+    {
+        campaignMenu.SetActive(false);
+        instructionsMenu.SetActive(true);
     }
     public void StartArcade()
     {
-        arcadeIsPaused = false;
-        arcadeIsRunning = true;
+        gameIsPaused = false;
+        gameIsRunning = true;
         timerCountdown.BeginCountdown();
     }
-    
-    public void ArcadeFinished()
-    { 
-        arcadeIsPaused = false;
+
+    public void GameFinished()
+    {
+        timerCountdown.Reset();
         SoundManager.Instance.Play(arcadeOverClip);
-        menu.SetActive(true);
+        DestoryAllBalls();
+        gameIsPaused = false;
+        gameIsRunning = false;
+        
         holster.SetVisible(false);
         fan.SetVisible(false);
         trashCan.SetVisible(false);
-        
-        timerCountdown.Reset();
-        arcadeIsRunning = false;
-        gameDifficulty = 0;
-        fan.currentFanSpeed = 0;
-        fan.UpdateFanStrength();
-        DestoryAllBalls();
 
-        if (shouldCelebrateNewHighScore == true)
+        if (mode == GameMode.Arcade)
         {
-            EventManager.TriggerEvent("NewHighScore");
-            runHighScoreAnimations();
+            if (shouldCelebrateNewHighScore == true)
+            {
+                EventManager.TriggerEvent("NewHighScore");
+                runHighScoreAnimations();
+            }
+            menu.SetActive(true);
+        }
+        else if (mode == GameMode.Campaign)
+        {
+            checkFinalScore();
+            campaignMenu.SetActive(true);
         }
     }
-    
 
+    private void checkFinalScore()
+    {
+        if (currentLevelSelected != 9)
+        {
+            if (scoreboard.score >= 5)
+            {
+                UnlockLevel(currentStageSelected, currentLevelSelected + 1);
+            }   
+        }
+    }
+
+    private void UnlockLevel(int stage, int level)
+    {
+        PlayerPrefs.SetInt(stage.ToString() +"-" + level.ToString(), 1);
+        EventManager.TriggerEvent("CheckLevelUnlocks");
+    }
     private void runHighScoreAnimations()
     {
         fireworks.SetActive(true);
@@ -141,7 +245,7 @@ public class ArcadeGameController : MonoBehaviour {
             {
                 StopCoroutine(fadeInOutNightLightCoroutine);
             }
-            StartCoroutine(fadeInOutNightLight(nightLight, false, 1.5f));
+            StartCoroutine(fadeInOutNightLight(nightLight, false, 0.5f));
         }
         else
         {
@@ -199,13 +303,11 @@ public class ArcadeGameController : MonoBehaviour {
 
     void updateAfterScore()
     {
-        bool gotNewHighScore = CheckSaveHighScore(scoreboard.score);
-        
-        increaseGameDifficulty();
-        fan.ChangeFanPosition();
-        fan.SetFanSpeedUI();
-
-
+        if (mode == GameMode.Arcade)
+        {
+            IncreaseGameDifficulty();
+            bool gotNewHighScore = CheckSaveHighScore(scoreboard.score);
+        }
         if (ShouldShowGoldBall())
         {
             holster.SetNextBallToBeGold();
@@ -214,7 +316,8 @@ public class ArcadeGameController : MonoBehaviour {
         {
             holster.SetNextBallToBeNormal();
         }
-        
+        GetNewFanSpeed();
+        fan.ChangeFanPosition();
     }
 
     private bool ShouldShowGoldBall()
@@ -227,11 +330,17 @@ public class ArcadeGameController : MonoBehaviour {
         return false;
     }
 
-    private void increaseGameDifficulty()
+    private void IncreaseGameDifficulty()
     {
         gameDifficulty += 0.4f;
-        fan.currentFanSpeed = Random.Range(Mathf.Clamp(gameDifficulty - 0.7f, 0.1f, 10.0f), Mathf.Clamp(gameDifficulty + 0.7f, 0.1f, 10.0f));
+    }
+
+    private void GetNewFanSpeed()
+    {
+        Debug.Log(gameDifficulty);
+        fan.currentFanSpeed = Random.Range(Mathf.Clamp(gameDifficulty - gameDifficultyDelta, 0.1f, 10.0f), Mathf.Clamp(gameDifficulty + gameDifficultyDelta, 0.1f, 10.0f));
         fan.UpdateFanStrength();
+
     }
     
     private bool CheckSaveHighScore(int newScore)
@@ -269,7 +378,7 @@ public class ArcadeGameController : MonoBehaviour {
     public void PauseGame()
     {
         timerCountdown.PauseCountdown();
-        arcadeIsPaused = true;
+        gameIsPaused = true;
         
         fan.SetVisible(false);
         holster.SetVisible(false);
@@ -279,13 +388,13 @@ public class ArcadeGameController : MonoBehaviour {
     
     public void ResumeGame()
     {
-        arcadeIsPaused = false;
+        gameIsPaused = false;
         timerCountdown.BeginCountdown();
         
         holster.SetVisible(true);
         fan.SetVisible(true);
         trashCan.SetVisible(true);
-
     }
+
 
 }

@@ -9,7 +9,6 @@ public class TimerCountdown : MonoBehaviour
     public Text textDisplay;
     public bool takingAway = false;
     public bool shouldCountDown = false;
-
     private int secondsLeft;
 
     // Start is called before the first frame update
@@ -21,7 +20,12 @@ public class TimerCountdown : MonoBehaviour
 
     void Start()
     {
-        SetClock(ArcadeGameController.instance.gameLength);
+        SetClock(GameController.instance.gameLength);
+    }
+
+    public void UpdateGameLength()
+    {
+        SetClock(GameController.instance.gameLength);
     }
 
     // Update is called once per frame
@@ -41,7 +45,7 @@ public class TimerCountdown : MonoBehaviour
         takingAway = false;
         if (secondsLeft == 0)
         {
-            ArcadeGameController.instance.ArcadeFinished();
+            GameController.instance.GameFinished();
         }
     }
 
@@ -56,7 +60,7 @@ public class TimerCountdown : MonoBehaviour
 
     public void Reset()
     {
-        SetClock(ArcadeGameController.instance.gameLength);
+        SetClock(GameController.instance.gameLength);
         takingAway = false;
         shouldCountDown = false;
     }

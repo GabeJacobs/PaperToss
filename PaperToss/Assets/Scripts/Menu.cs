@@ -27,7 +27,8 @@ public class Menu : MonoBehaviour
 
     public void StartArcade()
     {
-        ArcadeGameController.instance.StartArcadeCountdown();
+        GameController.instance.SetUpGame(GameMode.Arcade);
+        GameController.instance.StartGameCountdown();
     }
     
     public void ShowCampaign()

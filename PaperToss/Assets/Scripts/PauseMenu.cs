@@ -35,14 +35,14 @@ public class PauseMenu : MonoBehaviour
     
     void Toggle(InputAction.CallbackContext context)
     {
-        if (ArcadeGameController.instance.arcadeIsRunning == true && ArcadeGameController.instance.arcadeIsPaused)
+        if (GameController.instance.gameIsRunning == true && GameController.instance.gameIsPaused)
         {
             Resume();
         }
-        else if (ArcadeGameController.instance.arcadeIsRunning == true )
+        else if (GameController.instance.gameIsRunning == true )
         {
             SetVisible(!isVisible);
-            ArcadeGameController.instance.PauseGame();
+            GameController.instance.PauseGame();
         }
     }
     
@@ -71,13 +71,13 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         SetVisible(false);
-        ArcadeGameController.instance.ResumeGame();
+        GameController.instance.ResumeGame();
 
     }
     
     public void Exit()
     {
         SetVisible(false);
-        ArcadeGameController.instance.ArcadeFinished();
+        GameController.instance.GameFinished();
     }
 }

@@ -16,7 +16,7 @@ public class FanRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate (0,Mathf.Lerp(100,2000, fanStrength) * Time.deltaTime,0); //rotates 50 degrees per second around z axis
+        transform.Rotate (0,Mathf.Lerp(100,3000, fanStrength) * Time.deltaTime,0); 
 
     }
 }

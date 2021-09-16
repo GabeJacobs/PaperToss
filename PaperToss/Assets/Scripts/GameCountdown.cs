@@ -69,7 +69,7 @@ public class GameCountdown : MonoBehaviour
     IEnumerator PlayBeginGameThenGo(){
         audioSource.clip = clips[1];
         yield return StartCoroutine(PlayBeginGameClip());
-        ArcadeGameController.instance.StartArcade();
+        GameController.instance.StartArcade();
         StopAllCoroutines();
         gameClockTxt.enabled = false;
         //do something

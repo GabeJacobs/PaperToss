@@ -63,8 +63,6 @@ public class Holster : MonoBehaviour
     
     public void SetHolsterPosition()
     {
-        Debug.Log("setting holster position");
-        
         if (isLefty != Convert.ToBoolean(PlayerPrefs.GetInt("isLefty")))
         {
             Debug.Log("changed hands");

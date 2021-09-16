@@ -13,20 +13,23 @@ public class TrashCan : MonoBehaviour {
     // Start is called before the first frame update
     
     private void OnTriggerEnter(Collider other) {
-        if (ArcadeGameController.instance.arcadeIsRunning && !ArcadeGameController.instance.arcadeIsPaused)
+        if (GameController.instance.gameIsRunning && !GameController.instance.gameIsPaused)
         {
             if (other.tag == "Ball")
             {
-                if (other.GetComponent<Ball>().isGoldBall == true)
+                if (!other.gameObject.GetComponent<Ball>().isInBasket)
                 {
-                    ArcadeGameController.instance.PlayerDidScoreGoldBall(); 
-                    other.gameObject.GetComponent<Ball>().isInBasket = true;
+                    if (other.GetComponent<Ball>().isGoldBall == true)
+                    {
+                        GameController.instance.PlayerDidScoreGoldBall(); 
+                        other.gameObject.GetComponent<Ball>().isInBasket = true;
                      
-                }
-                else
-                {
-                    ArcadeGameController.instance.PlayerDidScore();
-                    other.gameObject.GetComponent<Ball>().isInBasket = true;
+                    }
+                    else
+                    {
+                        GameController.instance.PlayerDidScore();
+                        other.gameObject.GetComponent<Ball>().isInBasket = true;
+                    }
                 }
             }
         }

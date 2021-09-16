@@ -25,6 +25,7 @@ TagManager:
   - PauseMenu
   - NightLight
   - CampaignMenu
+  - InstructionsMenu
   layers:
   - Default
   - TransparentFX
