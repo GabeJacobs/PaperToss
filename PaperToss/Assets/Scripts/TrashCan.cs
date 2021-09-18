@@ -109,6 +109,7 @@ public class TrashCan : MonoBehaviour
         oscilating = false;
         StopCoroutine(FollowPath(waypointsA));
         transform.position = defaultPositon.position;
+        Debug.Log("stop oscilations");
     }
 
 }
