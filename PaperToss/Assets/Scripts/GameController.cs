@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour {
     public AudioClip pointClip;
     public AudioClip goldPointClip;
     public AudioClip arcadeOverClip;
+    public AudioClip winBellClip;
 
     private bool shouldCelebrateNewHighScore;
     private Coroutine fadeInOutNightLightCoroutine;
@@ -53,6 +54,9 @@ public class GameController : MonoBehaviour {
     
     private int currentLevelSelected;
     private int currentStageSelected;
+    public int scoreRequiredToComplete = 10;
+    public int arcadeTimeLength = 60;
+    public int campaignTimeLength = 60;
 
 
     // Use this for initialization
@@ -93,13 +97,13 @@ public class GameController : MonoBehaviour {
         if (gameMode == GameMode.Arcade)
         {
             gameDifficulty = 0;
-            gameLength = 60;
+            gameLength = arcadeTimeLength;
             timerCountdown.UpdateGameLength();
             gameDifficultyDelta = 0.7f;
         }
         else if (gameMode == GameMode.Campaign)
         {
-            gameLength = 30;
+            gameLength = campaignTimeLength;
             timerCountdown.UpdateGameLength();
             gameDifficultyDelta = 1.0f;
             switch (currentLevelSelected)
@@ -135,6 +139,10 @@ public class GameController : MonoBehaviour {
         }
         scoreboard.ResetScore();
         holster.SetHolsterPosition();
+        if (currentStageSelected == 2)
+        {
+            trashCan.BeginOscilation();
+        }
         GetNewFanSpeed();
     }
     
@@ -148,9 +156,14 @@ public class GameController : MonoBehaviour {
 
     public void StartGameCountdown()
     {
-        if (!Mathf.Approximately(0.0f, nightLight.intensity))
+        if (mode == GameMode.Arcade && !Mathf.Approximately(0.0f, nightLight.intensity))
         {
             changeSceneLight(true);
+        }
+
+        if (currentStageSelected == 2)
+        {
+            changeSceneLight(false);
         }
 
         if (mode == GameMode.Campaign)
@@ -185,8 +198,21 @@ public class GameController : MonoBehaviour {
 
     public void GameFinished()
     {
+        if (mode == GameMode.Arcade)
+        {
+            SoundManager.Instance.Play(arcadeOverClip);
+        } else 
+        {
+            if (scoreboard.score >= scoreRequiredToComplete)
+            {
+                SoundManager.Instance.Play(winBellClip);
+            }
+            else
+            {
+                SoundManager.Instance.Play(arcadeOverClip);
+            }
+        }
         timerCountdown.Reset();
-        SoundManager.Instance.Play(arcadeOverClip);
         DestoryAllBalls();
         gameIsPaused = false;
         gameIsRunning = false;
@@ -209,23 +235,39 @@ public class GameController : MonoBehaviour {
             checkFinalScore();
             campaignMenu.SetActive(true);
         }
+        trashCan.StopOscilation();
     }
 
     private void checkFinalScore()
     {
         if (currentLevelSelected != 9)
         {
-            if (scoreboard.score >= 5)
+            if (scoreboard.score >= scoreRequiredToComplete)
             {
+                CompleteLevel(currentStageSelected, currentLevelSelected );
                 UnlockLevel(currentStageSelected, currentLevelSelected + 1);
             }   
+        } else if (scoreboard.score >= scoreRequiredToComplete)
+        {
+            CompleteLevel(currentStageSelected, currentLevelSelected);
+            UnlockLevel(currentStageSelected+1, 1);
+
         }
     }
 
     private void UnlockLevel(int stage, int level)
     {
+        Debug.Log("unlocking level: " + stage.ToString() +"-" + level.ToString());
         PlayerPrefs.SetInt(stage.ToString() +"-" + level.ToString(), 1);
         EventManager.TriggerEvent("CheckLevelUnlocks");
+    }
+    
+    private void CompleteLevel(int stage, int level)
+    {
+        Debug.Log("completed level: " + stage.ToString() +"-" + level.ToString());
+
+        PlayerPrefs.SetInt(stage.ToString() +"-" + level.ToString()+"complete", 1);
+        EventManager.TriggerEvent("CheckLevelCompletes");
     }
     private void runHighScoreAnimations()
     {
@@ -287,18 +329,23 @@ public class GameController : MonoBehaviour {
         menu.SetActive(!menu.activeSelf);
     }
     
-    public void PlayerDidScore()
+    public void PlayerDidScore(bool gold)
     {
-        SoundManager.Instance.Play(pointClip);
-        scoreboard.PlayerScored();
+        if (gold)
+        {
+            SoundManager.Instance.Play(goldPointClip);
+            scoreboard.PlayerScored(true);
+        }
+        else
+        {
+            SoundManager.Instance.Play(pointClip);
+            scoreboard.PlayerScored(false);            
+        }
         updateAfterScore();
-    }
-    
-    public void PlayerDidScoreGoldBall()
-    {
-        SoundManager.Instance.Play(goldPointClip);
-        scoreboard.PlayerScoredGold();
-        updateAfterScore();
+        if (mode == GameMode.Campaign && scoreboard.score >= scoreRequiredToComplete)
+        {
+            GameFinished();
+        }
     }
 
     void updateAfterScore()

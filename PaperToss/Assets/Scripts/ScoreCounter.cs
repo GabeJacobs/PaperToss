@@ -25,17 +25,18 @@ public class ScoreCounter : MonoBehaviour
       
     }
 
-    public void PlayerScored()
+    public void PlayerScored(bool gold)
     {
-        score++;
+        if (gold)
+        {
+            score+=3;
+        }
+        else
+        {
+            score++;
+        }
         textDisplay.text = score.ToString();
     }
-    public void PlayerScoredGold()
-    {
-        score+=3;
-        textDisplay.text = score.ToString();
-    }
-
     public void ResetScore()
     {
         score = 0;

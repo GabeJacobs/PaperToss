@@ -10,28 +10,35 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private int stage;
     [SerializeField] private int level;
     [SerializeField] private bool unlocked;
+    [SerializeField] private bool completed;
+
     public GameObject[] stars;
     
     [SerializeField] private GameObject lockIcon;
     [SerializeField] private GameObject numberText;
     [SerializeField] private Button button;
+    [SerializeField] private GameObject completedIcon;
 
 
     private void Awake()
     {
         EventManager.StartListening("CheckLevelUnlocks", CheckUnlock);
+        EventManager.StartListening("CheckLevelCompletes", CheckComplete);
+
     }
 
     private void OnDestroy()
     {
         EventManager.StopListening("CheckLevelUnlocks", CheckUnlock);
+        EventManager.StopListening("CheckLevelCompletes", CheckComplete);
 
-        
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        CheckUnlock();
+        CheckComplete();
         CheckUI();
     }
 
@@ -63,13 +70,21 @@ public class LevelSelection : MonoBehaviour
             lockIcon.SetActive(true);
             numberText.SetActive(false);
         }
+
+        if (completed)
+        {
+            completedIcon.SetActive(true);
+        }
+        else
+        {
+            completedIcon.SetActive(false);
+        }
     }
 
     public void StartLevel()
     {
         if (unlocked)
         {
-            Debug.Log("start level");
             GameController.instance.SetUpGame(GameMode.Campaign, stage, level);
             GameController.instance.ShowInstructions();
         }
@@ -81,18 +96,22 @@ public class LevelSelection : MonoBehaviour
 
     private void CheckUnlock()
     {
-        if (level != 1)
+        if (stage > 1 || level > 1)
         {
             int unlockedInt = PlayerPrefs.GetInt(stage.ToString()+ "-" + level.ToString());
-            if (unlockedInt == 1)
-            {
-                unlocked = true;
-            }
-            else
-            {
-                unlocked = false;
-            }
+            unlocked = (unlockedInt == 1);
+            // Debug.Log(stage.ToString()+ "-" + level.ToString() + " --- " + unlocked);
+            // Debug.Log(stage.ToString()+ "-" + level.ToString() + " --- " + unlockedInt);
             CheckUI();   
         }
     }
+    private void CheckComplete()
+    {
+        int completeInt = PlayerPrefs.GetInt(stage.ToString()+ "-" + level.ToString()+"complete");
+        completed = (completeInt == 1);
+        // Debug.Log(stage.ToString()+ "-" + level.ToString() + " --- " + completed);
+        // Debug.Log(stage.ToString()+ "-" + level.ToString() + " --- " + completeInt);
+        CheckUI();
+    }
+    
 }
