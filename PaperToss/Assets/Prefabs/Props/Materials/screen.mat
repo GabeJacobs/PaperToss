@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: screen
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: TCP2_DISABLE_WRAPPED_LIGHT
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -155,7 +155,7 @@ Material:
     - _outline_tint: 0.5
     - _outline_width: 0.2
     m_Colors:
-    - _BaseColor: {r: 0.2087478, g: 0.8602941, b: 0.8333335, a: 1}
+    - _BaseColor: {r: 0.6224279, g: 0.87332946, b: 0.8867924, a: 1}
     - _Color: {r: 0.20874783, g: 0.8602941, b: 0.8333335, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}

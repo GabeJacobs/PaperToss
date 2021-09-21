@@ -10,10 +10,11 @@ public class TrashCan : MonoBehaviour
 
     public Transform waypointHolderA;
     public bool oscilating;
-    public float speed = 5;
+    public float speed;
     public float waitTime = .3f;
     public Transform defaultPositon;
     private Vector3[] waypointsA;
+    private Coroutine followPathCrt;
 
     private void OnDrawGizmos()
     {
@@ -100,14 +101,14 @@ public class TrashCan : MonoBehaviour
         if (!oscilating)
         {
             oscilating = true;
-            StartCoroutine(FollowPath(waypointsA));
+            followPathCrt = StartCoroutine(FollowPath(waypointsA));
         }
     }
     
     public void StopOscilation()
     {
         oscilating = false;
-        StopCoroutine(FollowPath(waypointsA));
+        StopCoroutine(followPathCrt);
         transform.position = defaultPositon.position;
         Debug.Log("stop oscilations");
     }

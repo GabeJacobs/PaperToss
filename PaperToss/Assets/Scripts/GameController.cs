@@ -15,12 +15,18 @@ public enum GameMode
     Arcade,
     Campaign
 }
+public enum LightMode
+{
+    Day,
+    Night
+}
 public class GameController : MonoBehaviour {
 
     public static GameController instance { get; private set; }
 
     public bool gameIsRunning;
     public bool gameIsPaused;
+    public LightMode lightMode;
     public GameMode mode;
     public float gameDifficulty = 0;
     public float gameDifficultyDelta = 0;
@@ -88,6 +94,7 @@ public class GameController : MonoBehaviour {
         nightLight = GameObject.FindGameObjectWithTag("NightLight").GetComponent<Light>();
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
+        lightMode = LightMode.Day;
 
     }
 
@@ -156,12 +163,11 @@ public class GameController : MonoBehaviour {
 
     public void StartGameCountdown()
     {
-        if (mode == GameMode.Arcade && !Mathf.Approximately(0.0f, nightLight.intensity))
+        if (mode == GameMode.Arcade || currentStageSelected == 1) 
         {
             changeSceneLight(true);
         }
-
-        if (currentStageSelected == 2)
+        else
         {
             changeSceneLight(false);
         }
@@ -232,13 +238,18 @@ public class GameController : MonoBehaviour {
         }
         else if (mode == GameMode.Campaign)
         {
-            checkFinalScore();
+            bool levelCompleted = checkFinalScore();
             campaignMenu.SetActive(true);
+            if(levelCompleted && (currentStageSelected == 2 && currentLevelSelected == 9))
+            {
+                runBeatGame();
+            }
+
         }
         trashCan.StopOscilation();
     }
 
-    private void checkFinalScore()
+    private bool checkFinalScore()
     {
         if (currentLevelSelected != 9)
         {
@@ -251,8 +262,17 @@ public class GameController : MonoBehaviour {
         {
             CompleteLevel(currentStageSelected, currentLevelSelected);
             UnlockLevel(currentStageSelected+1, 1);
-
         }
+
+        if (scoreboard.score >= scoreRequiredToComplete)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     private void UnlockLevel(int stage, int level)
@@ -277,9 +297,27 @@ public class GameController : MonoBehaviour {
         highScoreAnmator.startAnimation();
         changeSceneLight(false);
     }
+    private void runBeatGame()
+    {
+        fireworks.SetActive(true);
+        changeSceneLight(false);
+    }
 
     private void changeSceneLight(bool day)
     {
+        if ((day && lightMode == LightMode.Day) || (!day && lightMode == LightMode.Night))
+        {
+            return;
+        }
+        if (day)
+        {
+            lightMode = LightMode.Day;
+        }
+        else
+        {
+            lightMode = LightMode.Night;
+        }
+        
         if (day)
         {
             RenderSettings.skybox = daySkyBox;
@@ -297,10 +335,9 @@ public class GameController : MonoBehaviour {
     }
     IEnumerator fadeInOutNightLight(Light lightToFade, bool fadeIn, float duration)
     {
-        float minLuminosity = 0; // min intensity
-        float maxLuminosity = 30; // max intensity
-
-        float counter = 0f;
+        float minLuminosity = 0.0f; // min intensity
+        float maxLuminosity = 20.0f; // max intensity
+        float counter = 0.0f;
 
         //Set Values depending on if fadeIn or fadeOut
         float a, b;
@@ -384,7 +421,6 @@ public class GameController : MonoBehaviour {
 
     private void GetNewFanSpeed()
     {
-        Debug.Log(gameDifficulty);
         fan.currentFanSpeed = Random.Range(Mathf.Clamp(gameDifficulty - gameDifficultyDelta, 0.1f, 10.0f), Mathf.Clamp(gameDifficulty + gameDifficultyDelta, 0.1f, 10.0f));
         fan.UpdateFanStrength();
 
