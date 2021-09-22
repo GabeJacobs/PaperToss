@@ -34,17 +34,20 @@ public class GameController : MonoBehaviour {
 
     public Fan fan;
     public Holster holster;
+    public TrashCan trashCan;
+    
     public GameObject menu;
     public GameObject pauseMenu;
     public GameObject highScoreUI;
     public GameObject campaignMenu;
-    public GameObject instructionsMenu;
-    public GameObject fireworks;
-    public GameCountdown gameStartCountdown;
-    public TimerCountdown timerCountdown;
+    public GameObject campaignInstructionsUI;
     public ScoreCounter scoreboard;
-    public TrashCan trashCan;
+    public TimerCountdown timerCountdown;
+    public GameCountdown gameStartCountdown;
+    public GameObject howToPlayIUI;
+
     public HighScoreTextAnimator highScoreAnmator;
+    public GameObject fireworks;
 
     public AudioClip pointClip;
     public AudioClip goldPointClip;
@@ -104,6 +107,18 @@ public class GameController : MonoBehaviour {
         highScoreAnmator.SetVisible(false);
         lightMode = LightMode.Day;
 
+        int readGameInstructions = PlayerPrefs.GetInt("ReadGameInstructions", 0);
+        if (readGameInstructions == 0)
+        {
+            PlayerPrefs.SetInt("ReadGameInstructions", 1);
+            howToPlayIUI.SetActive(true);
+            menu.SetActive(false);   
+        }
+        else
+        {
+            howToPlayIUI.SetActive(false);
+            menu.SetActive(true);
+        }
     }
 
     public void SetUpGame(GameMode gameMode)
@@ -154,10 +169,14 @@ public class GameController : MonoBehaviour {
         }
         scoreboard.ResetScore();
         holster.SetHolsterPosition();
-        if (currentStageSelected == 2)
+        if (currentStageSelected == 2 && currentLevelSelected <= 4)
         {
-            trashCan.BeginOscilation();
+            trashCan.StartAnimating(AnimationPathStyle.Line);
+        } else if (currentStageSelected == 2 && currentLevelSelected > 4)
+        {
+            trashCan.StartAnimating(AnimationPathStyle.Hexagon);
         }
+
         GetNewFanSpeed();
     }
     
@@ -199,7 +218,7 @@ public class GameController : MonoBehaviour {
 
         if (mode == GameMode.Campaign)
         {
-            instructionsMenu.SetActive(false);
+            campaignInstructionsUI.SetActive(false);
             highScoreUI.SetActive(false);
         }
         else
@@ -219,7 +238,7 @@ public class GameController : MonoBehaviour {
     public void ShowInstructions()
     {
         campaignMenu.SetActive(false);
-        instructionsMenu.SetActive(true);
+        campaignInstructionsUI.SetActive(true);
     }
     public void StartArcade()
     {
@@ -272,7 +291,7 @@ public class GameController : MonoBehaviour {
             }
 
         }
-        trashCan.StopOscilation();
+        trashCan.StopAnimating();
         trashCan.hideGlow();
 
         bossAnimator.SetBool("StartBossWalk", false);
@@ -509,6 +528,13 @@ public class GameController : MonoBehaviour {
         holster.SetVisible(true);
         fan.SetVisible(true);
         trashCan.SetVisible(true);
+    }
+
+    public void ReadHowToPlayInstructions()
+    {
+        PlayerPrefs.SetInt("ReadGameInstructions", 1);
+        howToPlayIUI.SetActive(false);
+        menu.SetActive(true);
     }
 
 

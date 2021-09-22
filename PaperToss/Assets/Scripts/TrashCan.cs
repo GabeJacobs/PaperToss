@@ -5,23 +5,31 @@ using Unity.Mathematics;
 using UnityEngine;
 using Random = System.Random;
 
+public enum AnimationPathStyle{
+    Line,
+    Box,
+    Hexagon
+}
+
 public class TrashCan : MonoBehaviour
 {
     public GameObject glowEffect;
     public Transform waypointHolderA;
-    public bool oscilating;
+    public Transform waypointHolderB;
+    private Vector3[] waypointsLine;
+    private Vector3[] waypointsHexagon;
+    public bool animatingPosition;
     
     public float speed;
     public float waitTime = .3f;
     public Transform defaultPositon;
-    private Vector3[] waypointsA;
     private Coroutine followPathCrt;
 
     private void OnDrawGizmos()
     {
-        Vector3 startPosition = waypointHolderA.GetChild(0).position;
+        Vector3 startPosition = waypointHolderB.GetChild(0).position;
         Vector3 prevPosition = startPosition;
-        foreach (Transform waypoint in waypointHolderA)
+        foreach (Transform waypoint in waypointHolderB)
         {
             Gizmos.DrawSphere(waypoint.position, .3f);
             Gizmos.DrawLine(prevPosition, waypoint.position);
@@ -33,10 +41,15 @@ public class TrashCan : MonoBehaviour
     private void Start()
     {
         SetVisible(false);
-        waypointsA = new Vector3[waypointHolderA.childCount];
-        for (int i = 0; i < waypointsA.Length; i++)
+        waypointsLine = new Vector3[waypointHolderA.childCount];
+        for (int i = 0; i < waypointsLine.Length; i++)
         {
-            waypointsA[i] = waypointHolderA.GetChild(i).position;
+            waypointsLine[i] = waypointHolderA.GetChild(i).position;
+        }
+        waypointsHexagon = new Vector3[waypointHolderB.childCount];
+        for (int i = 0; i < waypointsHexagon.Length; i++)
+        {
+            waypointsHexagon[i] = waypointHolderB.GetChild(i).position;
         }
     }
     // Start is called before the first frame update
@@ -97,24 +110,29 @@ public class TrashCan : MonoBehaviour
         }
     }
     
-    public void BeginOscilation()
+    public void StartAnimating(AnimationPathStyle pathStyle)
     {
-        if (!oscilating)
+        Vector3[] waypoints = waypointsLine;
+        if(pathStyle == AnimationPathStyle.Hexagon)
         {
-            oscilating = true;
-            followPathCrt = StartCoroutine(FollowPath(waypointsA));
+            waypoints = waypointsHexagon;
+        }
+        if (!animatingPosition)
+        {
+            animatingPosition = true;
+            followPathCrt = StartCoroutine(FollowPath(waypoints));
         }
     }
     
-    public void StopOscilation()
+    public void StopAnimating()
     {
-        oscilating = false;
+        animatingPosition = false;
         if (followPathCrt != null)
         {
             StopCoroutine(followPathCrt);
         }
         transform.position = defaultPositon.position;
-        Debug.Log("stop oscilations");
+        Debug.Log("stop animating trash");
     }
     
     public void showGlow()

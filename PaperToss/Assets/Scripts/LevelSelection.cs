@@ -96,10 +96,11 @@ public class LevelSelection : MonoBehaviour
 
     private void CheckUnlock()
     {
-        if (stage > 1 || level > 1)
+        if (level > 1)
         {
             int unlockedInt = PlayerPrefs.GetInt(stage.ToString()+ "-" + level.ToString());
             unlocked = (unlockedInt == 1);
+            // Debug.Log("stage : " + stage + "level: " + level + "completed: " + completed);
             // Debug.Log(stage.ToString()+ "-" + level.ToString() + " --- " + unlocked);
             // Debug.Log(stage.ToString()+ "-" + level.ToString() + " --- " + unlockedInt);
             CheckUI();   
@@ -109,6 +110,7 @@ public class LevelSelection : MonoBehaviour
     {
         int completeInt = PlayerPrefs.GetInt(stage.ToString()+ "-" + level.ToString()+"complete");
         completed = (completeInt == 1);
+        // Debug.Log("stage : " + stage + "level: " + level + "completed: " + completed);
         // Debug.Log(stage.ToString()+ "-" + level.ToString() + " --- " + completed);
         // Debug.Log(stage.ToString()+ "-" + level.ToString() + " --- " + completeInt);
         CheckUI();
