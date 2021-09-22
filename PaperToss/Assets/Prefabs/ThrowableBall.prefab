@@ -149,6 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInBasket: 0
   isInHolster: 0
+  isGoldBall: 0
+  goldMaterial: {fileID: 0}
+  normalMaterial: {fileID: 0}
 --- !u!114 &965833969347281928
 MonoBehaviour:
   m_ObjectHideFlags: 0

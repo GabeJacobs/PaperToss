@@ -50,6 +50,14 @@ public class GameController : MonoBehaviour {
     public AudioClip goldPointClip;
     public AudioClip arcadeOverClip;
     public AudioClip winBellClip;
+    public AudioClip paranormalClip;
+    public AudioSource backgroundMusic;
+    public AudioClip lightMusic;
+    public AudioClip darkMusic;
+
+    public Animator ghostAnimator;
+    public Animator bossAnimator;
+
 
     private bool shouldCelebrateNewHighScore;
     private Coroutine fadeInOutNightLightCoroutine;
@@ -166,10 +174,27 @@ public class GameController : MonoBehaviour {
         if (mode == GameMode.Arcade || currentStageSelected == 1) 
         {
             changeSceneLight(true);
+            if (backgroundMusic.clip != lightMusic)
+            {
+                backgroundMusic.clip = lightMusic;
+                backgroundMusic.Play();                
+            }
+            Debug.Log("StartBossWalk true");
+            bossAnimator.playbackTime = 0;
+            bossAnimator.Update(0);
+            bossAnimator.SetBool("StartBossWalk", true);
         }
         else
         {
             changeSceneLight(false);
+            if (backgroundMusic.clip != darkMusic)
+            {
+                backgroundMusic.clip = darkMusic;
+                backgroundMusic.Play();     
+            }
+            SoundManager.Instance.Play(paranormalClip);
+            trashCan.showGlow();;
+            ghostAnimator.SetBool("WalkIn", true);
         }
 
         if (mode == GameMode.Campaign)
@@ -188,6 +213,7 @@ public class GameController : MonoBehaviour {
         holster.SetVisible(true);
         trashCan.SetVisible(true);
         gameStartCountdown.StartCountdown();
+
     }
 
     public void ShowInstructions()
@@ -247,6 +273,12 @@ public class GameController : MonoBehaviour {
 
         }
         trashCan.StopOscilation();
+        trashCan.hideGlow();
+
+        bossAnimator.SetBool("StartBossWalk", false);
+        Debug.Log("StartBossWalk false");
+
+        ghostAnimator.SetBool("WalkIn", false);
     }
 
     private bool checkFinalScore()

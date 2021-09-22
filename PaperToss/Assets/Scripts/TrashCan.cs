@@ -7,9 +7,10 @@ using Random = System.Random;
 
 public class TrashCan : MonoBehaviour
 {
-
+    public GameObject glowEffect;
     public Transform waypointHolderA;
     public bool oscilating;
+    
     public float speed;
     public float waitTime = .3f;
     public Transform defaultPositon;
@@ -108,9 +109,22 @@ public class TrashCan : MonoBehaviour
     public void StopOscilation()
     {
         oscilating = false;
-        StopCoroutine(followPathCrt);
+        if (followPathCrt != null)
+        {
+            StopCoroutine(followPathCrt);
+        }
         transform.position = defaultPositon.position;
         Debug.Log("stop oscilations");
+    }
+    
+    public void showGlow()
+    {
+        glowEffect.SetActive(true);
+    }
+    
+    public void hideGlow()
+    {
+        glowEffect.SetActive(false);
     }
 
 }
