@@ -25,6 +25,8 @@ TagManager:
   - PauseMenu
   - NightLight
   - CampaignMenu
+  - CampaignInstructionsUI
+  - HowToPlayUI
   - InstructionsMenu
   layers:
   - Default
