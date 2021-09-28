@@ -198,10 +198,7 @@ public class GameController : MonoBehaviour {
                 backgroundMusic.clip = lightMusic;
                 backgroundMusic.Play();                
             }
-            Debug.Log("StartBossWalk true");
-            bossAnimator.playbackTime = 0;
-            bossAnimator.Update(0);
-            bossAnimator.SetBool("StartBossWalk", true);
+            PTCharacterController.instance.startBossWalk();
         }
         else
         {

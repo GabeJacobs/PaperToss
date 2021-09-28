@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Wood
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: OUTLINES TCP2_COLORS_AS_NORMALS TCP2_DISABLE_WRAPPED_LIGHT TCP2_OUTLINE_TEXTURED
+    TCP2_ZSMOOTH_ON _ISGRASS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -199,7 +200,7 @@ Material:
     - _outline_width: 0.2
     m_Colors:
     - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 0.8113208, g: 0.2940952, b: 0.28625846, a: 1}
+    - _BaseColor: {r: 0.6397059, g: 0.30899996, b: 0.23799995, a: 1}
     - _Color: {r: 0.6397059, g: 0.309, b: 0.238, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
@@ -213,7 +214,7 @@ Material:
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _outline_color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &7292855723891061661
+--- !u!114 &394956007417966959
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

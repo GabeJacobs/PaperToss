@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 0062f4a346cb14744afc42398b24d40a
+guid: 8ce8a892f40254e4b8fb7411a4f50c68
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Angry Point
+    second: Walking
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Angry Point
+      name: Walking
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 73
+      lastFrame: 31
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
