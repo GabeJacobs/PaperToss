@@ -6,7 +6,8 @@ using UnityEngine;
 public class PTCharacterController : MonoBehaviour
 {
     public static PTCharacterController instance { get; private set; }
-    public Animator bossAnimator;
+    public MovingCharacter BossCharacter;
+
     void Awake () {
         if (instance == null) {
             instance = this;
@@ -19,14 +20,13 @@ public class PTCharacterController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("entered trigger");
-        bossAnimator.SetBool("ShouldWalk", false);
-
+        BossCharacter.StopAndDoLeftTurn();;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        startBossWalk();
     }
 
     // Update is called once per frame
@@ -37,7 +37,8 @@ public class PTCharacterController : MonoBehaviour
 
     public void startBossWalk()
     {
-
-        bossAnimator.SetBool("ShouldWalk", true);
+        BossCharacter.animator.SetBool("Walking", true);
     }
+
+   
 }

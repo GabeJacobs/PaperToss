@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: b67951e9c5f77ce4a85589fb7b4f3c5b
+guid: 3de359de216a6bc46b7a93115e7d68fb
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Left Turn (2)
+    second: Left Turn 90 (1)
   - first:
-      74: -5289295452376557469
-    second: Left Turn
+      74: 2992309951595722431
+    second: Left Turn 90
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -38,18 +38,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Left Turn
+      name: Left Turn 90
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

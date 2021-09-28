@@ -198,7 +198,6 @@ public class GameController : MonoBehaviour {
                 backgroundMusic.clip = lightMusic;
                 backgroundMusic.Play();                
             }
-            PTCharacterController.instance.startBossWalk();
         }
         else
         {
