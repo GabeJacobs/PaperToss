@@ -6,7 +6,9 @@ using UnityEngine;
 public class PTCharacterController : MonoBehaviour
 {
     public static PTCharacterController instance { get; private set; }
-    public MovingCharacter bossCharacter;
+    public MovingCharacter boss;
+    public MovingCharacter ghost;
+
     void Awake () {
         if (instance == null) {
             instance = this;
@@ -20,12 +22,17 @@ public class PTCharacterController : MonoBehaviour
     void Start()
     {
         startBossWalk();
+        // startGhostWalk();
+
     }
 
     public void startBossWalk()
     {
-        bossCharacter.animator.SetBool("Walking", true);
+        boss.animator.SetBool("Walking", true);
     }
-
+    public void startGhostWalk()
+    {
+        ghost.WalkForward();
+    }
    
 }

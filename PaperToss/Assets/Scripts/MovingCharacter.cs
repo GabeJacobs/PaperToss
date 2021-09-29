@@ -7,13 +7,14 @@ public class MovingCharacter : MonoBehaviour
     public float walkingSpeed;
     public bool movingForward;
     public Animator animator;
+    protected bool rotated;
     private Vector3 chatacterStartPoint;
+    public AudioSource voice;
 
     // Start is called before the first frame update
     void Start()
     {
         chatacterStartPoint = transform.position;
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class MovingCharacter : MonoBehaviour
     {
         if (movingForward)
         {
+            // Debug.Log("here");
             transform.position += transform.forward * Time.deltaTime * walkingSpeed;
         }
     }
@@ -30,19 +32,25 @@ public class MovingCharacter : MonoBehaviour
         movingForward = true;
     }
 
-    public void StopWalking()
+    protected void StopWalking()
     {
-        animator.SetBool("Walking", false);
+        if (animator != null)
+        {
+            animator.SetBool("Walking", false);
+        }
         movingForward = false;
     }
-    public void StopAndDoLeftTurn()
+    public virtual void StopAndDoLeftTurn()
     {
         
         StartCoroutine(RotateUp(Vector3.up * -90, 0.6f));
+        if (animator != null)
+        {
+            animator.SetBool("TurnLeft", true);
+        }
         StopWalking();
-        animator.SetBool("TurnLeft", true);
     }
-    IEnumerator RotateUp(Vector3 byAngles, float inTime)
+    protected IEnumerator RotateUp(Vector3 byAngles, float inTime)
     {
          
         var fromAngle = transform.rotation;
@@ -52,14 +60,10 @@ public class MovingCharacter : MonoBehaviour
             transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
             yield return null;
         }
+
+        rotated = true;
     }
 
-    public void FinishedAngryPoint()
-    {
-        animator.SetBool("TurnLeft", false);
-        StartCoroutine(RotateUp(Vector3.up * 90, 0.6f));
-    }
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DestroyZone"))
@@ -71,13 +75,13 @@ public class MovingCharacter : MonoBehaviour
             StopAndDoLeftTurn();
         } else if (other.CompareTag("EndOfRoomTrigger"))
         {
-            animator.SetBool("Idle", true);
+            if (animator != null)
+            {
+                animator.SetBool("Idle", true);
+            }
             StopWalking();
-            transform.position = chatacterStartPoint;
             StopAllCoroutines();
-            animator.SetBool("Walking", true);
-            animator.SetBool("Idle", false);
-
+            transform.position = chatacterStartPoint;
         }
     }
 
