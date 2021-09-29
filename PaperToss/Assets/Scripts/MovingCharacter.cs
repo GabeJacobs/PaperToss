@@ -7,11 +7,12 @@ public class MovingCharacter : MonoBehaviour
     public float walkingSpeed;
     public bool movingForward;
     public Animator animator;
-    private bool rotated;
+    private Vector3 chatacterStartPoint;
 
     // Start is called before the first frame update
     void Start()
     {
+        chatacterStartPoint = transform.position;
         animator = GetComponent<Animator>();
     }
 
@@ -28,12 +29,17 @@ public class MovingCharacter : MonoBehaviour
     {
         movingForward = true;
     }
+
+    public void StopWalking()
+    {
+        animator.SetBool("Walking", false);
+        movingForward = false;
+    }
     public void StopAndDoLeftTurn()
     {
         
-        movingForward = false;
         StartCoroutine(RotateUp(Vector3.up * -90, 0.6f));
-        animator.SetBool("Walking", false);
+        StopWalking();
         animator.SetBool("TurnLeft", true);
     }
     IEnumerator RotateUp(Vector3 byAngles, float inTime)
@@ -46,15 +52,33 @@ public class MovingCharacter : MonoBehaviour
             transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
             yield return null;
         }
-        rotated = true;
     }
 
     public void FinishedAngryPoint()
     {
         animator.SetBool("TurnLeft", false);
-        animator.SetBool("TurnRight", true);
         StartCoroutine(RotateUp(Vector3.up * 90, 0.6f));
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DestroyZone"))
+        {
+            return;
+        }
+        else if (other.CompareTag("CenterTrigger"))
+        {
+            StopAndDoLeftTurn();
+        } else if (other.CompareTag("EndOfRoomTrigger"))
+        {
+            animator.SetBool("Idle", true);
+            StopWalking();
+            transform.position = chatacterStartPoint;
+            StopAllCoroutines();
+            animator.SetBool("Walking", true);
+            animator.SetBool("Idle", false);
 
+        }
     }
 
 }

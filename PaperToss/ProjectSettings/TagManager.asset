@@ -28,6 +28,9 @@ TagManager:
   - CampaignInstructionsUI
   - HowToPlayUI
   - InstructionsMenu
+  - CenterTrigger
+  - EndOfRoomTrigger
+  - Boss
   layers:
   - Default
   - TransparentFX
