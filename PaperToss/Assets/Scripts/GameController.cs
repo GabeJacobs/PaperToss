@@ -194,6 +194,8 @@ public class GameController : MonoBehaviour {
                 backgroundMusic.clip = lightMusic;
                 backgroundMusic.Play();                
             }
+            trashCan.StopAnimating();
+            trashCan.hideGlow();
             PTCharacterController.instance.StartBossWalk();
         }
         else

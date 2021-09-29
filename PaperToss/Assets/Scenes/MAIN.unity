@@ -12672,8 +12672,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.499167, y: 0.20298928, z: 9.932163}
-  m_Center: {x: 1.449353, y: 0.39850536, z: -4.4660816}
+  m_Size: {x: 5.499167, y: 0.20298928, z: 12.461027}
+  m_Center: {x: 1.449353, y: 0.39850536, z: -3.2016494}
 --- !u!4 &953249421
 Transform:
   m_ObjectHideFlags: 0
@@ -15627,7 +15627,7 @@ MonoBehaviour:
   gameLength: 10
   fan: {fileID: 601515187}
   holster: {fileID: 1186114068}
-  trashCan: {fileID: 0}
+  trashCan: {fileID: 111599748}
   menu: {fileID: 7428048668545795754}
   pauseMenu: {fileID: 0}
   highScoreUI: {fileID: 0}

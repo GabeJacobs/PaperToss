@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.VFX;
 using Random = System.Random;
 
 public enum AnimationPathStyle{
@@ -24,7 +25,7 @@ public class TrashCan : MonoBehaviour
     public float waitTime = .3f;
     public Transform defaultPositon;
     private Coroutine followPathCrt;
-
+    private bool glowing;
     private void OnDrawGizmos()
     {
         Vector3 startPosition = waypointHolderB.GetChild(0).position;
@@ -83,12 +84,16 @@ public class TrashCan : MonoBehaviour
         {
             gameObject.GetComponentInChildren<Renderer>().enabled = false;
             gameObject.GetComponentInChildren<Collider>().enabled = false;
-
+            glowEffect.SetActive(false);
         }
         else
         {
             gameObject.GetComponentInChildren<Renderer>().enabled = true;
             gameObject.GetComponentInChildren<Collider>().enabled = true;
+            if (glowing)
+            {
+                glowEffect.SetActive(true);
+            }
         }
     }
 
@@ -132,17 +137,20 @@ public class TrashCan : MonoBehaviour
             StopCoroutine(followPathCrt);
         }
         transform.position = defaultPositon.position;
-        Debug.Log("stop animating trash");
     }
     
     public void showGlow()
     {
+        Debug.Log("showing glow");
         glowEffect.SetActive(true);
+        glowing = true;
     }
     
     public void hideGlow()
     {
+        Debug.Log("hiding glow");
         glowEffect.SetActive(false);
+        glowing = false;
     }
 
 }
