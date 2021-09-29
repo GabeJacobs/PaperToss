@@ -8,13 +8,17 @@ public class MovingCharacter : MonoBehaviour
     public bool movingForward;
     public Animator animator;
     protected bool rotated;
-    private Vector3 chatacterStartPoint;
+    private Vector3 chatacterOriginalPosition;
+    private Quaternion characterOriginalRotation;
+
     public AudioSource voice;
 
     // Start is called before the first frame update
     void Start()
     {
-        chatacterStartPoint = transform.position;
+        chatacterOriginalPosition = transform.position;
+        characterOriginalRotation = transform.rotation;
+
     }
 
     // Update is called once per frame
@@ -30,6 +34,10 @@ public class MovingCharacter : MonoBehaviour
     public void WalkForward()
     {
         movingForward = true;
+        if (animator != null)
+        {
+            animator.SetBool("Walking", true);
+        }
     }
 
     protected void StopWalking()
@@ -75,14 +83,22 @@ public class MovingCharacter : MonoBehaviour
             StopAndDoLeftTurn();
         } else if (other.CompareTag("EndOfRoomTrigger"))
         {
-            if (animator != null)
-            {
-                animator.SetBool("Idle", true);
-            }
-            StopWalking();
-            StopAllCoroutines();
-            transform.position = chatacterStartPoint;
+            Reset();
         }
+    }
+
+    public void Reset()
+    {
+        transform.position = chatacterOriginalPosition;
+        transform.rotation = characterOriginalRotation;
+        StopWalking();
+        StopAllCoroutines();
+        if (animator != null)
+        {
+            animator.Rebind();
+            animator.SetBool("Idle", true);
+        }
+
     }
 
 }

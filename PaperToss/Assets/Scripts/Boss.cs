@@ -6,10 +6,12 @@ public class Boss : MovingCharacter
 {
 
     public AudioClip getBackToWorkClip;
-    
+    public AudioClip yourFired;
+
     public void PlayAngryVoice()
     {
-        Debug.Log("GET BACK TO WORK!");
+        voice.clip = yourFired;
+        voice.Play();
     }
     
     public void FinishedAngryPoint()

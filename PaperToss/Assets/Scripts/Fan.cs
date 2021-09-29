@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Fan : MonoBehaviour
@@ -57,7 +58,7 @@ public class Fan : MonoBehaviour
 
     private void SetFanSpeedUI()
     {
-        windSpeedText.GetComponent<TextMeshProUGUI>().text = Mathf.Lerp(0.1f, 11.0f, GameController.instance.currentFanSpeed() / 10.0f).ToString("F1");
+        windSpeedText.GetComponent<Text>().text = Mathf.Lerp(0.1f, 11.0f, GameController.instance.currentFanSpeed() / 10.0f).ToString("F1");
     }
     
     public void SetVisible(bool visible)

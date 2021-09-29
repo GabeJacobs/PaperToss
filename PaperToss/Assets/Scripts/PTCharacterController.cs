@@ -21,18 +21,23 @@ public class PTCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startBossWalk();
-        // startGhostWalk();
 
     }
 
-    public void startBossWalk()
+    public void StartBossWalk()
     {
+        boss.animator.SetBool("Idle", false);
         boss.animator.SetBool("Walking", true);
     }
-    public void startGhostWalk()
+    public void StartGhostWalk()
     {
         ghost.WalkForward();
+    }
+
+    public void ResetAllCharacters()
+    {
+        boss.Reset();
+        ghost.Reset();
     }
    
 }

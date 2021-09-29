@@ -58,10 +58,6 @@ public class GameController : MonoBehaviour {
     public AudioClip lightMusic;
     public AudioClip darkMusic;
 
-    public Animator ghostAnimator;
-    public Animator bossAnimator;
-
-
     private bool shouldCelebrateNewHighScore;
     private Coroutine fadeInOutNightLightCoroutine;
 
@@ -198,6 +194,7 @@ public class GameController : MonoBehaviour {
                 backgroundMusic.clip = lightMusic;
                 backgroundMusic.Play();                
             }
+            PTCharacterController.instance.StartBossWalk();
         }
         else
         {
@@ -209,7 +206,7 @@ public class GameController : MonoBehaviour {
             }
             SoundManager.Instance.Play(paranormalClip);
             trashCan.showGlow();;
-            ghostAnimator.SetBool("WalkIn", true);
+            PTCharacterController.instance.StartGhostWalk();
         }
 
         if (mode == GameMode.Campaign)
@@ -289,11 +286,7 @@ public class GameController : MonoBehaviour {
         }
         trashCan.StopAnimating();
         trashCan.hideGlow();
-
-        bossAnimator.SetBool("StartBossWalk", false);
-        Debug.Log("StartBossWalk false");
-
-        ghostAnimator.SetBool("WalkIn", false);
+        PTCharacterController.instance.ResetAllCharacters();
     }
 
     private bool checkFinalScore()
