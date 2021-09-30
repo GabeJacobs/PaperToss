@@ -51,9 +51,20 @@ public class Fan : MonoBehaviour
    
     }
 
-    public void ChangeFanPosition()
+    public void ChangeFanPosition(bool onlyCloseToPlayer)
     {
-        placeFanInPosition(Random.Range(0,6));
+        if (!onlyCloseToPlayer)
+        {
+            placeFanInPosition(Random.Range(0,6));
+        }
+        else
+        {
+            placeFanInPosition(Random.Range(5,6));
+        }
+    }
+    public void ResetFanPosition()
+    {
+        placeFanInPosition(0);
     }
 
     private void SetFanSpeedUI()

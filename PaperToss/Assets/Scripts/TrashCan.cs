@@ -19,11 +19,15 @@ public class TrashCan : MonoBehaviour
     public Transform waypointHolderB;
     private Vector3[] waypointsLine;
     private Vector3[] waypointsHexagon;
+    public Transform defaultTrashPosition;
+    public Transform longerWaypoint1;
+    public Transform longerWaypoint2;
+    public Transform longerWaypoint3;
+
     public bool animatingPosition;
     
     public float speed;
     public float waitTime = .3f;
-    public Transform defaultPositon;
     private Coroutine followPathCrt;
     private bool glowing;
     private void OnDrawGizmos()
@@ -62,11 +66,11 @@ public class TrashCan : MonoBehaviour
             {
                 if (!other.gameObject.GetComponent<Ball>().isInBasket)
                 {
+                    other.gameObject.transform.SetParent(gameObject.transform);
                     if (other.GetComponent<Ball>().isGoldBall == true)
                     {
                         GameController.instance.PlayerDidScore(true); 
                         other.gameObject.GetComponent<Ball>().isInBasket = true;
-                     
                     }
                     else
                     {
@@ -136,7 +140,6 @@ public class TrashCan : MonoBehaviour
         {
             StopCoroutine(followPathCrt);
         }
-        transform.position = defaultPositon.position;
     }
     
     public void showGlow()
@@ -151,6 +154,33 @@ public class TrashCan : MonoBehaviour
         Debug.Log("hiding glow");
         glowEffect.SetActive(false);
         glowing = false;
+    }
+
+    public void MoveToLongerWaypoint(int waypoint)
+    {
+        if (waypoint == 1)
+        {
+            Debug.Log("move waypoint 1");
+            transform.position = longerWaypoint1.position;
+        }
+        if (waypoint == 2)
+        {
+            Debug.Log("move waypoint 2");
+            transform.position = longerWaypoint2.position;
+        }     
+        if (waypoint == 3)
+        {
+            Debug.Log("move waypoint 3");
+
+            transform.position = longerWaypoint3.position;
+        }
+        
+    }
+
+    public void ResetPosition()
+    {
+        Debug.Log("resetting position of trash");
+        transform.position = defaultTrashPosition.position;
     }
 
 }

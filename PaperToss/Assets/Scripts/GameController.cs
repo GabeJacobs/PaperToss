@@ -71,6 +71,10 @@ public class GameController : MonoBehaviour {
     public int arcadeTimeLength = 60;
     public int campaignTimeLength = 60;
 
+    private bool trashIsAtWaypoint1 = false; 
+    private bool trashIsAtWaypoint2 = false; 
+    private bool trashIsAtWaypoint3 = false; 
+
 
     // Use this for initialization
     void Awake () {
@@ -132,36 +136,8 @@ public class GameController : MonoBehaviour {
             gameLength = campaignTimeLength;
             timerCountdown.UpdateGameLength();
             gameDifficultyDelta = 1.0f;
-            switch (currentLevelSelected)
-            {
-                case 1:
-                    gameDifficulty = 0.0f;
-                    break;
-                case 2:
-                    gameDifficulty = 0.5f;
-                    break;
-                case 3:
-                    gameDifficulty = 1.0f;
-                    break;
-                case 4:
-                    gameDifficulty = 1.5f;
-                    break;
-                case 5:
-                    gameDifficulty = 2.0f;
-                    break;
-                case 6:
-                    gameDifficulty = 2.5f;
-                    break;
-                case 7:
-                    gameDifficulty = 3.0f;
-                    break;
-                case 8:
-                    gameDifficulty = 3.5f;
-                    break;
-                case 9:
-                    gameDifficulty = 4.0f;
-                    break;
-            }
+            gameDifficulty = 0.7f;
+            gameDifficulty = gameDifficulty * currentLevelSelected;
         }
         scoreboard.ResetScore();
         holster.SetHolsterPosition();
@@ -172,7 +148,6 @@ public class GameController : MonoBehaviour {
         {
             trashCan.StartAnimating(AnimationPathStyle.Hexagon);
         }
-
         GetNewFanSpeed();
     }
     
@@ -181,7 +156,6 @@ public class GameController : MonoBehaviour {
         currentLevelSelected = level;
         currentStageSelected = stage;
         SetUpGame(gameMode);
-
     }
 
     public void StartGameCountdown()
@@ -222,10 +196,12 @@ public class GameController : MonoBehaviour {
         }
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
+        fan.ResetFanPosition();
         fan.SetVisible(true);
         menu.SetActive(false);
         holster.SetVisible(true);
         trashCan.SetVisible(true);
+        trashCan.ResetPosition();
         gameStartCountdown.StartCountdown();
 
     }
@@ -258,6 +234,7 @@ public class GameController : MonoBehaviour {
                 SoundManager.Instance.Play(arcadeOverClip);
             }
         }
+        
         timerCountdown.Reset();
         DestoryAllBalls();
         gameIsPaused = false;
@@ -266,7 +243,7 @@ public class GameController : MonoBehaviour {
         holster.SetVisible(false);
         fan.SetVisible(false);
         trashCan.SetVisible(false);
-
+        
         if (mode == GameMode.Arcade)
         {
             if (shouldCelebrateNewHighScore == true)
@@ -288,6 +265,9 @@ public class GameController : MonoBehaviour {
         }
         trashCan.StopAnimating();
         trashCan.hideGlow();
+        trashIsAtWaypoint3 = false;
+        trashIsAtWaypoint2 = false;
+        trashIsAtWaypoint1 = false;
         PTCharacterController.instance.ResetAllCharacters();
     }
 
@@ -420,11 +400,43 @@ public class GameController : MonoBehaviour {
             SoundManager.Instance.Play(pointClip);
             scoreboard.PlayerScored(false);            
         }
-        updateAfterScore();
         if (mode == GameMode.Campaign && scoreboard.score >= scoreRequiredToComplete)
         {
             GameFinished();
+        } else if (mode == GameMode.Arcade)
+        {
+           ShouldMoveToLongerWaypointStage();
         }
+        updateAfterScore();
+    }
+
+    void ShouldMoveToLongerWaypointStage()
+    {
+        
+        
+        if (trashIsAtWaypoint3 == true)
+        {
+            trashCan.ResetPosition();
+            trashIsAtWaypoint3 = false;
+            trashIsAtWaypoint2 = false;
+            trashIsAtWaypoint1 = false;
+        } else if (trashIsAtWaypoint2 == true)
+        {
+            trashCan.MoveToLongerWaypoint(3);
+            trashIsAtWaypoint3 = true;
+            trashIsAtWaypoint2 = false;
+        } else if (trashIsAtWaypoint1 == true)
+        {
+            trashCan.MoveToLongerWaypoint(2);
+            trashIsAtWaypoint2 = true;
+            trashIsAtWaypoint1 = false;
+        }  else if (scoreboard.score > 14)
+        {
+            Debug.Log("scoreboard was more than 14!");
+            trashCan.MoveToLongerWaypoint(1);
+            trashIsAtWaypoint1 = true;
+        }
+
     }
 
     void updateAfterScore()
@@ -443,7 +455,15 @@ public class GameController : MonoBehaviour {
             holster.SetNextBallToBeNormal();
         }
         GetNewFanSpeed();
-        fan.ChangeFanPosition();
+        if (trashIsAtWaypoint1 || trashIsAtWaypoint2 || trashIsAtWaypoint3)
+        {
+            fan.ChangeFanPosition(true);
+        }
+        else
+        {
+            fan.ChangeFanPosition(false);
+            
+        }
     }
 
     private bool ShouldShowGoldBall()
