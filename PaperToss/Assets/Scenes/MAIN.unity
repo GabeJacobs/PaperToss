@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: af524cac8c04ca9418a6fb8108f89a37,
     type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 4ceaf5f1c3a1415479a54f1e41fe6048,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 81961a8aa791c4bb09b9196ffaeb904c,
     type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -31483,6 +31483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fireworks
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281839558638916954, guid: 9c14d604cc76b2e4f85bfd17a978d299,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2722513712512401329, guid: 9c14d604cc76b2e4f85bfd17a978d299,
         type: 3}
