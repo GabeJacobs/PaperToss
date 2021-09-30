@@ -196,12 +196,12 @@ public class GameController : MonoBehaviour {
         }
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
-        fan.ResetFanPosition();
         fan.SetVisible(true);
         menu.SetActive(false);
         holster.SetVisible(true);
         trashCan.SetVisible(true);
         trashCan.ResetPosition();
+        fan.ResetFanPosition();
         gameStartCountdown.StartCountdown();
 
     }
