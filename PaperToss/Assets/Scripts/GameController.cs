@@ -51,6 +51,9 @@ public class GameController : MonoBehaviour {
 
     public AudioClip pointClip;
     public AudioClip goldPointClip;
+    public AudioClip firePointClip;
+    public AudioClip noFireClip;
+    public AudioClip hesOnFireClip;
     public AudioClip arcadeOverClip;
     public AudioClip winBellClip;
     public AudioClip paranormalClip;
@@ -71,6 +74,9 @@ public class GameController : MonoBehaviour {
     public int arcadeTimeLength = 60;
     public int campaignTimeLength = 60;
     public int currentStreak = 0;
+    
+    public int pointsNeededForFire  = 5;
+    public int pointsNeededForTrashToMove  = 20;
 
     private bool trashIsAtWaypoint1 = false; 
     private bool trashIsAtWaypoint2 = false; 
@@ -171,7 +177,6 @@ public class GameController : MonoBehaviour {
             }
             trashCan.StopAnimating();
             trashCan.hideGlow();
-            PTCharacterController.instance.StartBossWalk();
         }
         else
         {
@@ -269,6 +274,7 @@ public class GameController : MonoBehaviour {
         trashIsAtWaypoint3 = false;
         trashIsAtWaypoint2 = false;
         trashIsAtWaypoint1 = false;
+        currentStreak = 0;
         PTCharacterController.instance.ResetAllCharacters();
     }
 
@@ -389,17 +395,26 @@ public class GameController : MonoBehaviour {
         menu.SetActive(!menu.activeSelf);
     }
     
-    public void PlayerDidScore(bool gold)
+    public void PlayerDidScore(bool gold, bool fire)
     {
         if (gold)
         {
             SoundManager.Instance.Play(goldPointClip);
-            scoreboard.PlayerScored(true);
+            scoreboard.PlayerScored(true, false);
         }
-        else
+        if (currentStreak == pointsNeededForFire-1)
+        {
+            SoundManager.Instance.Play(hesOnFireClip);
+            holster.SetOnFire(true);
+        }  else if (fire)
+        {
+            scoreboard.PlayerScored(false, true);
+            SoundManager.Instance.Play(firePointClip);
+        } 
+        else if (!gold)
         {
             SoundManager.Instance.Play(pointClip);
-            scoreboard.PlayerScored(false);            
+            scoreboard.PlayerScored(false, false);            
         }
         /////// SCORE CHANGED /////
         if (mode == GameMode.Campaign && scoreboard.score >= scoreRequiredToComplete)
@@ -420,12 +435,6 @@ public class GameController : MonoBehaviour {
             }
             UpdateFanSpeedAndLocation();
             currentStreak++;
-            Debug.Log(currentStreak);
-            if (currentStreak == 3)
-            {
-                Debug.Log("currentStreak is 3!");
-                holster.SetOnFire(true);
-            }
         }
     }
 
@@ -463,9 +472,8 @@ public class GameController : MonoBehaviour {
             trashCan.MoveToLongerWaypoint(2);
             trashIsAtWaypoint2 = true;
             trashIsAtWaypoint1 = false;
-        }  else if (scoreboard.score > 14)
+        }  else if (scoreboard.score >= pointsNeededForTrashToMove)
         {
-            Debug.Log("scoreboard was more than 14!");
             trashCan.MoveToLongerWaypoint(1);
             trashIsAtWaypoint1 = true;
         }
@@ -557,8 +565,27 @@ public class GameController : MonoBehaviour {
 
     public void MissOccured()
     {
+        if (currentStreak >= pointsNeededForFire)
+        {
+            SoundManager.Instance.Play(noFireClip);
+        }
         currentStreak = 0;
         holster.SetOnFire(false);
+        
+    }
+
+    public void TimeUpdated(){
+        if (mode == GameMode.Arcade || currentStageSelected == 1)
+        {
+            if (timerCountdown.secondsLeft == 58)
+            {
+                PTCharacterController.instance.StartBossWalk();
+            }
+            if (timerCountdown.secondsLeft == 30)
+            {
+                PTCharacterController.instance.StartBossWalk();
+            }
+        }
     }
 
 

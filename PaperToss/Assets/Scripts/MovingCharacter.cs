@@ -8,7 +8,7 @@ public class MovingCharacter : MonoBehaviour
     public bool movingForward;
     public Animator animator;
     protected bool rotated;
-    private Vector3 chatacterOriginalPosition;
+    public Transform chatacterOriginalPosition;
     private Quaternion characterOriginalRotation;
 
     public AudioSource voice;
@@ -16,9 +16,8 @@ public class MovingCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        chatacterOriginalPosition = transform.position;
+        // chatacterOriginalPosition = transform.position;
         characterOriginalRotation = transform.rotation;
-
     }
 
     // Update is called once per frame
@@ -51,25 +50,34 @@ public class MovingCharacter : MonoBehaviour
     public virtual void StopAndDoLeftTurn()
     {
         
-        StartCoroutine(RotateUp(Vector3.up * -90, 0.6f));
+        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90 ));
         if (animator != null)
         {
             animator.SetBool("TurnLeft", true);
         }
         StopWalking();
     }
-    protected IEnumerator RotateUp(Vector3 byAngles, float inTime)
+    public virtual void RightTurn()
     {
-         
-        var fromAngle = transform.rotation;
-        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
-        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * 90 ));
+    }
+    
+ 
+    Quaternion toAngle;
+
+    protected IEnumerator RotateMe(Transform rotateobj, Vector3 byAngles)
+    {
+
+
+        //Quaternion fromAngle = rotateobj.transform.rotation;
+
+        toAngle = Quaternion.Euler(rotateobj.transform.eulerAngles + byAngles);
+
+        while (rotateobj.transform.rotation != toAngle)
         {
-            transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
+            rotateobj.transform.rotation = Quaternion.RotateTowards(rotateobj.transform.rotation, toAngle, 7f);
             yield return null;
         }
-
-        rotated = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,10 +97,10 @@ public class MovingCharacter : MonoBehaviour
 
     public void Reset()
     {
-        transform.position = chatacterOriginalPosition;
-        transform.rotation = characterOriginalRotation;
         StopWalking();
         StopAllCoroutines();
+        transform.position = chatacterOriginalPosition.position;
+        // transform.rotation = characterOriginalRotation;
         if (animator != null)
         {
             animator.Rebind();

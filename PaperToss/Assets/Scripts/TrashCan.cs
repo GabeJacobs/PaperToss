@@ -70,11 +70,14 @@ public class TrashCan : MonoBehaviour
                     other.gameObject.GetComponent<Ball>().isInBasket = true;
                     if (other.GetComponent<Ball>().isGoldBall == true)
                     {
-                        GameController.instance.PlayerDidScore(true); 
+                        GameController.instance.PlayerDidScore(true, false); 
+                    } else if (other.GetComponent<Ball>().isFireBall == true)
+                    {
+                        GameController.instance.PlayerDidScore(false, true);
                     }
                     else
                     {
-                        GameController.instance.PlayerDidScore(false);
+                        GameController.instance.PlayerDidScore(false, false);
                     }
                     Destroy(other.gameObject,2);
                 }

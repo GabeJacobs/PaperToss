@@ -1,23 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Boss : MovingCharacter
 {
 
     public AudioClip getBackToWorkClip;
-    public AudioClip yourFired;
+    public AudioClip[] audioClips;
+
+    private void Start()
+    {
+        // clips = new
+    }
 
     public void PlayAngryVoice()
     {
-        voice.clip = yourFired;
+        int r = Random.Range(0, audioClips.Length - 1);
+        voice.clip = audioClips[r];
         voice.Play();
     }
     
     public void FinishedAngryPoint()
     {
         animator.SetBool("TurnLeft", false);
-        StartCoroutine(RotateUp(Vector3.up * 90, 0.6f));
+        RightTurn();
     }
     
 }

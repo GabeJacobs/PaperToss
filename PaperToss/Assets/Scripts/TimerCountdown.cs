@@ -9,7 +9,7 @@ public class TimerCountdown : MonoBehaviour
     public Text textDisplay;
     public bool takingAway = false;
     public bool shouldCountDown = false;
-    private int secondsLeft;
+    public int secondsLeft;
 
     // Start is called before the first frame update
 
@@ -39,6 +39,7 @@ public class TimerCountdown : MonoBehaviour
 
     IEnumerator TimerTake()
     {
+        GameController.instance.TimeUpdated();
         takingAway = true;
         yield return new WaitForSeconds(1);
         SetClock(secondsLeft-1);

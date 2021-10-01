@@ -25,11 +25,14 @@ public class ScoreCounter : MonoBehaviour
       
     }
 
-    public void PlayerScored(bool gold)
+    public void PlayerScored(bool gold, bool fire)
     {
         if (gold)
         {
             score+=3;
+        } else if (fire)
+        {
+            score+=5;
         }
         else
         {

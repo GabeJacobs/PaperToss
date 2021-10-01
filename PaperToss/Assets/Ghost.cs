@@ -10,7 +10,11 @@ public class Ghost : MovingCharacter
 
     public override void StopAndDoLeftTurn()
     {
-        StartCoroutine(RotateUp(Vector3.up * -90, 0.6f));
+        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90 ));
+        if (animator != null)
+        {
+            animator.SetBool("TurnLeft", true);
+        }
         StopWalking();
         StartCoroutine(PlayGhostClipAfterDelay(turnTime));
 
@@ -27,7 +31,7 @@ public class Ghost : MovingCharacter
     {
         //Wait for the specified delay time before continuing.
         yield return new WaitForSeconds(delayTime);
-        StartCoroutine(RotateUp(Vector3.up * 90, turnTime));
+        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * 90 ));
         yield return new WaitForSeconds(turnTime);
         movingForward = true;
     }
