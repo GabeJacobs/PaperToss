@@ -98,6 +98,7 @@ namespace BNG {
         SnapZoneOffset offset;
 
         public bool nextBallIsGold;
+        public bool nextBallIsFire;
 
         // Start is called before the first frame update
         void Start() {
@@ -363,6 +364,10 @@ namespace BNG {
                         {
                             go.GetComponent<Ball>().SetGoldBall(false);
                         }
+                        if (nextBallIsFire == true)
+                        {
+                            go.GetComponent<Ball>().SetFireBall(true);
+                        }
                         Grabbable grab = go.GetComponent<Grabbable>();
 
                         // Ok to attach it to snap zone now
@@ -456,5 +461,9 @@ namespace BNG {
 
             HeldItem = null;
         }
+        public void SetCurrentBallOnFire(bool onFire){
+            HeldItem.GetComponent<Ball>().SetFireBall(onFire);
+        }
+   
     }
 }

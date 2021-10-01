@@ -52,13 +52,14 @@ public class Holster : MonoBehaviour
         isVisible = visible;
     }
 
-    public void SetNextBallToBeGold()
+    public void SetNextBallToBeGold(bool gold)
     {
-        SnapZone.nextBallIsGold = true;
+        SnapZone.nextBallIsGold = gold;
     }
-    public void SetNextBallToBeNormal()
+    public void SetOnFire(bool onFire)
     {
-        SnapZone.nextBallIsGold = false;
+        SnapZone.SetCurrentBallOnFire(onFire);
+        SnapZone.nextBallIsFire = onFire;
     }
     
     public void SetHolsterPosition()

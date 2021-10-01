@@ -67,16 +67,16 @@ public class TrashCan : MonoBehaviour
                 if (!other.gameObject.GetComponent<Ball>().isInBasket)
                 {
                     other.gameObject.transform.SetParent(gameObject.transform);
+                    other.gameObject.GetComponent<Ball>().isInBasket = true;
                     if (other.GetComponent<Ball>().isGoldBall == true)
                     {
                         GameController.instance.PlayerDidScore(true); 
-                        other.gameObject.GetComponent<Ball>().isInBasket = true;
                     }
                     else
                     {
                         GameController.instance.PlayerDidScore(false);
-                        other.gameObject.GetComponent<Ball>().isInBasket = true;
                     }
+                    Destroy(other.gameObject,2);
                 }
             }
         }
@@ -144,14 +144,12 @@ public class TrashCan : MonoBehaviour
     
     public void showGlow()
     {
-        Debug.Log("showing glow");
         glowEffect.SetActive(true);
         glowing = true;
     }
     
     public void hideGlow()
     {
-        Debug.Log("hiding glow");
         glowEffect.SetActive(false);
         glowing = false;
     }
@@ -179,7 +177,6 @@ public class TrashCan : MonoBehaviour
 
     public void ResetPosition()
     {
-        Debug.Log("resetting position of trash");
         transform.position = defaultTrashPosition.position;
     }
 

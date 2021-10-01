@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour {
     public int scoreRequiredToComplete = 10;
     public int arcadeTimeLength = 60;
     public int campaignTimeLength = 60;
+    public int currentStreak = 0;
 
     private bool trashIsAtWaypoint1 = false; 
     private bool trashIsAtWaypoint2 = false; 
@@ -400,14 +401,46 @@ public class GameController : MonoBehaviour {
             SoundManager.Instance.Play(pointClip);
             scoreboard.PlayerScored(false);            
         }
+        /////// SCORE CHANGED /////
         if (mode == GameMode.Campaign && scoreboard.score >= scoreRequiredToComplete)
         {
             GameFinished();
-        } else if (mode == GameMode.Arcade)
-        {
-           ShouldMoveToLongerWaypointStage();
         }
-        updateAfterScore();
+        else
+        {
+            if (mode == GameMode.Arcade)
+            {
+                ShouldMoveToLongerWaypointStage();
+                IncreaseGameDifficulty();
+                bool gotNewHighScore = CheckSaveHighScore(scoreboard.score);
+            }
+            if (ShouldShowGoldBall())
+            {
+                holster.SetNextBallToBeGold(ShouldShowGoldBall());
+            }
+            UpdateFanSpeedAndLocation();
+            currentStreak++;
+            Debug.Log(currentStreak);
+            if (currentStreak == 3)
+            {
+                Debug.Log("currentStreak is 3!");
+                holster.SetOnFire(true);
+            }
+        }
+    }
+
+    void UpdateFanSpeedAndLocation()
+    {
+        GetNewFanSpeed();
+        if (trashIsAtWaypoint1 || trashIsAtWaypoint2 || trashIsAtWaypoint3)
+        {
+            fan.ChangeFanPosition(true);
+        }
+        else
+        {
+            fan.ChangeFanPosition(false);
+        }
+
     }
 
     void ShouldMoveToLongerWaypointStage()
@@ -439,33 +472,6 @@ public class GameController : MonoBehaviour {
 
     }
 
-    void updateAfterScore()
-    {
-        if (mode == GameMode.Arcade)
-        {
-            IncreaseGameDifficulty();
-            bool gotNewHighScore = CheckSaveHighScore(scoreboard.score);
-        }
-        if (ShouldShowGoldBall())
-        {
-            holster.SetNextBallToBeGold();
-        }
-        else
-        {
-            holster.SetNextBallToBeNormal();
-        }
-        GetNewFanSpeed();
-        if (trashIsAtWaypoint1 || trashIsAtWaypoint2 || trashIsAtWaypoint3)
-        {
-            fan.ChangeFanPosition(true);
-        }
-        else
-        {
-            fan.ChangeFanPosition(false);
-            
-        }
-    }
-
     private bool ShouldShowGoldBall()
     {
         int r = UnityEngine.Random.Range(0, 3);
@@ -475,6 +481,7 @@ public class GameController : MonoBehaviour {
         }
         return false;
     }
+    
 
     private void IncreaseGameDifficulty()
     {
@@ -546,6 +553,12 @@ public class GameController : MonoBehaviour {
         PlayerPrefs.SetInt("ReadGameInstructions", 1);
         howToPlayIUI.SetActive(false);
         menu.SetActive(true);
+    }
+
+    public void MissOccured()
+    {
+        currentStreak = 0;
+        holster.SetOnFire(false);
     }
 
 
