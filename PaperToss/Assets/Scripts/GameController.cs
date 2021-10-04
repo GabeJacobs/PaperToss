@@ -577,13 +577,17 @@ public class GameController : MonoBehaviour {
     public void TimeUpdated(){
         if (mode == GameMode.Arcade || currentStageSelected == 1)
         {
-            if (timerCountdown.secondsLeft == 58)
+            if (timerCountdown.secondsLeft == 50)
             {
                 PTCharacterController.instance.StartBossWalk();
+                // PTCharacterController.instance.StartSassyWalk();
+
             }
-            if (timerCountdown.secondsLeft == 30)
+            if (timerCountdown.secondsLeft == 25)
             {
-                PTCharacterController.instance.StartBossWalk();
+                PTCharacterController.instance.StartSassyWalk();
+                // PTCharacterController.instance.StartBossWalk();
+
             }
         }
     }

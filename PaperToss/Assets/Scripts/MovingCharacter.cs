@@ -12,7 +12,9 @@ public class MovingCharacter : MonoBehaviour
     private Quaternion characterOriginalRotation;
 
     public AudioSource voice;
-
+    public AudioClip[] audioClips;
+    private bool beganSpeaking;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +27,16 @@ public class MovingCharacter : MonoBehaviour
     {
         if (movingForward)
         {
-            // Debug.Log("here");
             transform.position += transform.forward * Time.deltaTime * walkingSpeed;
+        }
+
+        if (beganSpeaking && !voice.isPlaying)
+        {
+            if (animator != null)
+            {
+                Debug.Log("finished talking");
+                FinishedTalking();
+            }
         }
     }
 
@@ -70,12 +80,11 @@ public class MovingCharacter : MonoBehaviour
 
 
         //Quaternion fromAngle = rotateobj.transform.rotation;
-
         toAngle = Quaternion.Euler(rotateobj.transform.eulerAngles + byAngles);
 
         while (rotateobj.transform.rotation != toAngle)
         {
-            rotateobj.transform.rotation = Quaternion.RotateTowards(rotateobj.transform.rotation, toAngle, 7f);
+            rotateobj.transform.rotation = Quaternion.RotateTowards(rotateobj.transform.rotation, toAngle, 4f);
             yield return null;
         }
     }
@@ -94,19 +103,57 @@ public class MovingCharacter : MonoBehaviour
             Reset();
         }
     }
+    
+    public void PlayVoice()
+    {
+        int r = Random.Range(0, audioClips.Length-1);
+        voice.clip = audioClips[r];
+        voice.Play();
+        beganSpeaking = true;
+    }
 
     public void Reset()
     {
         StopWalking();
         StopAllCoroutines();
         transform.position = chatacterOriginalPosition.position;
-        // transform.rotation = characterOriginalRotation;
         if (animator != null)
         {
             animator.Rebind();
             animator.SetBool("Idle", true);
-        }
 
+        }
+    }
+    
+    public void ResetParams()
+    {
+        if (animator != null)
+        {
+            animator.SetBool("Idle", true);
+            animator.SetBool("TurnLeft", false);
+            animator.SetBool("TurnRight", false);
+            animator.SetBool("Walking", false);
+            animator.SetBool("FinishedTalking", false);
+        }
+    }
+    
+    public void FinishedTalking()
+    {
+       this.CallWithDelay(PerformFinishedTalking, 1.0f);
+    }
+
+    private void PerformFinishedTalking()
+    {
+        if (beganSpeaking == true)
+        {
+            beganSpeaking = false;
+            if (animator != null)
+            {
+                RightTurn();
+                animator.SetBool("FinishedTalking", true);
+                animator.SetBool("TurnLeft", false);
+            }
+        }
     }
 
 }

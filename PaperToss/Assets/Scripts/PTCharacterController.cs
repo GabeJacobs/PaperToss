@@ -8,6 +8,7 @@ public class PTCharacterController : MonoBehaviour
     public static PTCharacterController instance { get; private set; }
     public MovingCharacter boss;
     public MovingCharacter ghost;
+    public MovingCharacter sassy;
 
     void Awake () {
         if (instance == null) {
@@ -29,6 +30,12 @@ public class PTCharacterController : MonoBehaviour
         boss.animator.SetBool("Idle", false);
         boss.animator.SetBool("Walking", true);
     }
+    
+    public void StartSassyWalk()
+    {
+        sassy.animator.SetBool("Idle", false);
+        sassy.animator.SetBool("Walking", true);
+    }
     public void StartGhostWalk()
     {
         ghost.WalkForward();
@@ -38,6 +45,7 @@ public class PTCharacterController : MonoBehaviour
     {
         boss.Reset();
         ghost.Reset();
+        sassy.Reset();
     }
    
 }
