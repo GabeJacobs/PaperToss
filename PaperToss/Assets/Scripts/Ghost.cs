@@ -5,40 +5,5 @@ using UnityEngine;
 public class Ghost : MovingCharacter
 {
 
-    private float turnTime = 0.6f;
-    private float voiceTime = 3.0f;
-
-    public override void StopAndDoLeftTurn()
-    {
-        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90 ));
-        if (animator != null)
-        {
-            animator.SetBool("TurnLeft", true);
-        }
-        StopWalking();
-        StartCoroutine(PlayGhostClipAfterDelay(turnTime));
-
-    }
-    IEnumerator PlayGhostClipAfterDelay(float delayTime)
-    {
-        //Wait for the specified delay time before continuing.
-        yield return new WaitForSeconds(delayTime);
-        PlayGhostVoice();
-        StartCoroutine(RightTurnAfterDelay(voiceTime));
-    }
-    
-    IEnumerator RightTurnAfterDelay(float delayTime)
-    {
-        //Wait for the specified delay time before continuing.
-        yield return new WaitForSeconds(delayTime);
-        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * 90 ));
-        yield return new WaitForSeconds(turnTime);
-        movingForward = true;
-    }
-
-    void PlayGhostVoice()
-    {
-        Debug.Log("BOOOOOOOOooooooo");
-    }
 
 }

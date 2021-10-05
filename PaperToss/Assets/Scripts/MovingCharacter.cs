@@ -14,7 +14,8 @@ public class MovingCharacter : MonoBehaviour
     public AudioSource voice;
     public AudioClip[] audioClips;
     private bool beganSpeaking;
-    
+    private float turnTime = 0.6f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +33,7 @@ public class MovingCharacter : MonoBehaviour
 
         if (beganSpeaking && !voice.isPlaying)
         {
-            if (animator != null)
-            {
-                Debug.Log("finished talking");
-                FinishedTalking();
-            }
+            FinishedTalking();
         }
     }
 
@@ -59,13 +56,16 @@ public class MovingCharacter : MonoBehaviour
     }
     public virtual void StopAndDoLeftTurn()
     {
-        
+        StopWalking();
         StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90 ));
         if (animator != null)
         {
             animator.SetBool("TurnLeft", true);
         }
-        StopWalking();
+        else
+        {
+            this.CallWithDelay(PlayVoice,turnTime);
+        }
     }
     public virtual void RightTurn()
     {
@@ -147,11 +147,15 @@ public class MovingCharacter : MonoBehaviour
         if (beganSpeaking == true)
         {
             beganSpeaking = false;
+            RightTurn();
             if (animator != null)
             {
-                RightTurn();
                 animator.SetBool("FinishedTalking", true);
                 animator.SetBool("TurnLeft", false);
+            }
+            else
+            {
+                this.CallWithDelay(WalkForward,turnTime);
             }
         }
     }

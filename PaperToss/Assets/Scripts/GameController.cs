@@ -587,8 +587,15 @@ public class GameController : MonoBehaviour {
             {
                 PTCharacterController.instance.StartSassyWalk();
                 // PTCharacterController.instance.StartBossWalk();
-
             }
+        }
+        if (mode == GameMode.Campaign && currentStageSelected == 2)
+        {
+            if (timerCountdown.secondsLeft == 50)
+            {
+                PTCharacterController.instance.StartGhostWalk();
+            }
+
         }
     }
 
