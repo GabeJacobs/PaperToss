@@ -34,8 +34,6 @@ public class HighScore : MonoBehaviour
     {
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         textDisplay.text = "High Score: " + highScore;
-
-        
     }
 
 }

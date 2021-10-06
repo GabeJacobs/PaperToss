@@ -16,13 +16,6 @@ public class ScoreCounter : MonoBehaviour
     void Start()
     {
             ResetScore();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-      
     }
 
     public void PlayerScored(bool gold, bool fire)

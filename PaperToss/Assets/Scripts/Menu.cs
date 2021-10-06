@@ -12,11 +12,13 @@ public class Menu : MonoBehaviour
     public Text menuHeader;
     public GameObject arcadeButton;
     public GameObject settingButton;
+    public GameObject leaderboardButton;
     public GameObject campaignButton;
     public GameObject leftHandedButton;
     public GameObject rightHandedButton;
     public GameObject settingsUI;
     public GameObject campaignMenu;
+    public GameObject leaderboardMenu;
 
 
     private void Start()
@@ -47,6 +49,7 @@ public class Menu : MonoBehaviour
     {
         arcadeButton.SetActive(true);
         settingButton.SetActive(true);
+        leaderboardButton.SetActive(true);
         campaignButton.SetActive(true);
         settingsUI.SetActive(false);
         menuHeader.text = "Paper Toss VR";
@@ -54,13 +57,19 @@ public class Menu : MonoBehaviour
     
     public void ShowSettings()
     {
-        
         settingsUI.SetActive(true);
         arcadeButton.SetActive(false);
         settingButton.SetActive(false);
+        leaderboardButton.SetActive(false);
         campaignButton.SetActive(false);
         menuHeader.text = "Settings";
-
+    }
+    
+    public void ShowLeaderboard()
+    {
+        gameObject.SetActive(false);
+        leaderboardMenu.SetActive(true);
+        OculusLeaderboardManager.instance.RefreshLeaderboard();
     }
 
     public void SetHandedness(bool isLeft)

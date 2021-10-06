@@ -9,6 +9,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SocialPlatforms.Impl;
 using Random=UnityEngine.Random;
 using RenderSettings = UnityEngine.RenderSettings;
+using UnityEngine.InputSystem;
 
 public enum GameMode
 {
@@ -61,7 +62,7 @@ public class GameController : MonoBehaviour {
     public AudioClip lightMusic;
     public AudioClip darkMusic;
 
-    private bool shouldCelebrateNewHighScore;
+    private bool gotNewHighScore;
     private Coroutine fadeInOutNightLightCoroutine;
 
     [SerializeField] private Material nightSkyBox;
@@ -82,9 +83,14 @@ public class GameController : MonoBehaviour {
     private bool trashIsAtWaypoint2 = false; 
     private bool trashIsAtWaypoint3 = false; 
 
+    public InputActionReference togglePauseMenueRefernce = null;
+
 
     // Use this for initialization
     void Awake () {
+        // PlayerPrefs.DeleteAll();
+        togglePauseMenueRefernce.action.started += TogglePause;
+
         if (instance == null) {
             instance = this;
         } else {
@@ -92,10 +98,14 @@ public class GameController : MonoBehaviour {
         }
         DontDestroyOnLoad (gameObject);
     }
+    
+    private void OnDestroy()
+    {
+        togglePauseMenueRefernce.action.started -= TogglePause;
+    }
 
     private void Start()
     {
-        // PlayerPrefs.DeleteAll();
         
         fan = GameObject.FindGameObjectWithTag("Fan").GetComponent<Fan>();;
         holster = GameObject.FindGameObjectWithTag("Holster").GetComponent<Holster>();
@@ -106,9 +116,7 @@ public class GameController : MonoBehaviour {
         scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreCounter>();
         trashCan = GameObject.FindGameObjectWithTag("TrashCan").GetComponent<TrashCan>();
         fireworks = GameObject.FindGameObjectWithTag("Fireworks");
-        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         campaignMenu = GameObject.FindGameObjectWithTag("CampaignMenu");
-
         nightLight = GameObject.FindGameObjectWithTag("NightLight").GetComponent<Light>();
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
@@ -164,6 +172,22 @@ public class GameController : MonoBehaviour {
         currentStageSelected = stage;
         SetUpGame(gameMode);
     }
+    
+    void TogglePause(InputAction.CallbackContext context)
+    {
+        Debug.Log("toggle pause menu");
+        if (gameIsRunning == true && gameIsPaused)
+        {
+            pauseMenu.SetActive(false);
+            GameController.instance.ResumeGame();
+        }
+        else if (gameIsRunning == true )
+        {
+            pauseMenu.SetActive(true);
+            GameController.instance.PauseGame();
+        }
+    }
+
 
     public void StartGameCountdown()
     {
@@ -252,8 +276,9 @@ public class GameController : MonoBehaviour {
         
         if (mode == GameMode.Arcade)
         {
-            if (shouldCelebrateNewHighScore == true)
+            if (gotNewHighScore == true)
             {
+                OculusLeaderboardManager.instance.SubmitScore(scoreboard.score);
                 EventManager.TriggerEvent("NewHighScore");
                 runHighScoreAnimations();
             }
@@ -321,7 +346,7 @@ public class GameController : MonoBehaviour {
     private void runHighScoreAnimations()
     {
         fireworks.SetActive(true);
-        shouldCelebrateNewHighScore = false;
+        gotNewHighScore = false;
         highScoreAnmator.SetVisible(true);
         highScoreAnmator.startAnimation();
         changeSceneLight(false);
@@ -512,7 +537,7 @@ public class GameController : MonoBehaviour {
         {
             PlayerPrefs.SetInt("HighScore", newScore);
             PlayerPrefs.Save();
-            shouldCelebrateNewHighScore = true;
+            this.gotNewHighScore = true;
         }
 
         return gotNewHighScore;
