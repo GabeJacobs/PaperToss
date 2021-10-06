@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "22879432851",
+    "firebase_url": "https://papertoss-vr-default-rtdb.firebaseio.com",
+    "project_id": "papertoss-vr",
+    "storage_bucket": "papertoss-vr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22879432851:android:8659afbee8d70b1adb1d66",
+        "android_client_info": {
+          "package_name": "com.GabeJacobs.PaperToss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22879432851-qus105qluv6e3021bar93pffb61dfopi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChsPLlpxPRkas84AU4iG-i73X35jrv43Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22879432851-qus105qluv6e3021bar93pffb61dfopi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
