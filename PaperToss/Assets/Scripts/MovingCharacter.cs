@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MovingCharacter : MonoBehaviour
 {
@@ -24,13 +26,12 @@ public class MovingCharacter : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (movingForward)
         {
             transform.position += transform.forward * Time.deltaTime * walkingSpeed;
         }
-
         if (beganSpeaking && !voice.isPlaying)
         {
             FinishedTalking();
@@ -39,11 +40,19 @@ public class MovingCharacter : MonoBehaviour
 
     public void WalkForward()
     {
-        movingForward = true;
         if (animator != null)
         {
             animator.SetBool("Walking", true);
         }
+        else
+        {
+            movingForward = true;
+        }
+    }
+
+    public void MoveStraight()
+    {
+        movingForward = true;
     }
 
     protected void StopWalking()
@@ -57,36 +66,30 @@ public class MovingCharacter : MonoBehaviour
     public virtual void StopAndDoLeftTurn()
     {
         StopWalking();
-        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90 ));
+        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90, CompletedLeftTurn));
         if (animator != null)
         {
             animator.SetBool("TurnLeft", true);
         }
-        else
-        {
-            this.CallWithDelay(PlayVoice,turnTime);
-        }
     }
     public virtual void RightTurn()
     {
-        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * 90 ));
+        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * 90, CompletedRightTurn));
     }
     
- 
-    Quaternion toAngle;
 
-    protected IEnumerator RotateMe(Transform rotateobj, Vector3 byAngles)
+    protected IEnumerator RotateMe(Transform rotateobj, Vector3 byAngles, Action callback)
     {
-
-
         //Quaternion fromAngle = rotateobj.transform.rotation;
-        toAngle = Quaternion.Euler(rotateobj.transform.eulerAngles + byAngles);
+        Quaternion toAngle = Quaternion.Euler(rotateobj.transform.eulerAngles + byAngles);
 
         while (rotateobj.transform.rotation != toAngle)
         {
             rotateobj.transform.rotation = Quaternion.RotateTowards(rotateobj.transform.rotation, toAngle, 4f);
             yield return null;
         }
+
+        if(callback != null) callback();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -160,4 +163,16 @@ public class MovingCharacter : MonoBehaviour
         }
     }
 
+    void CompletedRightTurn()
+    {
+        WalkForward();
+    }
+    
+    void CompletedLeftTurn()
+    {
+        if (animator == null)
+        {
+            PlayVoice();
+        }
+    }
 }

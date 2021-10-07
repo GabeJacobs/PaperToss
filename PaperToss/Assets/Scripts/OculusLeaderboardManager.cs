@@ -27,18 +27,18 @@ public class OculusLeaderboardManager : MonoBehaviour
     
     private void Start()
     {
-        Core.Initialize("4291579430878579");
-        Users.GetLoggedInUser().OnComplete(msg =>
-        {
-            if (msg.IsError)
-            {
-                Debug.LogError(msg);
-            }
-            else
-            {
-                LoggedInWithOculusID(msg.GetUser().ID.ToString(), msg.GetUser().OculusID.ToString());
-            }
-        });
+        Oculus.Platform.Core.AsyncInitialize();
+        // Users.GetLoggedInUser().OnComplete(msg =>
+        // {
+        //     if (msg.IsError)
+        //     {
+        //         Debug.LogError(msg);
+        //     }
+        //     else
+        //     {
+        //         LoggedInWithOculusID(msg.GetUser().ID.ToString(), msg.GetUser().OculusID.ToString());
+        //     }
+        // });
     }
 
     public void SubmitScore(int score)

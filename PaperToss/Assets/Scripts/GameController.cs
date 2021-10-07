@@ -599,7 +599,18 @@ public class GameController : MonoBehaviour {
     public void TimeUpdated(){
         if (mode == GameMode.Arcade || currentStageSelected == 1)
         {
-            if (timerCountdown.secondsLeft == 50)
+            if (timerCountdown.secondsLeft == 58)
+            {
+                PTCharacterController.instance.StartBossWalk();
+                // PTCharacterController.instance.StartSassyWalk();
+
+            }
+            if (timerCountdown.secondsLeft == 44)
+            {
+                PTCharacterController.instance.StartSassyWalk();
+                // PTCharacterController.instance.StartBossWalk();
+            }
+            if (timerCountdown.secondsLeft == 33)
             {
                 PTCharacterController.instance.StartBossWalk();
                 // PTCharacterController.instance.StartSassyWalk();
@@ -614,6 +625,14 @@ public class GameController : MonoBehaviour {
         if (mode == GameMode.Campaign && currentStageSelected == 2)
         {
             if (timerCountdown.secondsLeft == 50)
+            {
+                PTCharacterController.instance.StartGhostWalk();
+            }
+            if (timerCountdown.secondsLeft == 40)
+            {
+                PTCharacterController.instance.StartGhostWalk();
+            }
+            if (timerCountdown.secondsLeft == 30)
             {
                 PTCharacterController.instance.StartGhostWalk();
             }

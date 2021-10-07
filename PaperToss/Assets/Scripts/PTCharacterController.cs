@@ -19,12 +19,6 @@ public class PTCharacterController : MonoBehaviour
         DontDestroyOnLoad (gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void StartBossWalk()
     {
         boss.animator.SetBool("Idle", false);
