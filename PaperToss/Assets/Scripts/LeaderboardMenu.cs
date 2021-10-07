@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Oculus.Platform;
 using Oculus.Platform.Models;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -14,7 +15,6 @@ public class LeaderboardMenu : MonoBehaviour
     public GameObject nextButton;
     public GameObject loadingUI;
 
-    private int currentPage = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,15 +25,13 @@ public class LeaderboardMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         mainMenu.SetActive(true);
+        ResetData();
     }
 
     public void UpdateUIWithLeaderboard(LeaderboardEntryList leaderboard)
     {
         loadingUI.SetActive(false);
-        foreach (Transform item in rowsParent)
-        {
-            Destroy(item.gameObject);
-        }
+        ResetData();
 
         foreach (var entry in leaderboard)
         {
@@ -45,6 +43,14 @@ public class LeaderboardMenu : MonoBehaviour
         }
         
         UpdatePageButtons();
+    }
+
+    private void ResetData()
+    {
+        foreach (Transform item in rowsParent)
+        {
+            Destroy(item.gameObject);
+        }
     }
 
     public void UpdatePageButtons()

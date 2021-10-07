@@ -34427,7 +34427,7 @@ MonoBehaviour:
   menuHeader: {fileID: 7428048668688521115}
   arcadeButton: {fileID: 848579964391683332}
   settingButton: {fileID: 1567280917}
-  leaderboardButton: {fileID: 0}
+  leaderboardButton: {fileID: 353235165}
   campaignButton: {fileID: 76387944}
   leftHandedButton: {fileID: 456587773}
   rightHandedButton: {fileID: 1677519240}
