@@ -9,29 +9,28 @@ public class MovingCharacter : MonoBehaviour
     public float walkingSpeed;
     public bool movingForward;
     public Animator animator;
-    protected bool rotated;
     public Transform chatacterOriginalPosition;
-    private Quaternion characterOriginalRotation;
-
     public AudioSource voice;
     public AudioClip[] audioClips;
+
+    private Quaternion characterOriginalRotation;
     private bool beganSpeaking;
     private float turnTime = 0.6f;
 
     // Start is called before the first frame update
     void Start()
     {
-        // chatacterOriginalPosition = transform.position;
         characterOriginalRotation = transform.rotation;
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (movingForward)
         {
             transform.position += transform.forward * Time.deltaTime * walkingSpeed;
         }
+        
         if (beganSpeaking && !voice.isPlaying)
         {
             FinishedTalking();
@@ -109,7 +108,8 @@ public class MovingCharacter : MonoBehaviour
     
     public void PlayVoice()
     {
-        int r = Random.Range(0, audioClips.Length-1);
+        
+        int r = Random.Range(0, audioClips.Length);
         voice.clip = audioClips[r];
         voice.Play();
         beganSpeaking = true;

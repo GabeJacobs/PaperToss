@@ -81,6 +81,8 @@ public class GameController : MonoBehaviour {
     private bool trashIsAtWaypoint3 = false; 
 
     public InputActionReference togglePauseMenueRefernce = null;
+    
+    private List<MovingCharacter> charactersToWalk;
 
 
     // Use this for initialization
@@ -103,7 +105,6 @@ public class GameController : MonoBehaviour {
 
     private void Start()
     {
-        
         fan = GameObject.FindGameObjectWithTag("Fan").GetComponent<Fan>();;
         holster = GameObject.FindGameObjectWithTag("Holster").GetComponent<Holster>();
         menu = GameObject.FindGameObjectWithTag("MainMenu");
@@ -161,6 +162,7 @@ public class GameController : MonoBehaviour {
             trashCan.StartAnimating(AnimationPathStyle.Hexagon);
         }
         GetNewFanSpeed();
+        
     }
     
     public void SetUpGame(GameMode gameMode, int stage, int level)
@@ -209,7 +211,6 @@ public class GameController : MonoBehaviour {
             }
             SoundManager.Instance.Play(paranormalClip);
             trashCan.showGlow();;
-            PTCharacterController.instance.StartGhostWalk();
         }
 
         if (mode == GameMode.Campaign)
@@ -230,6 +231,7 @@ public class GameController : MonoBehaviour {
         trashCan.ResetPosition();
         fan.ResetFanPosition();
         gameStartCountdown.StartCountdown();
+        SetUpCharactersToWalk();
 
     }
 
@@ -362,26 +364,20 @@ public class GameController : MonoBehaviour {
         }
         if (day)
         {
-            lightMode = LightMode.Day;
-        }
-        else
-        {
-            lightMode = LightMode.Night;
-        }
-        
-        if (day)
-        {
             RenderSettings.skybox = daySkyBox;
             if (fadeInOutNightLightCoroutine != null)
             {
                 StopCoroutine(fadeInOutNightLightCoroutine);
             }
             StartCoroutine(fadeInOutNightLight(nightLight, false, 0.5f));
+            lightMode = LightMode.Day;
+
         }
         else
         {
             RenderSettings.skybox = nightSkyBox;
             fadeInOutNightLightCoroutine = StartCoroutine(fadeInOutNightLight(nightLight, true, 1.5f));
+            lightMode = LightMode.Night;
         }
     }
     IEnumerator fadeInOutNightLight(Light lightToFade, bool fadeIn, float duration)
@@ -597,48 +593,22 @@ public class GameController : MonoBehaviour {
     }
 
     public void TimeUpdated(){
-        if (mode == GameMode.Arcade || currentStageSelected == 1)
+        if (timerCountdown.secondsLeft == 55)
         {
-            if (timerCountdown.secondsLeft == 58)
-            {
-                PTCharacterController.instance.StartBossWalk();
-                // PTCharacterController.instance.StartSassyWalk();
-
-            }
-            if (timerCountdown.secondsLeft == 44)
-            {
-                PTCharacterController.instance.StartSassyWalk();
-                // PTCharacterController.instance.StartBossWalk();
-            }
-            if (timerCountdown.secondsLeft == 33)
-            {
-                PTCharacterController.instance.StartBossWalk();
-                // PTCharacterController.instance.StartSassyWalk();
-
-            }
-            if (timerCountdown.secondsLeft == 25)
-            {
-                PTCharacterController.instance.StartSassyWalk();
-                // PTCharacterController.instance.StartBossWalk();
-            }
+            PTCharacterController.instance.StartWalk(charactersToWalk[0]);
         }
-        if (mode == GameMode.Campaign && currentStageSelected == 2)
+        if (timerCountdown.secondsLeft == 30)
         {
-            if (timerCountdown.secondsLeft == 50)
-            {
-                PTCharacterController.instance.StartGhostWalk();
-            }
-            if (timerCountdown.secondsLeft == 40)
-            {
-                PTCharacterController.instance.StartGhostWalk();
-            }
-            if (timerCountdown.secondsLeft == 30)
-            {
-                PTCharacterController.instance.StartGhostWalk();
-            }
-
+            PTCharacterController.instance.StartWalk(charactersToWalk[1]);
         }
     }
+
+    private void SetUpCharactersToWalk()
+    {
+        charactersToWalk = PTCharacterController.instance.GetRandomChracterList(lightMode);
+    }
+    
+
 
 
 }
