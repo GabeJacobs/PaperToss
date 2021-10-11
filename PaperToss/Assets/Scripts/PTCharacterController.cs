@@ -31,21 +31,13 @@ public class PTCharacterController : MonoBehaviour
     private void Start()
     {
         dayCharacters = new List<MovingCharacter> {boss,sassy,fungirl};
-        nightCharacters = new List<MovingCharacter> {ghost};
-        StartWalk(zombie);
+        nightCharacters = new List<MovingCharacter> {ghost, zombie};
+        StartWalk(sassy);
     }
 
     public void StartWalk(MovingCharacter character)
     {
-        if (character.animator != null)
-        {
-            character.animator.SetBool("Idle", false);
-            character.animator.SetBool("Walking", true);
-        }
-        else
-        {
-            character.WalkForward();
-        }
+        character.WalkForward();
     }
     
     public void ResetAllCharacters()

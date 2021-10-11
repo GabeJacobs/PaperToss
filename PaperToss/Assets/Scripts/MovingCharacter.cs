@@ -41,34 +41,26 @@ public class MovingCharacter : MonoBehaviour
     {
         if (animator != null)
         {
-            animator.SetBool("Walking", true);
+            animator.SetTrigger("Walk");
         }
-        else
-        {
-            movingForward = true;
-        }
+        movingForward = true;
+
     }
 
     public void MoveStraight()
     {
         movingForward = true;
-    }
+        Debug.Log("set walking to true");
 
-    protected void StopWalking()
-    {
-        if (animator != null)
-        {
-            animator.SetBool("Walking", false);
-        }
-        movingForward = false;
     }
-    public virtual void StopAndDoLeftTurn()
+    
+    public void StopAndDoLeftTurn()
     {
-        StopWalking();
+        movingForward = false;
         StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90, CompletedLeftTurn));
         if (animator != null)
         {
-            animator.SetBool("TurnLeft", true);
+            animator.SetTrigger("TurnLeft");
         }
     }
     public virtual void RightTurn()
@@ -79,12 +71,10 @@ public class MovingCharacter : MonoBehaviour
 
     protected IEnumerator RotateMe(Transform rotateobj, Vector3 byAngles, Action callback)
     {
-        //Quaternion fromAngle = rotateobj.transform.rotation;
         Quaternion toAngle = Quaternion.Euler(rotateobj.transform.eulerAngles + byAngles);
-
         while (rotateobj.transform.rotation != toAngle)
         {
-            rotateobj.transform.rotation = Quaternion.RotateTowards(rotateobj.transform.rotation, toAngle, 4f);
+            rotateobj.transform.rotation = Quaternion.RotateTowards(rotateobj.transform.rotation, toAngle, 3.0f);
             yield return null;
         }
 
@@ -99,7 +89,8 @@ public class MovingCharacter : MonoBehaviour
         }
         else if (other.CompareTag("CenterTrigger"))
         {
-            StopAndDoLeftTurn();
+       
+                StopAndDoLeftTurn();
         } else if (other.CompareTag("EndOfRoomTrigger"))
         {
             Reset();
@@ -108,38 +99,28 @@ public class MovingCharacter : MonoBehaviour
     
     public void PlayVoice()
     {
-        
-        int r = Random.Range(0, audioClips.Length);
-        voice.clip = audioClips[r];
-        voice.Play();
-        beganSpeaking = true;
+        if (!voice.isPlaying)
+        {
+            int r = Random.Range(0, audioClips.Length);
+            voice.clip = audioClips[r];
+            voice.Play();
+            beganSpeaking = true;   
+        }
     }
 
     public void Reset()
     {
-        StopWalking();
         StopAllCoroutines();
+
+        movingForward = false;
         transform.position = chatacterOriginalPosition.position;
         if (animator != null)
         {
             animator.Rebind();
-            animator.SetBool("Idle", true);
+            animator.SetTrigger("Idle");
+        }
+    }
 
-        }
-    }
-    
-    public void ResetParams()
-    {
-        if (animator != null)
-        {
-            animator.SetBool("Idle", true);
-            animator.SetBool("TurnLeft", false);
-            animator.SetBool("TurnRight", false);
-            animator.SetBool("Walking", false);
-            animator.SetBool("FinishedTalking", false);
-        }
-    }
-    
     public void FinishedTalking()
     {
        this.CallWithDelay(PerformFinishedTalking, 1.0f);
@@ -153,8 +134,7 @@ public class MovingCharacter : MonoBehaviour
             RightTurn();
             if (animator != null)
             {
-                animator.SetBool("FinishedTalking", true);
-                animator.SetBool("TurnLeft", false);
+                animator.SetTrigger("TurnRight");
             }
             else
             {
@@ -170,9 +150,7 @@ public class MovingCharacter : MonoBehaviour
     
     void CompletedLeftTurn()
     {
-        if (animator == null)
-        {
-            PlayVoice();
-        }
+        animator.SetTrigger("Talk");
+        PlayVoice();
     }
 }
