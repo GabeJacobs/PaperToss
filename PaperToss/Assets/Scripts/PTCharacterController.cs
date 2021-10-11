@@ -15,6 +15,8 @@ public class PTCharacterController : MonoBehaviour
     public MovingCharacter sassy;
     public MovingCharacter fungirl;
     public MovingCharacter zombie;
+    public MovingCharacter vampire;
+    public MovingCharacter noVoiceCharacter1;
 
     private static List<MovingCharacter> dayCharacters;
     private static List<MovingCharacter> nightCharacters;
@@ -30,9 +32,8 @@ public class PTCharacterController : MonoBehaviour
 
     private void Start()
     {
-        dayCharacters = new List<MovingCharacter> {boss,sassy,fungirl};
-        nightCharacters = new List<MovingCharacter> {ghost, zombie};
-        StartWalk(sassy);
+        dayCharacters = new List<MovingCharacter> {boss,sassy,fungirl,noVoiceCharacter1};
+        nightCharacters = new List<MovingCharacter> {ghost, zombie,vampire};
     }
 
     public void StartWalk(MovingCharacter character)
@@ -65,21 +66,30 @@ public class PTCharacterController : MonoBehaviour
 
     public List<MovingCharacter> GetRandomChracterList(LightMode lightmode)
     {
-        List<MovingCharacter> tempCharacters;
+        List<MovingCharacter> charactersToChooseFrom;
+        List<MovingCharacter> chosenCharacters = new List<MovingCharacter>();
         if (lightmode == LightMode.Day)
         {
-            tempCharacters = new List<MovingCharacter>(dayCharacters);
+            charactersToChooseFrom = new List<MovingCharacter>(dayCharacters);
         }
         else
         {
-            tempCharacters = new List<MovingCharacter>(nightCharacters);
+            charactersToChooseFrom = new List<MovingCharacter>(nightCharacters);
         }
-        ShuffleList(tempCharacters);
-        if (tempCharacters.Count >= 3)
+        ShuffleList(charactersToChooseFrom);
+        while (chosenCharacters.Count < 2)
         {
-            tempCharacters.RemoveRange(0, tempCharacters.Count-2);
+            foreach (MovingCharacter character in charactersToChooseFrom)
+            {
+                double cumulativeProbability = 0.0;
+
+                if (character.ShouldIGetPicked())
+                {
+                    chosenCharacters.Add(character);
+                }
+            }
         }
-        return tempCharacters;
+        return chosenCharacters;
         
     }
 }

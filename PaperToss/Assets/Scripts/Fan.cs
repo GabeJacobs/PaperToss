@@ -36,8 +36,6 @@ public class Fan : MonoBehaviour
 
 
         currentFanPositionIndex = position;
-        
-
         GameObject fawnPositionWaypoint = fanSpawnObjects[currentFanPositionIndex];
         transform.position = fawnPositionWaypoint.transform.position;
         currentFanPosition = transform.position;

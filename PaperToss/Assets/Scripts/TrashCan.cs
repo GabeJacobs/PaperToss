@@ -161,18 +161,14 @@ public class TrashCan : MonoBehaviour
     {
         if (waypoint == 1)
         {
-            Debug.Log("move waypoint 1");
             transform.position = longerWaypoint1.position;
         }
         if (waypoint == 2)
         {
-            Debug.Log("move waypoint 2");
             transform.position = longerWaypoint2.position;
         }     
         if (waypoint == 3)
         {
-            Debug.Log("move waypoint 3");
-
             transform.position = longerWaypoint3.position;
         }
         

@@ -15,6 +15,10 @@ public class MovingCharacter : MonoBehaviour
 
     private Quaternion characterOriginalRotation;
     private bool beganSpeaking;
+    [Range(0.0f,1.0f)]
+    public float probabilityToTalk;
+    [Range(0.0f,1.0f)]
+    public float probabilityToBePicked;
     private float turnTime = 0.6f;
 
     // Start is called before the first frame update
@@ -56,11 +60,16 @@ public class MovingCharacter : MonoBehaviour
     
     public void StopAndDoLeftTurn()
     {
-        movingForward = false;
-        StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90, CompletedLeftTurn));
-        if (animator != null)
+        bool canTalk = Random.Range(0.0f, 1.0f) >= 1.0 - probabilityToTalk;
+        
+        if (audioClips.Length > 0 && canTalk)
         {
-            animator.SetTrigger("TurnLeft");
+            movingForward = false;
+            StartCoroutine(RotateMe(gameObject.transform, Vector3.up * -90, CompletedLeftTurn));
+            if (animator != null)
+            {
+                animator.SetTrigger("TurnLeft");
+            }   
         }
     }
     public virtual void RightTurn()
@@ -89,8 +98,7 @@ public class MovingCharacter : MonoBehaviour
         }
         else if (other.CompareTag("CenterTrigger"))
         {
-       
-                StopAndDoLeftTurn();
+            StopAndDoLeftTurn();
         } else if (other.CompareTag("EndOfRoomTrigger"))
         {
             Reset();
@@ -99,13 +107,11 @@ public class MovingCharacter : MonoBehaviour
     
     public void PlayVoice()
     {
-        if (!voice.isPlaying)
-        {
-            int r = Random.Range(0, audioClips.Length);
-            voice.clip = audioClips[r];
-            voice.Play();
-            beganSpeaking = true;   
-        }
+        voice.Pause();
+        int r = Random.Range(0, audioClips.Length);
+        voice.clip = audioClips[r];
+        voice.Play();
+        beganSpeaking = true;
     }
 
     public void Reset()
@@ -117,7 +123,7 @@ public class MovingCharacter : MonoBehaviour
         if (animator != null)
         {
             animator.Rebind();
-            animator.SetTrigger("Idle");
+            // animator.SetTrigger("Idle");
         }
     }
 
@@ -150,7 +156,18 @@ public class MovingCharacter : MonoBehaviour
     
     void CompletedLeftTurn()
     {
-        animator.SetTrigger("Talk");
+        if (animator != null)
+        {
+            animator.SetTrigger("Talk");
+        }
         PlayVoice();
     }
+
+    public bool ShouldIGetPicked()
+    {
+        return Random.Range(0.0f, 1.0f) >= 1.0 - probabilityToBePicked;
+
+    }
+    
+   
 }

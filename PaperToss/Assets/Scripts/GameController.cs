@@ -84,6 +84,9 @@ public class GameController : MonoBehaviour {
     
     private List<MovingCharacter> charactersToWalk;
 
+    private int firstCharacterTime; 
+    private int secondCharacterTime; 
+
 
     // Use this for initialization
     void Awake () {
@@ -162,7 +165,9 @@ public class GameController : MonoBehaviour {
             trashCan.StartAnimating(AnimationPathStyle.Hexagon);
         }
         GetNewFanSpeed();
-        
+        firstCharacterTime = Random.Range(42, 53);
+        secondCharacterTime = Random.Range(15, 30);
+
     }
     
     public void SetUpGame(GameMode gameMode, int stage, int level)
@@ -593,11 +598,11 @@ public class GameController : MonoBehaviour {
     }
 
     public void TimeUpdated(){
-        if (timerCountdown.secondsLeft == 55)
+        if (timerCountdown.secondsLeft == firstCharacterTime)
         {
             PTCharacterController.instance.StartWalk(charactersToWalk[0]);
         }
-        if (timerCountdown.secondsLeft == 30)
+        if (timerCountdown.secondsLeft == secondCharacterTime)
         {
             PTCharacterController.instance.StartWalk(charactersToWalk[1]);
         }
