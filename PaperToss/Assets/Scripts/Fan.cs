@@ -57,7 +57,9 @@ public class Fan : MonoBehaviour
         }
         else
         {
-            placeFanInPosition(Random.Range(5,6));
+            int position = Random.Range(5, 6);
+            Debug.Log(position);
+            placeFanInPosition(position);
         }
     }
     public void ResetFanPosition()

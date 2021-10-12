@@ -81,8 +81,6 @@ public class PTCharacterController : MonoBehaviour
         {
             foreach (MovingCharacter character in charactersToChooseFrom)
             {
-                double cumulativeProbability = 0.0;
-
                 if (character.ShouldIGetPicked())
                 {
                     chosenCharacters.Add(character);

@@ -20,6 +20,7 @@ public class MovingCharacter : MonoBehaviour
     [Range(0.0f,1.0f)]
     public float probabilityToBePicked;
     private float turnTime = 0.6f;
+    private bool didTurnLeft = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,13 +52,6 @@ public class MovingCharacter : MonoBehaviour
 
     }
 
-    public void MoveStraight()
-    {
-        movingForward = true;
-        Debug.Log("set walking to true");
-
-    }
-    
     public void StopAndDoLeftTurn()
     {
         bool canTalk = Random.Range(0.0f, 1.0f) >= 1.0 - probabilityToTalk;
@@ -96,8 +90,9 @@ public class MovingCharacter : MonoBehaviour
         {
             return;
         }
-        else if (other.CompareTag("CenterTrigger"))
+        else if (other.CompareTag("CenterTrigger") && didTurnLeft == false)
         {
+            didTurnLeft = true;
             StopAndDoLeftTurn();
         } else if (other.CompareTag("EndOfRoomTrigger"))
         {
@@ -119,6 +114,7 @@ public class MovingCharacter : MonoBehaviour
         StopAllCoroutines();
 
         movingForward = false;
+        didTurnLeft = false;
         transform.position = chatacterOriginalPosition.position;
         if (animator != null)
         {
@@ -145,6 +141,8 @@ public class MovingCharacter : MonoBehaviour
             else
             {
                 this.CallWithDelay(WalkForward,turnTime);
+                Debug.Log("calling walk forward in 1 second");
+
             }
         }
     }
@@ -152,6 +150,7 @@ public class MovingCharacter : MonoBehaviour
     void CompletedRightTurn()
     {
         WalkForward();
+        Debug.Log("completed right turn");
     }
     
     void CompletedLeftTurn()

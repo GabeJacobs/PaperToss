@@ -152,7 +152,7 @@ public class GameController : MonoBehaviour {
             gameLength = campaignTimeLength;
             timerCountdown.UpdateGameLength();
             gameDifficultyDelta = 1.0f;
-            gameDifficulty = 0.7f;
+            gameDifficulty = 0.8f;
             gameDifficulty = gameDifficulty * currentLevelSelected;
         }
         scoreboard.ResetScore();
@@ -273,7 +273,8 @@ public class GameController : MonoBehaviour {
         DestoryAllBalls();
         gameIsPaused = false;
         gameIsRunning = false;
-        
+        holster.SetOnFire(false);
+
         holster.SetVisible(false);
         fan.SetVisible(false);
         trashCan.SetVisible(false);
