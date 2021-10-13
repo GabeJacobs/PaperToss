@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef379b956c8706f49bc929b668a327e2
+guid: 3dc0259d80598754da3299e6f315c7c9
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -9,6 +9,9 @@ ModelImporter:
   - first:
       74: 5396871474598178990
     second: Vampire_Armature|Tpose
+  - first:
+      74: -203655887218126122
+    second: mixamo.com
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -78,12 +81,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 0303e52f3b1413646b28057fec3f9b00
-  - c0f1adbe57358764580f511743d8c614
-  - 3dc0259d80598754da3299e6f315c7c9
-  - 8d8352ab17d442841baf262162aa9dfb
-  - 379ab8e10814071468df1d91ee602c24
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

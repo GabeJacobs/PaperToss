@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: 1f9709513da59ba4593ae9e12c2c2ede
+guid: 0303e52f3b1413646b28057fec3f9b00
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
+  - first:
+      74: 3025092824472994266
+    second: Vampire_Armature|AnimationTest
+  - first:
+      74: 5396871474598178990
+    second: Vampire_Armature|Tpose
   - first:
       74: -203655887218126122
     second: mixamo.com
@@ -37,7 +43,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +94,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.015
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

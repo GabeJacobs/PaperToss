@@ -54,8 +54,11 @@ public class MovingCharacter : MonoBehaviour
 
     public void StopAndDoLeftTurn()
     {
+        // Debug.Log("probability to talk is "+ probabilityToTalk);
         bool canTalk = Random.Range(0.0f, 1.0f) >= 1.0 - probabilityToTalk;
-        
+        // Debug.Log("canTalk is "+ canTalk);
+        // Debug.Log("audioClips.Length"+ audioClips.Length);
+
         if (audioClips.Length > 0 && canTalk)
         {
             movingForward = false;
@@ -149,7 +152,7 @@ public class MovingCharacter : MonoBehaviour
 
     void CompletedRightTurn()
     {
-        WalkForward();
+        this.CallWithDelay(WalkForward, .3f);
         Debug.Log("completed right turn");
     }
     
