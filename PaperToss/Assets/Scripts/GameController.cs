@@ -421,6 +421,7 @@ public class GameController : MonoBehaviour {
     
     public void PlayerDidScore(bool gold, bool fire)
     {
+        
         if (gold)
         {
             SoundManager.Instance.Play(goldPointClip);

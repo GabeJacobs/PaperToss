@@ -52,7 +52,7 @@ public class Menu : MonoBehaviour
         leaderboardButton.SetActive(true);
         campaignButton.SetActive(true);
         settingsUI.SetActive(false);
-        menuHeader.text = "Paper Toss VR";
+        menuHeader.text = "Office Ball VR";
     }
     
     public void ShowSettings()
