@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour {
     public GameObject highScoreUI;
     public GameObject campaignMenu;
     public GameObject campaignInstructionsUI;
+    public GameObject cheatCollider;
     public ScoreCounter scoreboard;
     public TimerCountdown timerCountdown;
     public GameCountdown gameStartCountdown;
@@ -121,6 +122,7 @@ public class GameController : MonoBehaviour {
         nightLight = GameObject.FindGameObjectWithTag("NightLight").GetComponent<Light>();
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
+        cheatCollider.SetActive(false);
         lightMode = LightMode.Day;
 
         int readGameInstructions = PlayerPrefs.GetInt("ReadGameInstructions", 0);
@@ -233,6 +235,7 @@ public class GameController : MonoBehaviour {
         menu.SetActive(false);
         holster.SetVisible(true);
         trashCan.SetVisible(true);
+        cheatCollider.SetActive(true);
         trashCan.ResetPosition();
         fan.ResetFanPosition();
         gameStartCountdown.StartCountdown();
@@ -268,7 +271,7 @@ public class GameController : MonoBehaviour {
                 SoundManager.Instance.Play(arcadeOverClip);
             }
         }
-        
+        cheatCollider.SetActive(false);
         timerCountdown.Reset();
         DestoryAllBalls();
         gameIsPaused = false;
@@ -568,6 +571,7 @@ public class GameController : MonoBehaviour {
         fan.SetVisible(false);
         holster.SetVisible(false);
         trashCan.SetVisible(false);
+        cheatCollider.SetActive(false);
 
     }
     
@@ -579,6 +583,8 @@ public class GameController : MonoBehaviour {
         holster.SetVisible(true);
         fan.SetVisible(true);
         trashCan.SetVisible(true);
+        cheatCollider.SetActive(true);
+
     }
 
     public void ReadHowToPlayInstructions()

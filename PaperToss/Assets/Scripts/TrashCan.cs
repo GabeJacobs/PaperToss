@@ -30,6 +30,33 @@ public class TrashCan : MonoBehaviour
     public float waitTime = .3f;
     private Coroutine followPathCrt;
     private bool glowing;
+    private bool isCheating;
+
+    void OnEnable ()
+    {
+        EventManager.StartListening ("IsCheating", IsCheating);
+        EventManager.StartListening ("IsDoneCheating", IsDoneCheating);
+
+    }
+
+    void OnDisable ()
+    {
+        EventManager.StopListening ("IsCheating", IsCheating);
+        EventManager.StopListening ("IsDoneCheating", IsDoneCheating);
+
+    }
+
+    private void IsCheating()
+    {
+        Debug.Log("cheating!");
+        isCheating = true;
+    }
+    
+    private void IsDoneCheating()
+    {
+        Debug.Log("noLongerCheating!");
+        isCheating = false;
+    }
     private void OnDrawGizmos()
     {
         Vector3 startPosition = waypointHolderB.GetChild(0).position;
@@ -60,7 +87,7 @@ public class TrashCan : MonoBehaviour
     // Start is called before the first frame update
     
     private void OnTriggerEnter(Collider other) {
-        if (GameController.instance.gameIsRunning && !GameController.instance.gameIsPaused)
+        if (GameController.instance.gameIsRunning && !GameController.instance.gameIsPaused && !isCheating)
         {
             if (other.tag == "Ball")
             {

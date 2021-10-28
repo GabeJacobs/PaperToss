@@ -107,6 +107,13 @@ public class MovingCharacter : MonoBehaviour
     {
         voice.Pause();
         int r = Random.Range(0, audioClips.Length);
+        if (gameObject.CompareTag("SassyCharacter") && r == 4)
+        {
+            if (GameController.instance.scoreboard.score < 10)
+            {
+                r = 2;
+            }
+        }
         voice.clip = audioClips[r];
         voice.Play();
         beganSpeaking = true;
@@ -123,6 +130,12 @@ public class MovingCharacter : MonoBehaviour
         {
             animator.Rebind();
             // animator.SetTrigger("Idle");
+        }
+
+        if (beganSpeaking)
+        {
+            voice.Pause();
+            beganSpeaking = false;
         }
     }
 
@@ -170,6 +183,4 @@ public class MovingCharacter : MonoBehaviour
         return Random.Range(0.0f, 1.0f) >= 1.0 - probabilityToBePicked;
 
     }
-    
-   
 }

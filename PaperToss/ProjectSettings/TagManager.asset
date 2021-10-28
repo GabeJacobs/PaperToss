@@ -33,6 +33,7 @@ TagManager:
   - Boss
   - Ghost
   - LeaderboardMenu
+  - CheatCollider
   layers:
   - Default
   - TransparentFX
