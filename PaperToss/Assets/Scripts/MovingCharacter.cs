@@ -9,11 +9,11 @@ public class MovingCharacter : MonoBehaviour
     public float walkingSpeed;
     public bool movingForward;
     public Animator animator;
-    public Transform chatacterOriginalPosition;
+    private Vector3 chatacterOriginalPosition;
     public AudioSource voice;
     public AudioClip[] audioClips;
 
-    private Quaternion characterOriginalRotation;
+    private float characterOriginalRotationY;
     private bool beganSpeaking;
     [Range(0.0f,1.0f)]
     public float probabilityToTalk;
@@ -23,9 +23,10 @@ public class MovingCharacter : MonoBehaviour
     private bool didTurnLeft = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        characterOriginalRotation = transform.rotation;
+        characterOriginalRotationY = transform.localRotation.eulerAngles.y;
+        chatacterOriginalPosition = transform.localPosition;
     }
 
     // Update is called once per frame
@@ -125,7 +126,9 @@ public class MovingCharacter : MonoBehaviour
 
         movingForward = false;
         didTurnLeft = false;
-        transform.position = chatacterOriginalPosition.position;
+        transform.position = chatacterOriginalPosition;
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, characterOriginalRotationY, transform.eulerAngles.z);
+
         if (animator != null)
         {
             animator.Rebind();

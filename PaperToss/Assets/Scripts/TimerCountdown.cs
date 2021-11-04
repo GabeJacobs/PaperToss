@@ -10,12 +10,14 @@ public class TimerCountdown : MonoBehaviour
     public bool takingAway = false;
     public bool shouldCountDown = false;
     public int secondsLeft;
+    private Coroutine timerTakeCoroutine;
 
     // Start is called before the first frame update
 
     private void Awake()
     {
         textDisplay = gameObject.GetComponentInChildren<Text>();
+        
     }
 
     void Start()
@@ -33,17 +35,21 @@ public class TimerCountdown : MonoBehaviour
     {
         if (shouldCountDown && !takingAway && secondsLeft > 0)
         {
-            StartCoroutine(TimerTake());
+            // StartCoroutine(TimerTake());
         }
     }
 
     IEnumerator TimerTake()
     {
-        GameController.instance.TimeUpdated();
-        takingAway = true;
-        yield return new WaitForSeconds(1);
-        SetClock(secondsLeft-1);
-        takingAway = false;
+        while (shouldCountDown && secondsLeft != 0)
+        {
+            GameController.instance.TimeUpdated();
+            yield return new WaitForSeconds(1);
+            if (shouldCountDown)
+            {
+                SetClock(secondsLeft-1);
+            }
+        }
         if (secondsLeft == 0)
         {
             GameController.instance.GameFinished();
@@ -53,9 +59,13 @@ public class TimerCountdown : MonoBehaviour
     public void BeginCountdown()
     {
         shouldCountDown = true;
+        timerTakeCoroutine = StartCoroutine(TimerTake());
+
     }
     public void PauseCountdown()
     {
+        StopCoroutine(timerTakeCoroutine);
+
         shouldCountDown = false;
     }
 

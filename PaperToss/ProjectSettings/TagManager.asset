@@ -34,6 +34,7 @@ TagManager:
   - Ghost
   - LeaderboardMenu
   - CheatCollider
+  - SassyCharacter
   layers:
   - Default
   - TransparentFX
