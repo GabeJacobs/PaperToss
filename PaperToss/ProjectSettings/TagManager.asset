@@ -35,6 +35,8 @@ TagManager:
   - LeaderboardMenu
   - CheatCollider
   - SassyCharacter
+  - Characters
+  - TV
   layers:
   - Default
   - TransparentFX

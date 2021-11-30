@@ -12,6 +12,7 @@ public class CampaignMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject stageOneUI;
     public GameObject stageTwoUI;
+    public GameObject stageThreeUI;
     public GameObject prevPageButton;
     public GameObject nextPageButton;
     private int currentPageNumber;
@@ -22,6 +23,8 @@ public class CampaignMenu : MonoBehaviour
         currentPageNumber = 1;
         EventManager.TriggerEvent("CheckLevelUnlocks");
         gameObject.SetActive(false);
+        prevPageButton.SetActive(false);
+
     }
 
     public void ShowMainMenu()
@@ -38,8 +41,11 @@ public class CampaignMenu : MonoBehaviour
             stageOneUI.SetActive(false);
             stageTwoUI.SetActive(true);
             prevPageButton.SetActive(true);
+        } else if (currentPageNumber == 3)
+        {
+            stageThreeUI.SetActive(true);
+            stageTwoUI.SetActive(false);
             nextPageButton.SetActive(false);
-
         }
     }
     
@@ -51,6 +57,12 @@ public class CampaignMenu : MonoBehaviour
             stageOneUI.SetActive(true);
             stageTwoUI.SetActive(false);
             prevPageButton.SetActive(false);
+            nextPageButton.SetActive(true);
+        } else  if (currentPageNumber == 2)
+        {
+            stageThreeUI.SetActive(false);
+            stageTwoUI.SetActive(true);
+            prevPageButton.SetActive(true);
             nextPageButton.SetActive(true);
         }
     }

@@ -151,6 +151,7 @@ MonoBehaviour:
   isInBasket: 0
   isInHolster: 0
   isGoldBall: 0
+  isFireBall: 0
   goldMaterial: {fileID: 0}
   normalMaterial: {fileID: 0}
   fire: {fileID: 0}
@@ -337,7 +338,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: aeebfcfee3aa54663905a8e64c670890, type: 3}
+  - {fileID: 2100000, guid: 04c8f999d0d2aed488423d651b5dbb10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

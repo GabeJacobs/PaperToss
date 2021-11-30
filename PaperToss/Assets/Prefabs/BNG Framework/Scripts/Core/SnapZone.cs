@@ -344,6 +344,11 @@ namespace BNG {
                     }
 
                     var g = HeldItem;
+                    if (GameController.instance.lightMode == LightMode.Space)
+                    {
+                        g.GetComponent<Rigidbody>().mass = 5f;
+                        g.GetComponent<Rigidbody>().drag = 1.5f;
+                    }
                     if(DuplicateItemOnGrab) {
 
                         ReleaseAll();

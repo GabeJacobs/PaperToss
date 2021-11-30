@@ -16,7 +16,8 @@ public enum GameMode
 public enum LightMode
 {
     Day,
-    Night
+    Night,
+    Space
 }
 public class GameController : MonoBehaviour {
 
@@ -44,6 +45,11 @@ public class GameController : MonoBehaviour {
     public TimerCountdown timerCountdown;
     public GameCountdown gameStartCountdown;
     public GameObject howToPlayIUI;
+    public GameObject spaceObjects;
+    public GameObject officeObjects;
+    public GameObject tableOne;
+    public GameObject tableTwo;
+    public GameObject characters;
 
     public HighScoreTextAnimator highScoreAnmator;
     public GameObject fireworks;
@@ -65,8 +71,12 @@ public class GameController : MonoBehaviour {
 
     [SerializeField] private Material nightSkyBox;
     [SerializeField] private Material daySkyBox;
+    [SerializeField] private Material spaceSkyBox;
+    [SerializeField] private Material metalicTableMaterial;
+    [SerializeField] private Material redTableMaterial;
     [SerializeField] private Light nightLight;
-    
+    [SerializeField] private Light directionalLight;
+
     private int currentLevelSelected;
     private int currentStageSelected;
     public int scoreRequiredToComplete = 10;
@@ -119,11 +129,14 @@ public class GameController : MonoBehaviour {
         trashCan = GameObject.FindGameObjectWithTag("TrashCan").GetComponent<TrashCan>();
         fireworks = GameObject.FindGameObjectWithTag("Fireworks");
         campaignMenu = GameObject.FindGameObjectWithTag("CampaignMenu");
+        characters = GameObject.FindGameObjectWithTag("Characters");
         nightLight = GameObject.FindGameObjectWithTag("NightLight").GetComponent<Light>();
         fireworks.SetActive(false);
         highScoreAnmator.SetVisible(false);
         cheatCollider.SetActive(false);
+        spaceObjects.SetActive(false);
         lightMode = LightMode.Day;
+        RenderSettings.skybox = daySkyBox;
 
         int readGameInstructions = PlayerPrefs.GetInt("ReadGameInstructions", 0);
         if (readGameInstructions == 0)
@@ -159,12 +172,16 @@ public class GameController : MonoBehaviour {
         }
         scoreboard.ResetScore();
         holster.SetHolsterPosition();
-        if (currentStageSelected == 2 && currentLevelSelected <= 4)
+        if (currentStageSelected >= 2 && currentLevelSelected <= 4)
         {
             trashCan.StartAnimating(AnimationPathStyle.Line);
-        } else if (currentStageSelected == 2 && currentLevelSelected > 4)
+        } else if (currentStageSelected >= 2 && currentLevelSelected > 4)
         {
             trashCan.StartAnimating(AnimationPathStyle.Hexagon);
+        }
+        if (currentStageSelected == 3)
+        {
+            trashCan.speed = .55f;
         }
         GetNewFanSpeed();
         firstCharacterTime = Random.Range(42, 53);
@@ -197,9 +214,14 @@ public class GameController : MonoBehaviour {
 
     public void StartGameCountdown()
     {
-        if (mode == GameMode.Arcade || currentStageSelected == 1) 
+        if (mode == GameMode.Arcade || currentStageSelected == 1)
         {
-            changeSceneLight(true);
+            changeSceneLight(LightMode.Day);
+            spaceObjects.SetActive(false);
+            officeObjects.SetActive(true);
+            GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>().mass = 2f;
+            GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>().drag = 2f;
+            Physics.gravity = new Vector3(0,-7.81f,0); 
             if (backgroundMusic.clip != lightMusic)
             {
                 backgroundMusic.clip = lightMusic;
@@ -207,10 +229,16 @@ public class GameController : MonoBehaviour {
             }
             trashCan.StopAnimating();
             trashCan.hideGlow();
+            characters.SetActive(false);
         }
-        else
+        else if (currentStageSelected == 2)
         {
-            changeSceneLight(false);
+            changeSceneLight(LightMode.Night);
+            spaceObjects.SetActive(false);
+            officeObjects.SetActive(true);
+            GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>().mass = 2f;
+            GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>().drag = 2f;
+            Physics.gravity = new Vector3(0,-7.81f,0); 
             if (backgroundMusic.clip != darkMusic)
             {
                 backgroundMusic.clip = darkMusic;
@@ -218,6 +246,26 @@ public class GameController : MonoBehaviour {
             }
             SoundManager.Instance.Play(paranormalClip);
             trashCan.showGlow();;
+            characters.SetActive(false);
+        } 
+        else if (currentStageSelected == 3)
+        {
+            characters.SetActive(false);
+            GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>().mass = 5f;
+            GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>().drag = 1.5f;
+            Physics.gravity = new Vector3(0,-1.62f,0);
+            spaceObjects.SetActive(true);
+            officeObjects.SetActive(false);
+
+            changeSceneLight(LightMode.Space);
+            if (backgroundMusic.clip != darkMusic)
+            {
+                backgroundMusic.clip = darkMusic;
+                backgroundMusic.Play();     
+            }
+            SoundManager.Instance.Play(paranormalClip);
+            trashCan.showGlow();;
+        
         }
 
         if (mode == GameMode.Campaign)
@@ -240,7 +288,7 @@ public class GameController : MonoBehaviour {
         fan.ResetFanPosition();
         gameStartCountdown.StartCountdown();
         SetUpCharactersToWalk();
-
+        // SetTableMaterials(); // turns it silver
     }
 
     public void ShowInstructions()
@@ -357,37 +405,43 @@ public class GameController : MonoBehaviour {
         gotNewHighScore = false;
         highScoreAnmator.SetVisible(true);
         highScoreAnmator.startAnimation();
-        changeSceneLight(false);
+        changeSceneLight(LightMode.Night);
     }
     private void runBeatGame()
     {
         fireworks.SetActive(true);
-        changeSceneLight(false);
+        changeSceneLight(LightMode.Night);
     }
 
-    private void changeSceneLight(bool day)
+    private void changeSceneLight(LightMode newLightMode)
     {
-        if ((day && lightMode == LightMode.Day) || (!day && lightMode == LightMode.Night))
+        if (newLightMode == lightMode)
         {
             return;
         }
-        if (day)
+        if (newLightMode == LightMode.Day)
         {
+            directionalLight.intensity = 1.67f;
             RenderSettings.skybox = daySkyBox;
             if (fadeInOutNightLightCoroutine != null)
             {
                 StopCoroutine(fadeInOutNightLightCoroutine);
             }
             StartCoroutine(fadeInOutNightLight(nightLight, false, 0.5f));
-            lightMode = LightMode.Day;
-
         }
-        else
+        else if (newLightMode == LightMode.Night)
         {
+            directionalLight.intensity = 1.67f;
             RenderSettings.skybox = nightSkyBox;
             fadeInOutNightLightCoroutine = StartCoroutine(fadeInOutNightLight(nightLight, true, 1.5f));
-            lightMode = LightMode.Night;
         }
+        else if (newLightMode == LightMode.Space)
+        {
+            directionalLight.intensity = 2.0f;
+            RenderSettings.skybox = spaceSkyBox;
+        }
+        lightMode = newLightMode;
+
     }
     IEnumerator fadeInOutNightLight(Light lightToFade, bool fadeIn, float duration)
     {
@@ -606,13 +660,16 @@ public class GameController : MonoBehaviour {
     }
 
     public void TimeUpdated(){
-        if (timerCountdown.secondsLeft == firstCharacterTime)
+        if (currentStageSelected != 3)
         {
-            PTCharacterController.instance.StartWalk(charactersToWalk[0]);
-        }
-        if (timerCountdown.secondsLeft == secondCharacterTime)
-        {
-            PTCharacterController.instance.StartWalk(charactersToWalk[1]);
+            if (timerCountdown.secondsLeft == firstCharacterTime)
+            {
+                PTCharacterController.instance.StartWalk(charactersToWalk[0]);
+            }
+            if (timerCountdown.secondsLeft == secondCharacterTime)
+            {
+                PTCharacterController.instance.StartWalk(charactersToWalk[1]);
+            }   
         }
     }
 
@@ -620,7 +677,38 @@ public class GameController : MonoBehaviour {
     {
         charactersToWalk = PTCharacterController.instance.GetRandomChracterList(lightMode);
     }
-    
+
+    private void SetTableMaterials()
+    {
+        if (lightMode == LightMode.Space)
+        {
+            Material[] matArray = tableOne.GetComponent<Renderer>().materials;
+            matArray[1] = metalicTableMaterial;
+            tableOne.GetComponent<Renderer>().materials = matArray;
+            tableTwo.GetComponent<Renderer>().materials = matArray;
+            GameObject[] tvs = GameObject.FindGameObjectsWithTag(@"TV");
+            foreach (GameObject tv in  tvs)
+            {
+                Material[] tvMatArray = tv.GetComponent<Renderer>().materials;
+                tvMatArray[2] = metalicTableMaterial;
+                tv.GetComponent<Renderer>().materials = tvMatArray;
+            }
+        }
+        else
+        {
+            Material[] matArray = tableOne.GetComponent<Renderer>().materials;
+            matArray[1] = redTableMaterial;
+            tableOne.GetComponent<Renderer>().materials = matArray;
+            tableTwo.GetComponent<Renderer>().materials = matArray;
+            GameObject[] tvs = GameObject.FindGameObjectsWithTag(@"TV");
+            foreach (GameObject tv in  tvs)
+            {
+                Material[] tvMatArray = tv.GetComponent<Renderer>().materials;
+                tvMatArray[2] = redTableMaterial;
+                tv.GetComponent<Renderer>().materials = tvMatArray;
+            }
+        }
+    }
 
 
 
